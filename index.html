@@ -12,6 +12,9 @@
     <meta property="og:description" content="業務効率化と自動化で成果を出すプロセスデザインパートナー" />
     <meta property="og:image" content="images/logo.png" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet" />
     <link rel="preload" href="styles/site.css" as="style" />
     <link rel="stylesheet" href="styles/site.css" />
   </head>
@@ -55,23 +58,35 @@
               <a class="btn" href="#efficiency" data-cta="hero-secondary">効果がわかる事例を見る</a>
             </div>
           </div>
-          <div aria-hidden="true" class="hero-visual">
+          <div class="hero-visual" role="img" aria-label="プロセス改善の成果が積み上がる様子を示す図解">
             <div class="hero-figure">
-              <span class="hero-figure__label">Process Impact</span>
-              <dl>
-                <div>
-                  <dt>ムダな操作を特定</dt>
-                  <dd>ログ解析とワークショップで手戻り15件を可視化</dd>
+              <span class="hero-figure__label">Process Snapshot</span>
+              <div class="snapshot-list">
+                <div class="snapshot-row">
+                  <div class="snapshot-text">
+                    <strong>ムダ工程の特定</strong>
+                    <span>ヒアリング×ログ解析で手戻りを可視化</span>
+                  </div>
+                  <span class="snapshot-value">-46%</span>
+                  <div class="snapshot-bar" style="--value: 72%"></div>
                 </div>
-                <div>
-                  <dt>自動化パターン設計</dt>
-                  <dd>RPA 8本 / API連携 5本で稼働フローを刷新</dd>
+                <div class="snapshot-row">
+                  <div class="snapshot-text">
+                    <strong>自動化パターン設計</strong>
+                    <span>RPA 8本 / API連携 5本で刷新</span>
+                  </div>
+                  <span class="snapshot-value">+13</span>
+                  <div class="snapshot-bar" style="--value: 62%"></div>
                 </div>
-                <div>
-                  <dt>成果の定着</dt>
-                  <dd>月次レビューとリスキリングで効果を維持</dd>
+                <div class="snapshot-row">
+                  <div class="snapshot-text">
+                    <strong>成果の定着</strong>
+                    <span>月次レビューと教育で改善を維持</span>
+                  </div>
+                  <span class="snapshot-value">94%</span>
+                  <div class="snapshot-bar" style="--value: 84%"></div>
                 </div>
-              </dl>
+              </div>
             </div>
             <div class="hero-bg">
               <div class="orb orb-1"></div>
@@ -103,6 +118,24 @@
               <h3>伴走のスタイル</h3>
               <p>経営指標と連動したKPI設計、部門横断の合意形成支援、定着まで見届ける運用サポートまで一貫して提供します。</p>
             </article>
+          </div>
+          <div class="process-diagram" role="group" aria-label="改善サイクルの図解">
+            <div class="process-node">
+              <span class="node-title">見える化</span>
+              <span class="node-desc">現場・データからムダを抽出</span>
+            </div>
+            <div class="process-node">
+              <span class="node-title">整流化</span>
+              <span class="node-desc">判断基準と手順を標準化</span>
+            </div>
+            <div class="process-node">
+              <span class="node-title">自動化</span>
+              <span class="node-desc">RPA・iPaaS・APIを連携</span>
+            </div>
+            <div class="process-node">
+              <span class="node-title">定着</span>
+              <span class="node-desc">KPIレビューで改善を継続</span>
+            </div>
           </div>
         </div>
       </section>
@@ -140,6 +173,24 @@
         <div class="container narrow">
           <h2 class="section-title"><span class="eyebrow">Approach</span>成果に直結させる進め方</h2>
           <p class="section-lead">「理解→設計→実装→定着」を90日単位で回すスプリント型アプローチ。各フェーズで成功条件を明文化し、投資対効果を測定しながら進めます。</p>
+          <div class="approach-rail" role="group" aria-label="90日スプリントの進行図">
+            <div class="rail-step">
+              <span class="rail-title">理解</span>
+              <span class="rail-note">Week 1-2</span>
+            </div>
+            <div class="rail-step">
+              <span class="rail-title">設計</span>
+              <span class="rail-note">Week 3-6</span>
+            </div>
+            <div class="rail-step">
+              <span class="rail-title">実装</span>
+              <span class="rail-note">Week 7-10</span>
+            </div>
+            <div class="rail-step">
+              <span class="rail-title">定着</span>
+              <span class="rail-note">Week 11+</span>
+            </div>
+          </div>
           <ol class="approach-steps">
             <li class="reveal">
               <span class="step-number">1</span>
@@ -177,6 +228,25 @@
         <div class="container">
           <h2 class="section-title"><span class="eyebrow">Effect</span>効率化が数字でわかる事例</h2>
           <p class="section-lead">購買申請プロセスを例に、「どの手順をどう変えた結果、どれだけ削減につながったか」を図表で整理しました。</p>
+          <div class="impact-diagram" role="group" aria-label="改善前後の流れを示す図解">
+            <div class="impact-column">
+              <h3>従来の流れ</h3>
+              <ul>
+                <li>Excelを集約し手入力が連鎖</li>
+                <li>規程確認に時間がかかる</li>
+                <li>進捗共有がメール中心</li>
+              </ul>
+            </div>
+            <div class="impact-arrow" aria-hidden="true">→</div>
+            <div class="impact-column impact-column--after">
+              <h3>改善後の流れ</h3>
+              <ul>
+                <li>フォーム入力をiPaaSで統合</li>
+                <li>条件分岐をAPI化して即決</li>
+                <li>ダッシュボードで即時共有</li>
+              </ul>
+            </div>
+          </div>
           <figure class="impact-figure">
             <div class="impact-table" role="group" aria-labelledby="efficiency-before-after">
               <table>

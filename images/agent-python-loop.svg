@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="560" viewBox="0 0 1100 560" role="img" aria-labelledby="t d">
+  <title id="t">マルチエージェント・Python・GASの連携アーキテクチャ</title>
+  <desc id="d">入力統合、マルチエージェント判断、PythonとGAS実行、監視と改善の循環を示した図</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f2f7ff" />
+      <stop offset="100%" stop-color="#fff7ef" />
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2e5fd4" />
+    </marker>
+  </defs>
+
+  <rect width="1100" height="560" rx="24" fill="url(#bg)" />
+
+  <rect x="52" y="84" width="176" height="90" rx="16" fill="#fff" stroke="#c9d8f2" />
+  <text x="140" y="120" text-anchor="middle" font-size="20" font-family="'Noto Sans JP', sans-serif" fill="#112344" font-weight="700">入力統合</text>
+  <text x="140" y="146" text-anchor="middle" font-size="14" font-family="'Noto Sans JP', sans-serif" fill="#4f5d74">Gmail / Forms / CSV</text>
+
+  <rect x="260" y="84" width="220" height="90" rx="16" fill="#fff" stroke="#c9d8f2" />
+  <text x="370" y="120" text-anchor="middle" font-size="20" font-family="'Noto Sans JP', sans-serif" fill="#112344" font-weight="700">Python Engine</text>
+  <text x="370" y="146" text-anchor="middle" font-size="14" font-family="'Noto Sans JP', sans-serif" fill="#4f5d74">整形 / API / DB / Queue</text>
+
+  <rect x="514" y="58" width="290" height="150" rx="18" fill="#fff" stroke="#bcdaf4" />
+  <text x="659" y="92" text-anchor="middle" font-size="20" font-family="'Noto Sans JP', sans-serif" fill="#112344" font-weight="700">Multi-Agent Control</text>
+  <rect x="532" y="108" width="78" height="34" rx="10" fill="#eef4ff" stroke="#c4d5f0" />
+  <text x="571" y="131" text-anchor="middle" font-size="13" font-family="'Noto Sans JP', sans-serif" fill="#29446d">Planner</text>
+  <rect x="620" y="108" width="78" height="34" rx="10" fill="#eef4ff" stroke="#c4d5f0" />
+  <text x="659" y="131" text-anchor="middle" font-size="13" font-family="'Noto Sans JP', sans-serif" fill="#29446d">Worker</text>
+  <rect x="708" y="108" width="78" height="34" rx="10" fill="#eef4ff" stroke="#c4d5f0" />
+  <text x="747" y="131" text-anchor="middle" font-size="13" font-family="'Noto Sans JP', sans-serif" fill="#29446d">Reviewer</text>
+  <rect x="620" y="152" width="78" height="34" rx="10" fill="#ecf9f5" stroke="#bfe8d9" />
+  <text x="659" y="175" text-anchor="middle" font-size="13" font-family="'Noto Sans JP', sans-serif" fill="#236650">Ops</text>
+
+  <rect x="834" y="84" width="214" height="90" rx="16" fill="#fff" stroke="#f2c7a5" />
+  <text x="941" y="120" text-anchor="middle" font-size="20" font-family="'Noto Sans JP', sans-serif" fill="#112344" font-weight="700">GAS Layer</text>
+  <text x="941" y="146" text-anchor="middle" font-size="14" font-family="'Noto Sans JP', sans-serif" fill="#4f5d74">Sheets / Drive / Calendar</text>
+
+  <rect x="220" y="318" width="264" height="108" rx="16" fill="#fff" stroke="#cce8df" />
+  <text x="352" y="356" text-anchor="middle" font-size="20" font-family="'Noto Sans JP', sans-serif" fill="#112344" font-weight="700">監視と計測</text>
+  <text x="352" y="382" text-anchor="middle" font-size="14" font-family="'Noto Sans JP', sans-serif" fill="#4f5d74">KPI / 実行ログ / 失敗率</text>
+
+  <rect x="538" y="318" width="312" height="108" rx="16" fill="#fff" stroke="#f2d9a5" />
+  <text x="694" y="356" text-anchor="middle" font-size="20" font-family="'Noto Sans JP', sans-serif" fill="#112344" font-weight="700">改善ループ</text>
+  <text x="694" y="382" text-anchor="middle" font-size="14" font-family="'Noto Sans JP', sans-serif" fill="#4f5d74">原因要約とPython/GAS修正チケット生成</text>
+
+  <line x1="228" y1="129" x2="260" y2="129" stroke="#2e5fd4" stroke-width="4" marker-end="url(#arrow)" />
+  <line x1="480" y1="129" x2="514" y2="129" stroke="#2e5fd4" stroke-width="4" marker-end="url(#arrow)" />
+  <line x1="804" y1="129" x2="834" y2="129" stroke="#2e5fd4" stroke-width="4" marker-end="url(#arrow)" />
+
+  <path d="M941 174 L941 250 L694 250 L694 318" fill="none" stroke="#2e5fd4" stroke-width="4" marker-end="url(#arrow)" />
+  <path d="M538 372 L484 372" fill="none" stroke="#12a87d" stroke-width="4" marker-end="url(#arrow)" />
+  <path d="M220 372 L104 372 L104 174" fill="none" stroke="#12a87d" stroke-width="4" marker-end="url(#arrow)" />
+
+  <text x="550" y="498" text-anchor="middle" font-size="16" font-family="'Noto Sans JP', sans-serif" fill="#44556f">判断はマルチエージェント、実行はPythonとGASに分担。人は例外対応と意思決定に集中。</text>
+</svg>

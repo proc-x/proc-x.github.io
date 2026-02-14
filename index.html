@@ -3,15 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>PROC.X | AIエージェント × Python × GASで業務自動化</title>
+    <title>PROC.X | AIエージェント × 業務スクリプト × クラウド連携で業務自動化</title>
     <meta
       name="description"
-      content="AIエージェント・Python・GASを適材適所で組み合わせ、日常業務の処理時間とミスを削減する実践型サイト。マルチエージェント設計と役割分担を図表で分かりやすく解説。"
+      content="AIエージェント・業務スクリプト・クラウド連携を適材適所で組み合わせ、日常業務の処理時間とミスを削減する実践型サイト。マルチエージェント設計と役割分担を図表で分かりやすく解説。"
     />
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="PROC.X | AIエージェント × Python × GAS" />
-    <meta property="og:description" content="マルチエージェントとPython/GASの役割分担で業務自動化を提案。" />
+    <meta property="og:title" content="PROC.X | AIエージェント × 業務スクリプト × クラウド連携" />
+    <meta property="og:description" content="マルチエージェントと業務スクリプト/クラウド連携の役割分担で業務自動化を提案。" />
     <meta property="og:image" content="images/logo.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -51,11 +51,11 @@
         <div class="container hero-grid">
           <div class="hero-copy">
             <p class="eyebrow">Multi-Agent Automation Studio</p>
-            <h1>AIエージェント × Python × GASで、毎日の業務を短く・正確に。</h1>
+            <h1>AIエージェント × 業務スクリプト × クラウド連携で、毎日の業務を短く・正確に。</h1>
             <p class="lead">
               PROC.Xは、定型作業をただ自動化するだけでなく、
               <strong>「判断まで含めた業務フロー」</strong>を設計します。
-              マルチエージェントで判断を分担し、PythonとGASで実行基盤を安定化します。
+              マルチエージェントで判断を分担し、業務スクリプトとクラウド連携で実行基盤を安定化します。
               事務・企画・営業・情報システムまで、役割を問わず使える運用を前提にしています。
             </p>
             <div class="hero-actions">
@@ -65,7 +65,7 @@
             <ul class="hero-badges">
               <li>最短2週間でPoC</li>
               <li>既存SaaSを活かして導入</li>
-              <li>Python/GAS運用テンプレート付き</li>
+              <li>業務スクリプト運用テンプレート付き</li>
             </ul>
           </div>
 
@@ -125,26 +125,26 @@
       <section id="blueprint" class="section section-alt" data-section="blueprint">
         <div class="container blueprint-layout">
           <div>
-            <h2>AIエージェント・Python・GASを組み合わせる理由</h2>
+            <h2>AIエージェント・業務スクリプト・クラウド連携を組み合わせる理由</h2>
             <p class="section-lead">
-              AIエージェントは「判断」、Pythonは「データ処理と外部連携」、GASは「Google Workspace実行」を担当。
+              AIエージェントは「判断」、業務スクリプトは「データ処理と外部連携」、クラウド連携は「日常運用の実行」を担当。
               役割を分離すると、運用品質と変更スピードが同時に上がります。
             </p>
             <ol class="flow-list">
-              <li><strong>入力統合:</strong> Gmail/Forms/CSVをPythonとGASで集約</li>
+              <li><strong>入力統合:</strong> メール/フォーム/CSVを業務スクリプトと連携基盤で集約</li>
               <li><strong>判断分担:</strong> Planner・Worker・Reviewerのマルチエージェントで処理方針を決定</li>
-              <li><strong>実行:</strong> PythonがAPI/DB連携、GASがSheets/Drive/Calendar更新を担当</li>
+              <li><strong>実行:</strong> スクリプト基盤がAPI/DB連携、連携基盤が台帳/ファイル/予定表更新を担当</li>
               <li><strong>監視:</strong> KPIを自動集計し、閾値割れ時に改善チケットを自動生成</li>
             </ol>
           </div>
           <figure class="diagram-card reveal">
-            <img src="images/agent-python-loop.svg" alt="マルチエージェント・Python・GASの連携アーキテクチャ図" />
-            <figcaption>図: マルチエージェント + Python + GASの実務向け構成</figcaption>
+            <img src="images/agent-automation-loop.svg" alt="マルチエージェント・業務スクリプト・クラウド連携のアーキテクチャ図" />
+            <figcaption>図: マルチエージェント + 業務スクリプト + クラウド連携の実務向け構成</figcaption>
           </figure>
         </div>
         <div class="container">
           <h3 class="subsection-title">得意領域の切り分け</h3>
-          <div class="stack-table reveal" role="region" aria-label="AIエージェント・Python・GASの役割分担">
+          <div class="stack-table reveal" role="region" aria-label="AIエージェント・業務スクリプト・クラウド連携の役割分担">
             <table>
               <caption>技術ごとの得意領域と任せる処理</caption>
               <thead>
@@ -161,14 +161,14 @@
                   <td>問い合わせ分類、対応方針決定、異常検知の一次診断</td>
                 </tr>
                 <tr>
-                  <th scope="row">Python</th>
+                  <th scope="row">スクリプト実行基盤</th>
                   <td>データ整形、大量処理、API/DB連携、非同期実行</td>
                   <td>CSVクレンジング、基幹連携、バッチ・キュー処理</td>
                 </tr>
                 <tr>
-                  <th scope="row">GAS</th>
-                  <td>Google Workspace自動化、通知、軽量ワークフロー</td>
-                  <td>Gmail振り分け、Sheets更新、Calendar登録、Chat通知</td>
+                  <th scope="row">業務アプリ連携基盤</th>
+                  <td>業務アプリ自動化、通知、軽量ワークフロー</td>
+                  <td>メール振り分け、台帳更新、予定登録、チャット通知</td>
                 </tr>
               </tbody>
             </table>
@@ -182,7 +182,7 @@
             </article>
             <article class="card reveal">
               <h4>Worker Agent</h4>
-              <p>計画に沿ってPython/GASのジョブを呼び出し、処理を実行します。</p>
+              <p>計画に沿って実行ジョブを呼び出し、処理を進めます。</p>
             </article>
             <article class="card reveal">
               <h4>Reviewer Agent</h4>
@@ -199,7 +199,7 @@
       <section id="automations" class="section" data-section="automations">
         <div class="container">
           <h2>職種別の実装イメージ</h2>
-          <p class="section-lead">一般的な社会人から技術者まで、AIエージェント・Python・GASの組み合わせで効果を出せる設計です。</p>
+          <p class="section-lead">一般的な社会人から技術者まで、AIエージェント・業務スクリプト・クラウド連携の組み合わせで効果を出せる設計です。</p>
           <div class="case-grid">
             <article class="case-card reveal">
               <h3>営業・企画向け</h3>
@@ -211,7 +211,7 @@
             </article>
             <article class="case-card reveal">
               <h3>バックオフィス向け</h3>
-              <p>請求処理、稟議、勤怠確認をPython + GASで連携し、例外だけ人が対応。</p>
+              <p>請求処理、稟議、勤怠確認を業務スクリプトと連携基盤で自動化し、例外だけ人が対応。</p>
               <ul>
                 <li>月次処理工数: 58%削減</li>
                 <li>差戻し件数: 41%削減</li>
@@ -244,14 +244,14 @@
                   <td>Planner / Worker / Reviewer / Ops Agent</td>
                 </tr>
                 <tr>
-                  <th scope="row">Python Engine</th>
+                  <th scope="row">Script Engine</th>
                   <td>ジョブ制御・リトライ・データ加工・外部連携</td>
-                  <td>Python, Celery, Queue</td>
+                  <td>スクリプト言語, ジョブキュー, リトライ制御</td>
                 </tr>
                 <tr>
-                  <th scope="row">GAS Workspace Automation</th>
-                  <td>Google Workspaceの操作自動化</td>
-                  <td>Apps Script, Gmail/Sheets/Drive API</td>
+                  <th scope="row">業務アプリ自動化層</th>
+                  <td>業務アプリの操作自動化</td>
+                  <td>業務アプリAPI, スケジュール実行, 通知連携</td>
                 </tr>
                 <tr>
                   <th scope="row">Business Integration</th>
@@ -288,7 +288,7 @@
             </ul>
             <div class="note-box">
               KPIが閾値を下回った場合、マルチエージェントが原因候補を要約し、
-              PythonジョブやGASスクリプトの修正チケットを自動生成する運用まで設計します。
+              実行ジョブや連携スクリプトの修正チケットを自動生成する運用まで設計します。
             </div>
           </div>
         </div>
@@ -299,8 +299,8 @@
           <h2>よくある質問</h2>
           <div class="faq-list">
             <details class="reveal">
-              <summary>PythonやGASに詳しい人がいなくても運用できますか？</summary>
-              <p>可能です。運用画面と手順書を標準化し、テンプレート化したPython/GASを最小変更で運用できるように設計します。</p>
+              <summary>スクリプトや業務アプリ連携に詳しい人がいなくても運用できますか？</summary>
+              <p>可能です。運用画面と手順書を標準化し、テンプレート化した実行基盤を最小変更で運用できるように設計します。</p>
             </details>
             <details class="reveal">
               <summary>AIマルチエージェントの誤判定はどう扱いますか？</summary>
@@ -318,11 +318,65 @@
         <div class="container narrow">
           <h2>次の一歩</h2>
           <p class="section-lead">
-            現在の業務フローを30分で棚卸しし、AIエージェント×Python×GASで着手しやすい対象を3つ提示します。
+            現在の業務フローを30分で棚卸しし、AIエージェント×業務スクリプト×クラウド連携で着手しやすい対象を3つ提示します。
           </p>
           <div class="contact-box">
             <p>資料が未整理でも問題ありません。ヒアリングベースで進められます。</p>
-            <p><a class="btn btn-primary" href="mailto:info@example.com" data-cta="contact-mail">info@example.com に連絡する</a></p>
+            <p class="contact-note">
+              営業・売り込みは本フォームでは受け付けていません。該当内容は自動で除外される場合があります。
+            </p>
+            <form class="contact-form" id="contact-form" action="https://formsubmit.co/support@proc-x.co.jp" method="POST">
+              <input type="hidden" name="_subject" value="PROC.Xサイト お問い合わせ" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_blacklist" value="SEO対策,被リンク,営業代行,テレアポ,アポ獲得,リスト販売,広告運用,MEO,助成金営業" />
+              <input type="hidden" name="form_rendered_at" id="form-rendered-at" value="" />
+
+              <div class="contact-trap" aria-hidden="true">
+                <label>Webサイト<input type="text" name="_honey" tabindex="-1" autocomplete="off" /></label>
+              </div>
+
+              <div class="form-grid">
+                <label class="field">
+                  お名前
+                  <input type="text" name="name" autocomplete="name" required />
+                </label>
+                <label class="field">
+                  会社名
+                  <input type="text" name="company" autocomplete="organization" required />
+                </label>
+                <label class="field">
+                  メールアドレス
+                  <input type="email" name="email" autocomplete="email" required />
+                </label>
+                <label class="field">
+                  お問い合わせ種別
+                  <select id="inquiry-type" name="inquiry_type" required>
+                    <option value="">選択してください</option>
+                    <option value="automation">業務自動化の相談</option>
+                    <option value="support">既存案件のサポート</option>
+                    <option value="other">その他</option>
+                    <option value="sales">営業・売り込み</option>
+                  </select>
+                </label>
+                <label class="field field-full">
+                  ご相談内容
+                  <textarea name="message" rows="6" minlength="20" required></textarea>
+                </label>
+              </div>
+
+              <label class="checkbox-field">
+                <input type="checkbox" name="non_sales_confirmation" required />
+                営業・売り込み目的ではありません
+              </label>
+
+              <div class="contact-submit">
+                <button class="btn btn-primary" type="submit">問い合わせを送信</button>
+                <p class="contact-alt">
+                  送信できない場合は <a href="mailto:support@proc-x.co.jp" data-cta="contact-mail">support@proc-x.co.jp</a> へ直接ご連絡ください。
+                </p>
+              </div>
+              <p class="contact-status" id="contact-status" aria-live="polite"></p>
+            </form>
           </div>
         </div>
       </section>

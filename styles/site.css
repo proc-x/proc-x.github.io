@@ -516,6 +516,104 @@ a {
   margin-top: 12px;
 }
 
+.contact-note {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: #7f1828;
+}
+
+.contact-form {
+  margin-top: 16px;
+  display: grid;
+  gap: 12px;
+}
+
+.contact-trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #2f3b27;
+}
+
+.field-full {
+  grid-column: 1 / -1;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--ink);
+  padding: 0.72rem 0.78rem;
+  font: inherit;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 146px;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: 2px solid rgba(142, 195, 31, 0.28);
+  outline-offset: 1px;
+  border-color: #87bc1d;
+}
+
+.checkbox-field {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.checkbox-field input {
+  margin-top: 2px;
+}
+
+.contact-submit {
+  display: grid;
+  gap: 10px;
+}
+
+.contact-alt {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.contact-alt a {
+  color: #38580b;
+  font-weight: 700;
+}
+
+.contact-status {
+  margin: 0;
+  min-height: 1.25em;
+  font-size: 0.85rem;
+  color: #7f1828;
+}
+
 .floating-cta {
   position: fixed;
   right: 18px;
@@ -672,6 +770,10 @@ a {
 
   .stack-table table {
     min-width: 680px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
   }
 
   .floating-cta {

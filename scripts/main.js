@@ -106,4 +106,38 @@ document.addEventListener('DOMContentLoaded', () => {
       heroObserver.observe(hero);
     }
   }
+
+  const contactForm = document.getElementById('contact-form');
+  const inquiryType = document.getElementById('inquiry-type');
+  const contactStatus = document.getElementById('contact-status');
+  const renderedAt = document.getElementById('form-rendered-at');
+
+  if (contactForm && renderedAt) {
+    renderedAt.value = String(Date.now());
+
+    contactForm.addEventListener('submit', (event) => {
+      const submittedTooFast = Date.now() - Number(renderedAt.value) < 4000;
+      const salesSelected = inquiryType && inquiryType.value === 'sales';
+
+      if (salesSelected) {
+        event.preventDefault();
+        if (contactStatus) {
+          contactStatus.textContent = '営業・売り込みは本フォームで受け付けていません。';
+        }
+        return;
+      }
+
+      if (submittedTooFast) {
+        event.preventDefault();
+        if (contactStatus) {
+          contactStatus.textContent = '送信前に内容をご確認ください。';
+        }
+        return;
+      }
+
+      if (contactStatus) {
+        contactStatus.textContent = '送信しています...';
+      }
+    });
+  }
 });

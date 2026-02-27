@@ -4,8 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const siteNav = document.getElementById('site-nav');
   const navLinks = Array.from(document.querySelectorAll('[data-nav-target]'));
   const sections = Array.from(document.querySelectorAll('[data-section]'));
+  const revealTargets = Array.from(document.querySelectorAll('.reveal'));
   const floatingCta = document.getElementById('floating-cta');
   const desktopMedia = window.matchMedia('(min-width: 861px)');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const supportsObserver = 'IntersectionObserver' in window;
 
   const closeMobileNav = () => {
     if (!siteHeader || !navToggle) return;
@@ -59,51 +62,78 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.18 }
-  );
+  if (supportsObserver) {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.18 }
+    );
 
-  document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
-
-  const sectionObserver = new IntersectionObserver(
-    (entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-      if (visible[0]) {
-        setActiveNav(visible[0].target.id);
+    revealTargets.forEach((el, idx) => {
+      if (!reducedMotion) {
+        el.style.transitionDelay = `${Math.min(idx * 40, 280)}ms`;
       }
-    },
-    { threshold: [0.4, 0.6, 0.8] }
-  );
+      revealObserver.observe(el);
+    });
 
-  sections.forEach((section) => sectionObserver.observe(section));
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible[0]) {
+          setActiveNav(visible[0].target.id);
+        }
+      },
+      { threshold: [0.4, 0.6, 0.8] }
+    );
+
+    sections.forEach((section) => sectionObserver.observe(section));
+  } else {
+    revealTargets.forEach((el) => el.classList.add('in'));
+  }
 
   if (floatingCta) {
     const hero = document.getElementById('overview');
-    const toggle = (show) => {
+    const contact = document.getElementById('contact');
+    let isHeroVisible = true;
+    let isContactVisible = false;
+    const toggle = () => {
+      const show = !isHeroVisible && !isContactVisible;
       floatingCta.classList.toggle('is-visible', show);
       floatingCta.setAttribute('aria-hidden', String(!show));
     };
 
-    if (hero) {
+    if (hero && supportsObserver) {
       const heroObserver = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            toggle(!entry.isIntersecting);
+            isHeroVisible = entry.isIntersecting;
+            toggle();
           });
         },
         { threshold: 0.45 }
       );
       heroObserver.observe(hero);
+    }
+
+    if (contact && supportsObserver) {
+      const contactObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            isContactVisible = entry.isIntersecting;
+            toggle();
+          });
+        },
+        { threshold: 0.22 }
+      );
+      contactObserver.observe(contact);
     }
   }
 
@@ -116,28 +146,21 @@ document.addEventListener('DOMContentLoaded', () => {
     renderedAt.value = String(Date.now());
 
     contactForm.addEventListener('submit', (event) => {
-      const submittedTooFast = Date.now() - Number(renderedAt.value) < 4000;
+      event.preventDefault();
       const salesSelected = inquiryType && inquiryType.value === 'sales';
 
+      if (!contactStatus) {
+        return;
+      }
+
       if (salesSelected) {
-        event.preventDefault();
-        if (contactStatus) {
-          contactStatus.textContent = '営業・売り込みは本フォームで受け付けていません。';
-        }
+        contactStatus.textContent = '営業・売り込みは本フォームで受け付けていません。';
         return;
       }
 
-      if (submittedTooFast) {
-        event.preventDefault();
-        if (contactStatus) {
-          contactStatus.textContent = '送信前に内容をご確認ください。';
-        }
-        return;
-      }
-
-      if (contactStatus) {
-        contactStatus.textContent = '送信しています...';
-      }
+      contactStatus.innerHTML =
+        '現在フォーム送信に失敗しています。<a href="mailto:support@proc-x.co.jp">support@proc-x.co.jp</a> へメールでお問い合わせください。';
     });
   }
 });
+

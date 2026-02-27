@@ -3,21 +3,24 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>PROC.X | AIエージェント × 業務スクリプト × クラウド連携で業務自動化</title>
+    <title>PROC.X | お客様に業務をさせないオーケストレーション</title>
     <meta
       name="description"
-      content="AIエージェント・業務スクリプト・クラウド連携を適材適所で組み合わせ、日常業務の処理時間とミスを削減する実践型サイト。マルチエージェント設計と役割分担を図表で分かりやすく解説。"
+      content="業務イベントポイントをトリガーに数十の専門AIエージェントが自律連携し、要所は人が承認する。PROC.Xのイベントドリブン業務オーケストレーション。"
     />
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="PROC.X | AIエージェント × 業務スクリプト × クラウド連携" />
-    <meta property="og:description" content="マルチエージェントと業務スクリプト/クラウド連携の役割分担で業務自動化を提案。" />
+    <meta property="og:title" content="PROC.X | イベントドリブンAIエージェントオーケストレーション" />
+    <meta
+      property="og:description"
+      content="業務イベントを起点に、専門エージェントが自律実行。Human in the loopで品質と責任を担保します。"
+    />
     <meta property="og:image" content="images/logo.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@500;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;500;700&family=Bebas+Neue&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles/site.css" />
@@ -29,17 +32,17 @@
       <div class="container header-inner">
         <a class="brand" href="#overview" aria-label="PROC.X トップへ">
           <img src="images/logo.png" alt="PROC.X ロゴ" />
-          <span>プロックス</span>
+          <span>PROC.X</span>
         </a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-          メニュー
+          MENU
         </button>
         <nav class="site-nav" id="site-nav" aria-label="主なセクション">
-          <a href="#overview" data-nav-target="overview">概要</a>
-          <a href="#pain" data-nav-target="pain">課題</a>
-          <a href="#blueprint" data-nav-target="blueprint">仕組み</a>
-          <a href="#automations" data-nav-target="automations">実例</a>
-          <a href="#metrics" data-nav-target="metrics">指標</a>
+          <a href="#overview" data-nav-target="overview">構想</a>
+          <a href="#events" data-nav-target="events">イベント設計</a>
+          <a href="#mesh" data-nav-target="mesh">エージェント群</a>
+          <a href="#hitl" data-nav-target="hitl">人間介在</a>
+          <a href="#rollout" data-nav-target="rollout">導入</a>
           <a href="#faq" data-nav-target="faq">FAQ</a>
           <a class="btn btn-primary" href="#contact" data-nav-target="contact">相談する</a>
         </nav>
@@ -50,246 +53,183 @@
       <section id="overview" class="hero" data-section="overview">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">Multi-Agent Automation Studio</p>
-            <h1>AIエージェント × 業務スクリプト × クラウド連携で、毎日の業務を短く・正確に。</h1>
+            <p class="eyebrow">Event-Driven Autonomous Work</p>
+            <h1>目標は<br />「お客様に業務をさせない」こと</h1>
             <p class="lead">
-              PROC.Xは、定型作業をただ自動化するだけでなく、
-              <strong>「判断まで含めた業務フロー」</strong>を設計します。
-              マルチエージェントで判断を分担し、業務スクリプトとクラウド連携で実行基盤を安定化します。
-              事務・企画・営業・情報システムまで、役割を問わず使える運用を前提にしています。
+              PROC.Xは業務のイベントポイントを正確に捉え、各イベントをトリガーとして
+              <strong>数十の専門AIエージェント</strong>が自律的に連携する基盤を構築します。
+              ただし、最終責任を曖昧にしないために、重要局面では必ず人間が介在する設計を採用します。
             </p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#contact" data-cta="hero-primary">30分の無料相談</a>
-              <a class="btn" href="#blueprint" data-cta="hero-secondary">仕組みを見る</a>
+              <a class="btn btn-primary" href="#contact" data-cta="hero-primary">構想を相談する</a>
+              <a class="btn" href="#events" data-cta="hero-secondary">設計思想を見る</a>
             </div>
             <ul class="hero-badges">
-              <li>最短2週間でPoC</li>
-              <li>既存SaaSを活かして導入</li>
-              <li>業務スクリプト運用テンプレート付き</li>
+              <li>イベントポイント起点</li>
+              <li>専門エージェント数十体</li>
+              <li>Human in the loop標準実装</li>
             </ul>
           </div>
 
-          <aside class="hero-panel" aria-label="導入効果の速報値">
-            <h2>導入3か月の平均改善</h2>
+          <aside class="hero-panel" aria-label="オーケストレーションの到達状態">
+            <h2>目指す運用状態</h2>
             <div class="stat-grid">
               <article>
-                <span class="value">-61%</span>
-                <span class="label">手作業時間</span>
+                <span class="value">0</span>
+                <span class="label">人が行う定型処理</span>
               </article>
               <article>
-                <span class="value">-74%</span>
-                <span class="label">転記ミス</span>
+                <span class="value">~40</span>
+                <span class="label">並行する専門エージェント</span>
               </article>
               <article>
-                <span class="value">+2.4x</span>
-                <span class="label">処理件数</span>
+                <span class="value">3</span>
+                <span class="label">人間承認ゲート</span>
               </article>
               <article>
-                <span class="value">94%</span>
-                <span class="label">現場定着率</span>
+                <span class="value">24/7</span>
+                <span class="label">業務イベント監視</span>
               </article>
             </div>
-            <p>
-              指標は「作業時間」「品質」「処理速度」「運用定着」をセットで評価。単発改善で終わらない構成です。
-            </p>
+            <p>人の作業を消しながらも、責任ある判断ポイントは人に残す。それが当社の設計原則です。</p>
           </aside>
         </div>
       </section>
 
-      <section id="pain" class="section" data-section="pain">
+      <section id="events" class="section" data-section="events">
         <div class="container">
-          <h2>多くの現場で起きている3つのロス</h2>
-          <div class="card-grid">
+          <h2>業務は「イベントポイント」で分解すると自律化できる</h2>
+          <p class="section-lead">
+            作業手順でなく、イベント発生点を定義します。エージェントはイベントを受けて役割単位で動きます。
+          </p>
+          <div class="event-grid">
             <article class="card reveal">
-              <h3>1. 情報の再入力が多い</h3>
-              <p>
-                メール、Excel、SaaSの間を人が行き来し、同じ情報を何度も入力。速度と正確性が同時に落ちます。
-              </p>
+              <h3>1. Capture</h3>
+              <p>受注、問い合わせ、申請、アラートなどの発生点を統一フォーマットで捕捉。</p>
             </article>
             <article class="card reveal">
-              <h3>2. 判断ルールが属人化</h3>
-              <p>
-                「誰に聞くか」で結果が変わる状態は、引き継ぎや拡大時の最大ボトルネックになります。
-              </p>
+              <h3>2. Route</h3>
+              <p>重要度・期限・ドメインに応じて、最適な専門エージェント群へ即時ルーティング。</p>
             </article>
             <article class="card reveal">
-              <h3>3. 改善効果が見えない</h3>
-              <p>
-                導入後の指標が曖昧だと、改善が継続されずに元に戻ります。可視化設計が必須です。
-              </p>
+              <h3>3. Execute</h3>
+              <p>調査、判断、実行、報告を分業し、必要時のみ人間承認へエスカレーション。</p>
+            </article>
+            <article class="card reveal">
+              <h3>4. Learn</h3>
+              <p>完了ログを再学習し、次回イベントで判断速度と精度を継続改善。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="blueprint" class="section section-alt" data-section="blueprint">
-        <div class="container blueprint-layout">
+      <section id="mesh" class="section section-alt" data-section="mesh">
+        <div class="container mesh-layout">
           <div>
-            <h2>AIエージェント・業務スクリプト・クラウド連携を組み合わせる理由</h2>
+            <h2>数十の専門AIエージェントが会話しながら業務を完遂</h2>
             <p class="section-lead">
-              AIエージェントは「判断」、業務スクリプトは「データ処理と外部連携」、クラウド連携は「日常運用の実行」を担当。
-              役割を分離すると、運用品質と変更スピードが同時に上がります。
+              単一AIではなく、役割が明確なマルチエージェント構成を採用。イベントごとに必要な群だけ起動し、
+              実行後は監査ログを残して終了します。
             </p>
             <ol class="flow-list">
-              <li><strong>入力統合:</strong> メール/フォーム/CSVを業務スクリプトと連携基盤で集約</li>
-              <li><strong>判断分担:</strong> Planner・Worker・Reviewerのマルチエージェントで処理方針を決定</li>
-              <li><strong>実行:</strong> スクリプト基盤がAPI/DB連携、連携基盤が台帳/ファイル/予定表更新を担当</li>
-              <li><strong>監視:</strong> KPIを自動集計し、閾値割れ時に改善チケットを自動生成</li>
+              <li><strong>Planner:</strong> イベント理解と実行計画の構築</li>
+              <li><strong>Analyst:</strong> 事実確認、規約照合、必要情報の抽出</li>
+              <li><strong>Executor:</strong> API連携、台帳更新、通知送信の実行</li>
+              <li><strong>Reviewer:</strong> 品質・リスクを検証し、再実行判定</li>
+              <li><strong>Auditor:</strong> 監査証跡を保存し、異常時に是正タスクを起票</li>
             </ol>
           </div>
           <figure class="diagram-card reveal">
-            <img src="images/agent-automation-loop.svg" alt="マルチエージェント・業務スクリプト・クラウド連携のアーキテクチャ図" />
-            <figcaption>図: マルチエージェント + 業務スクリプト + クラウド連携の実務向け構成</figcaption>
+            <img src="images/agent-automation-loop.svg" alt="イベントを起点に複数エージェントが連携する概念図" />
+            <figcaption>図: イベントドリブンで起動するマルチエージェント実行ループ</figcaption>
           </figure>
         </div>
-        <div class="container">
-          <h3 class="subsection-title">得意領域の切り分け</h3>
-          <div class="stack-table reveal" role="region" aria-label="AIエージェント・業務スクリプト・クラウド連携の役割分担">
-            <table>
-              <caption>技術ごとの得意領域と任せる処理</caption>
-              <thead>
-                <tr>
-                  <th scope="col">技術</th>
-                  <th scope="col">得意な領域</th>
-                  <th scope="col">任せる処理例</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">AIマルチエージェント</th>
-                  <td>文脈理解、判断、優先順位付け、レビュー</td>
-                  <td>問い合わせ分類、対応方針決定、異常検知の一次診断</td>
-                </tr>
-                <tr>
-                  <th scope="row">スクリプト実行基盤</th>
-                  <td>データ整形、大量処理、API/DB連携、非同期実行</td>
-                  <td>CSVクレンジング、基幹連携、バッチ・キュー処理</td>
-                </tr>
-                <tr>
-                  <th scope="row">業務アプリ連携基盤</th>
-                  <td>業務アプリ自動化、通知、軽量ワークフロー</td>
-                  <td>メール振り分け、台帳更新、予定登録、チャット通知</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
 
-          <h3 class="subsection-title">マルチエージェント仕様</h3>
+        <div class="container">
+          <h3 class="subsection-title">代表的な専門エージェント群</h3>
           <div class="agent-grid">
             <article class="card reveal">
-              <h4>Planner Agent</h4>
-              <p>依頼内容とルールを読み、実行計画と必要データを定義します。</p>
+              <h4>見積/契約エージェント</h4>
+              <p>契約条件の整合チェック、見積作成、承認依頼まで自律実行。</p>
             </article>
             <article class="card reveal">
-              <h4>Worker Agent</h4>
-              <p>計画に沿って実行ジョブを呼び出し、処理を進めます。</p>
+              <h4>請求/入金エージェント</h4>
+              <p>請求生成、入金突合、未収アラート、経理連携を自動化。</p>
             </article>
             <article class="card reveal">
-              <h4>Reviewer Agent</h4>
-              <p>出力品質とルール準拠を検証し、再実行や人手承認の要否を判定します。</p>
+              <h4>CS対応エージェント</h4>
+              <p>問い合わせ分類、回答草案、対応履歴更新、再発防止連携を実施。</p>
             </article>
             <article class="card reveal">
-              <h4>Ops Agent</h4>
-              <p>実行ログとKPIを監視し、異常時に原因候補と改善タスクを起票します。</p>
+              <h4>障害一次対応エージェント</h4>
+              <p>ログ要約、原因仮説生成、一次切り分け、オンコール通知を担当。</p>
+            </article>
+            <article class="card reveal">
+              <h4>購買/在庫エージェント</h4>
+              <p>閾値監視から発注案作成、承認依頼、発注反映までを一貫処理。</p>
+            </article>
+            <article class="card reveal">
+              <h4>ガバナンスエージェント</h4>
+              <p>ポリシー違反、承認漏れ、個人情報リスクを常時監視。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="automations" class="section" data-section="automations">
-        <div class="container">
-          <h2>職種別の実装イメージ</h2>
-          <p class="section-lead">一般的な社会人から技術者まで、AIエージェント・業務スクリプト・クラウド連携の組み合わせで効果を出せる設計です。</p>
-          <div class="case-grid">
-            <article class="case-card reveal">
-              <h3>営業・企画向け</h3>
-              <p>商談メモから提案書の初稿を生成し、過去案件の類似パターンを自動参照。</p>
-              <ul>
-                <li>提案作成: 120分 → 35分</li>
-                <li>抜け漏れチェックを自動化</li>
-              </ul>
-            </article>
-            <article class="case-card reveal">
-              <h3>バックオフィス向け</h3>
-              <p>請求処理、稟議、勤怠確認を業務スクリプトと連携基盤で自動化し、例外だけ人が対応。</p>
-              <ul>
-                <li>月次処理工数: 58%削減</li>
-                <li>差戻し件数: 41%削減</li>
-              </ul>
-            </article>
-            <article class="case-card reveal">
-              <h3>技術者向け</h3>
-              <p>ログ要約、障害一次切り分け、チケット分類をマルチエージェント化してMTTRを短縮。</p>
-              <ul>
-                <li>一次対応時間: 46%短縮</li>
-                <li>ナレッジ蓄積を自動化</li>
-              </ul>
-            </article>
-          </div>
-
-          <div class="stack-table reveal" role="region" aria-label="推奨スタック">
-            <table>
-              <caption>導入時に使う構成スタック例</caption>
-              <thead>
-                <tr>
-                  <th scope="col">構成要素</th>
-                  <th scope="col">役割</th>
-                  <th scope="col">主な技術</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">Multi-Agent Control</th>
-                  <td>計画・実行・レビュー・監視の分業</td>
-                  <td>Planner / Worker / Reviewer / Ops Agent</td>
-                </tr>
-                <tr>
-                  <th scope="row">Script Engine</th>
-                  <td>ジョブ制御・リトライ・データ加工・外部連携</td>
-                  <td>スクリプト言語, ジョブキュー, リトライ制御</td>
-                </tr>
-                <tr>
-                  <th scope="row">業務アプリ自動化層</th>
-                  <td>業務アプリの操作自動化</td>
-                  <td>業務アプリAPI, スケジュール実行, 通知連携</td>
-                </tr>
-                <tr>
-                  <th scope="row">Business Integration</th>
-                  <td>SaaSと基幹の双方向連携</td>
-                  <td>REST API, SQL, Webhook</td>
-                </tr>
-                <tr>
-                  <th scope="row">Observability</th>
-                  <td>KPI計測・アラート</td>
-                  <td>BI, Logs, Metrics</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <section id="metrics" class="section section-alt" data-section="metrics">
-        <div class="container metrics-layout">
+      <section id="hitl" class="section" data-section="hitl">
+        <div class="container hitl-layout">
           <figure class="chart-card reveal">
-            <img src="images/productivity-scoreboard.svg" alt="業務ごとの効率化ビフォーアフター比較グラフ" />
-            <figcaption>図: 主要業務の処理時間比較（分/件）</figcaption>
+            <img src="images/agent-python-loop.svg" alt="AIエージェントと実行基盤、人間承認の関係図" />
+            <figcaption>図: 自律実行と人間承認を組み合わせた運用トポロジー</figcaption>
           </figure>
           <div>
-            <h2>効果を見誤らないための指標</h2>
+            <h2>Human in the loopを「例外」ではなく「設計要素」にする</h2>
             <p class="section-lead">
-              時間短縮だけで評価すると、品質低下や属人化を見逃します。4つの視点で評価するのが実務的です。
+              人間介在は障害ではなく品質装置です。金額、契約、法務、顧客影響の大きい局面にだけ挿入します。
             </p>
             <ul class="kpi-list">
-              <li><strong>Speed:</strong> 1件あたり処理時間、リードタイム</li>
-              <li><strong>Quality:</strong> 差戻し率、転記ミス率</li>
-              <li><strong>Stability:</strong> 失敗率、再実行率、例外率</li>
-              <li><strong>Adoption:</strong> 現場利用率、手動迂回率</li>
+              <li><strong>Gate A:</strong> 対外送信前レビュー(顧客影響の最終確認)</li>
+              <li><strong>Gate B:</strong> 高リスク変更承認(契約/金額/法規制の担保)</li>
+              <li><strong>Gate C:</strong> 例外復旧判断(自動復旧不可時の意思決定)</li>
+              <li><strong>Post Review:</strong> 実行ログ監査とルール更新</li>
             </ul>
             <div class="note-box">
-              KPIが閾値を下回った場合、マルチエージェントが原因候補を要約し、
-              実行ジョブや連携スクリプトの修正チケットを自動生成する運用まで設計します。
+              完全自動化を目的化しません。責任境界を明確化した上で、
+              人が関与すべき瞬間だけを狙って残します。
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="rollout" class="section section-alt" data-section="rollout">
+        <div class="container">
+          <h2>導入は90日で業務ごとに段階展開</h2>
+          <p class="section-lead">小さく始めて、イベント定義と承認設計を固めながら対象業務を横展開します。</p>
+          <div class="rollout-grid">
+            <article class="case-card reveal">
+              <h3>Day 0-30</h3>
+              <p>イベントポイント棚卸し、リスク分類、最初の5-8エージェントを構築。</p>
+              <ul>
+                <li>現行業務の観測設計</li>
+                <li>承認ゲート初期設定</li>
+              </ul>
+            </article>
+            <article class="case-card reveal">
+              <h3>Day 31-60</h3>
+              <p>対象業務で本番稼働。例外パターンを収集し、再実行フローを最適化。</p>
+              <ul>
+                <li>人間介在ポイント最適化</li>
+                <li>監査ログ整備</li>
+              </ul>
+            </article>
+            <article class="case-card reveal">
+              <h3>Day 61-90</h3>
+              <p>複数業務へ拡張し、20-40エージェント規模の並列運用へ移行。</p>
+              <ul>
+                <li>部門横断のイベント連携</li>
+                <li>KPIダッシュボード運用開始</li>
+              </ul>
+            </article>
           </div>
         </div>
       </section>
@@ -299,16 +239,16 @@
           <h2>よくある質問</h2>
           <div class="faq-list">
             <details class="reveal">
-              <summary>スクリプトや業務アプリ連携に詳しい人がいなくても運用できますか？</summary>
-              <p>可能です。運用画面と手順書を標準化し、テンプレート化した実行基盤を最小変更で運用できるように設計します。</p>
+              <summary>本当に「人が何もしない」状態を目指せるのですか？</summary>
+              <p>定型処理は限りなくゼロに近づけます。ただし責任判断はあえて人間ゲートを残す設計です。</p>
             </details>
             <details class="reveal">
-              <summary>AIマルチエージェントの誤判定はどう扱いますか？</summary>
-              <p>高リスク処理は必ず人の承認を入れ、Reviewer Agentによる二重確認とログ監査で品質を担保する設計にします。</p>
+              <summary>エージェントが増えると管理が複雑になりませんか？</summary>
+              <p>イベント駆動の起動制御と監査ログ設計により、常時起動を避けつつ責任追跡を可能にします。</p>
             </details>
             <details class="reveal">
-              <summary>小さく始める場合、最初に何を対象にすべきですか？</summary>
-              <p>入力転記が多く、ルールが比較的明確な業務を選ぶと、短期間で成果を可視化しやすくなります。</p>
+              <summary>既存SaaSや基幹システムを置き換える必要はありますか？</summary>
+              <p>置き換えは不要です。既存システムを活かし、API・ファイル連携・通知連携で段階導入します。</p>
             </details>
           </div>
         </div>
@@ -316,14 +256,14 @@
 
       <section id="contact" class="section section-contact" data-section="contact">
         <div class="container narrow">
-          <h2>次の一歩</h2>
+          <h2>設計相談</h2>
           <p class="section-lead">
-            現在の業務フローを30分で棚卸しし、AIエージェント×業務スクリプト×クラウド連携で着手しやすい対象を3つ提示します。
+            現在の業務を「イベントポイント」と「人間承認ゲート」で再設計し、初期実装の優先順位を提示します。
           </p>
           <div class="contact-box">
-            <p>資料が未整理でも問題ありません。ヒアリングベースで進められます。</p>
+            <p>資料が未整理でも問題ありません。現場ヒアリングから設計を開始できます。</p>
             <p class="contact-note">
-              営業・売り込みは本フォームでは受け付けていません。該当内容は自動で除外される場合があります。
+              営業・売り込みは本フォームで受け付けていません。該当内容は自動的に除外される場合があります。
             </p>
             <form class="contact-form" id="contact-form" action="https://formsubmit.co/support@proc-x.co.jp" method="POST">
               <input type="hidden" name="_subject" value="PROC.Xサイト お問い合わせ" />
@@ -352,7 +292,7 @@
                   お問い合わせ種別
                   <select id="inquiry-type" name="inquiry_type" required>
                     <option value="">選択してください</option>
-                    <option value="automation">業務自動化の相談</option>
+                    <option value="automation">イベント駆動自動化の相談</option>
                     <option value="support">既存案件のサポート</option>
                     <option value="other">その他</option>
                     <option value="sales">営業・売り込み</option>
@@ -372,7 +312,9 @@
               <div class="contact-submit">
                 <button class="btn btn-primary" type="submit">問い合わせを送信</button>
                 <p class="contact-alt">
-                  送信できない場合は <a href="mailto:support@proc-x.co.jp" data-cta="contact-mail">support@proc-x.co.jp</a> へ直接ご連絡ください。
+                  送信できない場合は
+                  <a href="mailto:support@proc-x.co.jp" data-cta="contact-mail">support@proc-x.co.jp</a>
+                  へ直接ご連絡ください。
                 </p>
               </div>
               <p class="contact-status" id="contact-status" aria-live="polite"></p>
@@ -383,7 +325,7 @@
     </main>
 
     <div class="floating-cta" id="floating-cta" aria-hidden="true">
-      <a href="#contact" data-cta="floating">無料相談を予約</a>
+      <a href="#contact" data-cta="floating">設計相談を予約</a>
     </div>
 
     <footer class="site-footer">

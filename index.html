@@ -38,12 +38,14 @@
           MENU
         </button>
         <nav class="site-nav" id="site-nav" aria-label="主なセクション">
-          <a href="#overview" data-nav-target="overview">構想</a>
-          <a href="#events" data-nav-target="events">イベント設計</a>
-          <a href="#category" data-nav-target="category">やさしい圏論</a>
-          <a href="#mesh" data-nav-target="mesh">エージェント群</a>
-          <a href="#hitl" data-nav-target="hitl">人間介在</a>
-          <a href="#rollout" data-nav-target="rollout">導入</a>
+          <a href="#overview" data-nav-target="overview">全体像</a>
+          <a href="#workflow" data-nav-target="workflow">作業順序</a>
+          <a href="#events" data-nav-target="events">Step1 分解</a>
+          <a href="#category" data-nav-target="category">Step2 設計</a>
+          <a href="#mesh" data-nav-target="mesh">Step3 実装</a>
+          <a href="#hitl" data-nav-target="hitl">Step4 品質</a>
+          <a href="#rollout" data-nav-target="rollout">Step5 導入</a>
+          <a href="#results" data-nav-target="results">成果物</a>
           <a href="#faq" data-nav-target="faq">FAQ</a>
           <a class="btn btn-primary" href="#contact" data-nav-target="contact">相談する</a>
         </nav>
@@ -97,11 +99,55 @@
         </div>
       </section>
 
+      <section id="workflow" class="section section-alt" data-section="workflow">
+        <div class="container">
+          <h2>私たちが実務で進める順番</h2>
+          <p class="section-lead">
+            お客様の業務を観測してから運用開始までを、同じ順番で設計・実装します。
+            各ステップで「何をするか」「何が出来上がるか」「どう役に立つか」を明確にします。
+          </p>
+          <div class="workflow-grid">
+            <article class="case-card reveal">
+              <h3>Step 1. 現場観測と分解</h3>
+              <ul class="work-list">
+                <li><strong>やること:</strong> 現場ヒアリングとイベントポイントの棚卸し</li>
+                <li><strong>できあがるもの:</strong> 業務状態と処理の分解図</li>
+                <li><strong>役に立つこと:</strong> 自動化の対象と優先順位が明確になる</li>
+              </ul>
+            </article>
+            <article class="case-card reveal">
+              <h3>Step 2. 設計ルールの統一</h3>
+              <ul class="work-list">
+                <li><strong>やること:</strong> 状態遷移ルールと責任境界の定義</li>
+                <li><strong>できあがるもの:</strong> だれが見ても同じ判断ができる設計書</li>
+                <li><strong>役に立つこと:</strong> 引き継ぎや拡張時のブレを防げる</li>
+              </ul>
+            </article>
+            <article class="case-card reveal">
+              <h3>Step 3. エージェント実装</h3>
+              <ul class="work-list">
+                <li><strong>やること:</strong> 役割別エージェントの連携とAPI接続</li>
+                <li><strong>できあがるもの:</strong> 実行可能な自律ワークフロー</li>
+                <li><strong>役に立つこと:</strong> 定型処理を人手から切り離せる</li>
+              </ul>
+            </article>
+            <article class="case-card reveal">
+              <h3>Step 4-5. 承認設計と本番導入</h3>
+              <ul class="work-list">
+                <li><strong>やること:</strong> 人間承認ゲートの設定と段階的リリース</li>
+                <li><strong>できあがるもの:</strong> 安全に回る運用体制と監査ログ</li>
+                <li><strong>役に立つこと:</strong> 品質と責任を保ったまま業務速度が上がる</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section id="events" class="section" data-section="events">
         <div class="container">
-          <h2>業務は「イベントポイント」で分解すると自律化できる</h2>
+          <h2>Step 1: 業務をイベント単位に分解する</h2>
           <p class="section-lead">
-            作業手順でなく、イベント発生点を定義します。エージェントはイベントを受けて役割単位で動きます。
+            まず手順書ではなく、業務の発生点を定義します。ここで作る分解図が、後続の実装と運用の土台になります。
           </p>
           <div class="event-grid">
             <article class="card reveal">
@@ -126,10 +172,10 @@
 
       <section id="category" class="section" data-section="category">
         <div class="container">
-          <h2>圏論は「仕事のつながりを整理する見取り図」として使います</h2>
+          <h2>Step 2: 仕事の流れを同じルールで設計する(やさしい圏論)</h2>
           <p class="section-lead">
-            難しい数式は使いません。業務を「点(いまの状態)」と「矢印(次に進める処理)」で表すと、
-            どこで詰まるか、どこを自動化できるかが見えるようになります。
+            難しい数式は使いません。Step 1で作った分解図を「状態」と「次に進める処理」で表し、
+            誰が見ても同じ流れで判断できる設計ルールにそろえます。
           </p>
 
           <div class="category-grid">
@@ -202,10 +248,10 @@
       <section id="mesh" class="section section-alt" data-section="mesh">
         <div class="container mesh-layout">
           <div>
-            <h2>数十の専門AIエージェントが会話しながら業務を完遂</h2>
+            <h2>Step 3: 専門AIエージェントを実装し、業務を自律実行する</h2>
             <p class="section-lead">
-              単一AIではなく、役割が明確なマルチエージェント構成を採用。イベントごとに必要な群だけ起動し、
-              実行後は監査ログを残して終了します。
+              単一AIではなく、役割が明確なマルチエージェント構成を採用します。必要な群だけ起動し、
+              実行後は監査ログを残して終了するため、運用時の追跡性と再現性を確保できます。
             </p>
             <ol class="flow-list">
               <li><strong>Planner:</strong> イベント理解と実行計画の構築</li>
@@ -259,9 +305,10 @@
             <figcaption>図: 自律実行と人間承認を組み合わせた運用トポロジー</figcaption>
           </figure>
           <div>
-            <h2>Human in the loopを「例外」ではなく「設計要素」にする</h2>
+            <h2>Step 4: 人間承認ゲートを設計し、品質と責任を守る</h2>
             <p class="section-lead">
-              人間介在は障害ではなく品質装置です。金額、契約、法務、顧客影響の大きい局面にだけ挿入します。
+              人間介在は障害ではなく品質装置です。金額、契約、法務、顧客影響の大きい局面だけに承認を挿入し、
+              速度を落とさず事故リスクを下げます。
             </p>
             <ul class="kpi-list">
               <li><strong>Gate A:</strong> 対外送信前レビュー(顧客影響の最終確認)</li>
@@ -279,8 +326,8 @@
 
       <section id="rollout" class="section section-alt" data-section="rollout">
         <div class="container">
-          <h2>導入は90日で業務ごとに段階展開</h2>
-          <p class="section-lead">小さく始めて、イベント定義と承認設計を固めながら対象業務を横展開します。</p>
+          <h2>Step 5: 90日で本番運用へ段階導入する</h2>
+          <p class="section-lead">小さく始めて、実運用で例外を吸収しながら対象業務を広げます。段階導入で停止リスクを抑えます。</p>
           <div class="rollout-grid">
             <article class="case-card reveal">
               <h3>Day 0-30</h3>
@@ -307,6 +354,37 @@
               </ul>
             </article>
           </div>
+        </div>
+      </section>
+
+      <section id="results" class="section" data-section="results">
+        <div class="container">
+          <h2>最終的に出来上がるものと、現場での効果</h2>
+          <p class="section-lead">
+            サイトを上から読むと、私たちの作業順に「設計」「実装」「運用」がつながって見える構成です。
+            最終的には次の3点が揃い、現場の速度と品質を同時に引き上げます。
+          </p>
+          <div class="event-grid">
+            <article class="card reveal">
+              <h3>1. 業務オーケストレーション設計書</h3>
+              <p>イベント分解、状態遷移、承認条件、責任境界を明文化した運用設計。</p>
+              <p><strong>役立つこと:</strong> 担当者が変わっても運用判断が揃う。</p>
+            </article>
+            <article class="card reveal">
+              <h3>2. 自律実行するエージェント基盤</h3>
+              <p>業務ごとに必要な専門エージェントが連携し、定型処理を自動実行。</p>
+              <p><strong>役立つこと:</strong> 人の手作業と待ち時間が減り、処理が速くなる。</p>
+            </article>
+            <article class="card reveal">
+              <h3>3. 承認ゲート付きの監査運用</h3>
+              <p>重要判断は人が承認し、全実行ログを追跡できる状態を維持。</p>
+              <p><strong>役立つこと:</strong> 品質と説明責任を保ったまま自動化を進められる。</p>
+            </article>
+          </div>
+          <figure class="diagram-card reveal results-figure">
+            <img src="images/productivity-scoreboard.svg" alt="導入後に改善される業務指標のイメージ" />
+            <figcaption>図: 自動化率、処理時間、承認待ち件数などを可視化する運用スコアボード</figcaption>
+          </figure>
         </div>
       </section>
 

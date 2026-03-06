@@ -350,7 +350,8 @@ a {
 .event-grid,
 .rollout-grid,
 .agent-grid,
-.category-grid {
+.category-grid,
+.workflow-grid {
   display: grid;
   gap: 14px;
 }
@@ -380,6 +381,18 @@ a {
   margin: 12px 0 0;
   padding-left: 20px;
   color: var(--muted);
+}
+
+.work-list {
+  margin: 12px 0 0;
+  padding-left: 20px;
+  color: var(--muted);
+  display: grid;
+  gap: 8px;
+}
+
+.results-figure {
+  margin-top: 18px;
 }
 
 .category-example {
@@ -733,7 +746,8 @@ a {
   }
 
   .event-grid,
-  .rollout-grid {
+  .rollout-grid,
+  .workflow-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 

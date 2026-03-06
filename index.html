@@ -39,14 +39,28 @@
         </button>
         <nav class="site-nav" id="site-nav" aria-label="主なセクション">
           <a href="#overview" data-nav-target="overview">全体像</a>
-          <a href="#workflow" data-nav-target="workflow">作業順序</a>
-          <a href="#events" data-nav-target="events">Step1 分解</a>
-          <a href="#category" data-nav-target="category">Step2 設計</a>
-          <a href="#mesh" data-nav-target="mesh">Step3 実装</a>
-          <a href="#hitl" data-nav-target="hitl">Step4 品質</a>
-          <a href="#rollout" data-nav-target="rollout">Step5 導入</a>
-          <a href="#results" data-nav-target="results">成果物</a>
-          <a href="#faq" data-nav-target="faq">FAQ</a>
+
+          <details class="nav-group">
+            <summary>実務フロー</summary>
+            <div class="nav-group-menu" aria-label="実務フロー内リンク">
+              <a href="#workflow" data-nav-target="workflow">作業順序</a>
+              <a href="#events" data-nav-target="events">Step1 分解</a>
+              <a href="#category" data-nav-target="category">Step2 設計</a>
+              <a href="#mesh" data-nav-target="mesh">Step3 実装</a>
+              <a href="#hitl" data-nav-target="hitl">Step4 品質</a>
+              <a href="#rollout" data-nav-target="rollout">Step5 導入</a>
+            </div>
+          </details>
+
+          <details class="nav-group">
+            <summary>会社情報</summary>
+            <div class="nav-group-menu" aria-label="会社情報内リンク">
+              <a href="#results" data-nav-target="results">成果物</a>
+              <a href="#faq" data-nav-target="faq">FAQ</a>
+              <a href="company.html">企業概要</a>
+            </div>
+          </details>
+
           <a class="btn btn-primary" href="#contact" data-nav-target="contact">相談する</a>
         </nav>
       </div>
@@ -483,12 +497,17 @@
     </div>
 
     <footer class="site-footer">
-      <div class="container">
+      <div class="container footer-inner">
         <small>&copy; 2026 PROC.X Inc.</small>
+        <div class="footer-links" aria-label="フッターリンク">
+          <a href="company.html">企業概要</a>
+          <a href="#contact">設計相談</a>
+        </div>
       </div>
     </footer>
 
     <script src="scripts/main.js" defer></script>
   </body>
 </html>
+
 

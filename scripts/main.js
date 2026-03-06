@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const navToggle = document.querySelector('.nav-toggle');
   const siteNav = document.getElementById('site-nav');
   const navLinks = Array.from(document.querySelectorAll('[data-nav-target]'));
+  const navGroups = Array.from(document.querySelectorAll('.nav-group'));
   const sections = Array.from(document.querySelectorAll('[data-section]'));
   const revealTargets = Array.from(document.querySelectorAll('.reveal'));
   const floatingCta = document.getElementById('floating-cta');
@@ -10,7 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const supportsObserver = 'IntersectionObserver' in window;
 
+  const closeNavGroups = () => {
+    navGroups.forEach((group) => group.removeAttribute('open'));
+  };
+
   const closeMobileNav = () => {
+    closeNavGroups();
     if (!siteHeader || !navToggle) return;
     siteHeader.classList.remove('nav-open');
     navToggle.setAttribute('aria-expanded', 'false');
@@ -23,11 +29,28 @@ document.addEventListener('DOMContentLoaded', () => {
       const nextState = !siteHeader.classList.contains('nav-open');
       siteHeader.classList.toggle('nav-open', nextState);
       navToggle.setAttribute('aria-expanded', String(nextState));
+      if (!nextState) {
+        closeNavGroups();
+      }
     });
 
     document.addEventListener('click', (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+
+      const clickedGroup = target.closest('.nav-group');
+      if (clickedGroup) {
+        navGroups.forEach((group) => {
+          if (group !== clickedGroup) {
+            group.removeAttribute('open');
+          }
+        });
+      } else {
+        closeNavGroups();
+      }
+
       if (desktopMedia.matches || !siteHeader.classList.contains('nav-open')) return;
-      if (siteHeader.contains(event.target)) return;
+      if (siteHeader.contains(target)) return;
       closeMobileNav();
     });
 
@@ -163,4 +186,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
 

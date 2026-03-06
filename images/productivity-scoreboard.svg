@@ -42,11 +42,12 @@
   <text x="764" y="344" font-size="15" font-family="'Space Grotesk', sans-serif" fill="#2f3f5e">78</text>
   <text x="726" y="394" font-size="15" font-family="'Space Grotesk', sans-serif" fill="#9f4e00">26</text>
 
-  <rect x="860" y="94" width="170" height="140" rx="14" fill="#f5f8ff" stroke="#ced8ee" />
+  <rect x="860" y="94" width="170" height="156" rx="14" fill="#f5f8ff" stroke="#ced8ee" />
   <rect x="878" y="126" width="28" height="14" rx="7" fill="url(#before)" />
   <text x="914" y="138" font-size="15" font-family="'Noto Sans JP', sans-serif" fill="#344666">導入前</text>
   <rect x="878" y="160" width="28" height="14" rx="7" fill="url(#after)" />
   <text x="914" y="172" font-size="15" font-family="'Noto Sans JP', sans-serif" fill="#344666">導入後</text>
-  <text x="878" y="205" font-size="14" font-family="'Noto Sans JP', sans-serif" fill="#344666">平均短縮率</text>
-  <text x="878" y="225" font-size="28" font-family="'Space Grotesk', sans-serif" font-weight="700" fill="#0f5bd8">-67%</text>
+  <text x="878" y="208" font-size="14" font-family="'Noto Sans JP', sans-serif" fill="#344666">平均短縮率</text>
+  <text x="878" y="242" font-size="28" font-family="'Space Grotesk', sans-serif" font-weight="700" fill="#0f5bd8">-67%</text>
 </svg>
+

@@ -40,6 +40,7 @@
         <nav class="site-nav" id="site-nav" aria-label="主なセクション">
           <a href="#overview" data-nav-target="overview">構想</a>
           <a href="#events" data-nav-target="events">イベント設計</a>
+          <a href="#category" data-nav-target="category">やさしい圏論</a>
           <a href="#mesh" data-nav-target="mesh">エージェント群</a>
           <a href="#hitl" data-nav-target="hitl">人間介在</a>
           <a href="#rollout" data-nav-target="rollout">導入</a>
@@ -119,6 +120,81 @@
               <h3>4. Learn</h3>
               <p>完了ログを再学習し、次回イベントで判断速度と精度を継続改善。</p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="category" class="section" data-section="category">
+        <div class="container">
+          <h2>圏論は「仕事のつながりを整理する見取り図」として使います</h2>
+          <p class="section-lead">
+            難しい数式は使いません。業務を「点(いまの状態)」と「矢印(次に進める処理)」で表すと、
+            どこで詰まるか、どこを自動化できるかが見えるようになります。
+          </p>
+
+          <div class="category-grid">
+            <article class="card reveal">
+              <h3>点: いまの状態</h3>
+              <p>例: 「問い合わせ受信済み」「回答案作成済み」「送信承認待ち」など。</p>
+            </article>
+            <article class="card reveal">
+              <h3>矢印: 状態を進める処理</h3>
+              <p>例: 分類する、下書きを作る、承認依頼を送る、顧客へ返信する。</p>
+            </article>
+            <article class="card reveal">
+              <h3>つなぐ: 処理を連結する</h3>
+              <p>「受信→分類→回答案→承認→送信」のように、手順を切れ目なく接続します。</p>
+            </article>
+          </div>
+
+          <article class="category-example reveal" aria-label="問い合わせ対応の例">
+            <h3>問い合わせ対応を1本の流れで見ると</h3>
+            <ol class="simple-flow">
+              <li><strong>受信済み</strong>から開始</li>
+              <li><strong>分類する</strong>で「担当確定」に進む</li>
+              <li><strong>回答案を作る</strong>で「回答案完成」に進む</li>
+              <li><strong>承認する</strong>で「送信可能」に進む</li>
+              <li><strong>送信する</strong>で「対応完了」に到達</li>
+            </ol>
+            <p>
+              この見方の利点は、途中の状態と次の処理が明確になることです。
+              つまり「誰がどこを自動化し、どこだけ人が判断するか」を迷わず決められます。
+            </p>
+          </article>
+
+          <div class="mapping-wrap reveal">
+            <h3 class="subsection-title">PROC.Xでの読み替え(専門用語なし)</h3>
+            <table class="mapping-table">
+              <caption>圏論の考え方を業務設計に置き換える対応表</caption>
+              <thead>
+                <tr>
+                  <th scope="col">考え方</th>
+                  <th scope="col">このサイトでの意味</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">点</th>
+                  <td>業務の状態(受信済み、承認待ち、完了など)</td>
+                </tr>
+                <tr>
+                  <th scope="row">矢印</th>
+                  <td>状態を1つ進める処理(分類、承認依頼、送信など)</td>
+                </tr>
+                <tr>
+                  <th scope="row">矢印の連結</th>
+                  <td>処理をつないで1つの業務フローとして実行すること</td>
+                </tr>
+                <tr>
+                  <th scope="row">同じ場所に戻る矢印</th>
+                  <td>「変更なし」「再確認のみ」など状態を保つ操作</td>
+                </tr>
+                <tr>
+                  <th scope="row">対応づけ</th>
+                  <td>業務フローをエージェント実行フローに写す設計</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
@@ -337,3 +413,4 @@
     <script src="scripts/main.js" defer></script>
   </body>
 </html>
+

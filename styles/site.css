@@ -349,7 +349,8 @@ a {
 
 .event-grid,
 .rollout-grid,
-.agent-grid {
+.agent-grid,
+.category-grid {
   display: grid;
   gap: 14px;
 }
@@ -378,6 +379,79 @@ a {
 .case-card ul {
   margin: 12px 0 0;
   padding-left: 20px;
+  color: var(--muted);
+}
+
+.category-example {
+  margin: 14px 0 0;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: #fffdf7;
+  padding: 20px;
+  box-shadow: var(--shadow-soft);
+}
+
+.category-example h3 {
+  margin: 0 0 10px;
+  font-size: 1.12rem;
+}
+
+.category-example p {
+  margin: 12px 0 0;
+  color: var(--muted);
+}
+
+.simple-flow {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--muted);
+  display: grid;
+  gap: 6px;
+}
+
+.mapping-wrap {
+  margin-top: 18px;
+}
+
+.mapping-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.mapping-table caption {
+  caption-side: top;
+  text-align: left;
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.mapping-table th,
+.mapping-table td {
+  border: 1px solid var(--line);
+  padding: 0.72rem 0.78rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.mapping-table thead th {
+  background: #f3ecdf;
+  color: #1d2833;
+  font-size: 0.9rem;
+}
+
+.mapping-table tbody th {
+  width: 32%;
+  background: #faf6ee;
+  font-size: 0.9rem;
+}
+
+.mapping-table td {
   color: var(--muted);
 }
 
@@ -663,6 +737,10 @@ a {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .category-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .agent-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -737,6 +815,35 @@ a {
 
   .form-grid {
     grid-template-columns: 1fr;
+  }
+
+  .mapping-table,
+  .mapping-table thead,
+  .mapping-table tbody,
+  .mapping-table tr,
+  .mapping-table th,
+  .mapping-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .mapping-table thead {
+    position: absolute;
+    left: -9999px;
+  }
+
+  .mapping-table tbody tr + tr {
+    border-top: 1px solid var(--line);
+  }
+
+  .mapping-table tbody th {
+    width: 100%;
+    border-bottom: 0;
+    background: #f3ecdf;
+  }
+
+  .mapping-table tbody td {
+    border-top: 0;
   }
 
   .floating-cta {

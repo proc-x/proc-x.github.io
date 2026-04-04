@@ -237,23 +237,33 @@ document.addEventListener('DOMContentLoaded', () => {
   const inquiryType = document.getElementById('inquiry-type');
   const contactStatus = document.getElementById('contact-status');
   const renderedAt = document.getElementById('form-rendered-at');
+  const submitButton = contactForm ? contactForm.querySelector('button[type="submit"]') : null;
 
   if (contactForm && renderedAt) {
+    const formsubmitInbox = ['support', 'proc-x.co.jp'].join('@');
+
+    contactForm.action = `https://formsubmit.co/${formsubmitInbox}`;
     renderedAt.value = String(Date.now());
 
     contactForm.addEventListener('submit', (event) => {
-      event.preventDefault();
       const salesSelected = inquiryType && inquiryType.value === 'sales';
 
-      if (!contactStatus) return;
-
       if (salesSelected) {
-        contactStatus.textContent = '営業・売り込みは本フォームで受け付けていません。';
+        event.preventDefault();
+        if (contactStatus) {
+          contactStatus.textContent = '営業・売り込みは本フォームで受け付けていません。';
+        }
         return;
       }
 
-      contactStatus.innerHTML =
-        '現在フォーム送信に失敗しています。<a href="mailto:support@proc-x.co.jp">support@proc-x.co.jp</a> へメールでお問い合わせください。';
+      if (contactStatus) {
+        contactStatus.textContent = '送信中です。完了後、確認画面へ移動します。';
+      }
+
+      if (submitButton instanceof HTMLButtonElement) {
+        submitButton.disabled = true;
+        submitButton.setAttribute('aria-disabled', 'true');
+      }
     });
   }
 });

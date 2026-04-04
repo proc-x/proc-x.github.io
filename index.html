@@ -732,9 +732,12 @@
             <p class="ja">営業・売り込み目的のお問い合わせは受け付けておりません。</p>
             <p class="en">We do not accept sales solicitations through this form.</p>
 
-            <form class="contact-form" id="contact-form" action="https://formsubmit.co/support@proc-x.co.jp" method="POST">
+            <form class="contact-form" id="contact-form" action="https://formsubmit.co/" method="POST">
               <input type="hidden" name="_subject" value="PROC.Xサイト お問い合わせ" />
               <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="true" />
+              <input type="hidden" name="_next" value="https://proc-x.github.io/thanks.html" />
+              <input type="hidden" name="_url" value="https://proc-x.github.io/" />
               <input type="hidden" name="_blacklist" value="SEO対策,被リンク,営業代行,テレアポ,アポ獲得,リスト販売,広告運用,MEO,助成金営業" />
               <input type="hidden" name="form_rendered_at" id="form-rendered-at" value="" />
 
@@ -783,13 +786,15 @@
                   <span class="en">Send Message</span>
                 </button>
                 <p class="contact-alt">
-                  <span class="ja">送信できない場合は </span>
-                  <span class="en">If the form doesn't work, email </span>
-                  <a href="mailto:support@proc-x.co.jp">support@proc-x.co.jp</a>
+                  <span class="ja">送信後、確認画面へ移動します。</span>
+                  <span class="en">After submission, you will be redirected to a confirmation page.</span>
                 </p>
               </div>
               <p class="contact-status" id="contact-status" aria-live="polite"></p>
             </form>
+            <noscript>
+              <p class="contact-status">JavaScript を有効にしてから送信してください。</p>
+            </noscript>
           </div>
         </div>
       </section>

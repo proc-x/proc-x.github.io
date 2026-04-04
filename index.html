@@ -729,72 +729,26 @@
           </p>
 
           <div class="contact-box">
-            <p class="ja">営業・売り込み目的のお問い合わせは受け付けておりません。</p>
-            <p class="en">We do not accept sales solicitations through this form.</p>
+            <p class="ja">現在、お問い合わせフォームは停止しています。</p>
+            <p class="en">The contact form is temporarily unavailable.</p>
 
-            <form class="contact-form" id="contact-form" action="https://formsubmit.co/" method="POST">
-              <input type="hidden" name="_subject" value="PROC.Xサイト お問い合わせ" />
-              <input type="hidden" name="_template" value="table" />
-              <input type="hidden" name="_captcha" value="true" />
-              <input type="hidden" name="_next" value="https://proc-x.github.io/thanks.html" />
-              <input type="hidden" name="_url" value="https://proc-x.github.io/" />
-              <input type="hidden" name="_blacklist" value="SEO対策,被リンク,営業代行,テレアポ,アポ獲得,リスト販売,広告運用,MEO,助成金営業" />
-              <input type="hidden" name="form_rendered_at" id="form-rendered-at" value="" />
-
-              <div class="contact-trap" aria-hidden="true">
-                <label>Webサイト<input type="text" name="_honey" tabindex="-1" autocomplete="off" /></label>
-              </div>
-
-              <div class="form-grid">
-                <label class="field">
-                  <span class="ja">お名前</span><span class="en">Name</span>
-                  <input type="text" name="name" autocomplete="name" required />
-                </label>
-                <label class="field">
-                  <span class="ja">会社名</span><span class="en">Company</span>
-                  <input type="text" name="company" autocomplete="organization" required />
-                </label>
-                <label class="field">
-                  <span class="ja">メールアドレス</span><span class="en">Email</span>
-                  <input type="email" name="email" autocomplete="email" required />
-                </label>
-                <label class="field">
-                  <span class="ja">お問い合わせ種別</span><span class="en">Inquiry Type</span>
-                  <select id="inquiry-type" name="inquiry_type" required>
-                    <option value=""><span class="ja">選択してください</span></option>
-                    <option value="automation"><span class="ja">業務自動化の相談</span></option>
-                    <option value="support"><span class="ja">既存案件のサポート</span></option>
-                    <option value="other"><span class="ja">その他</span></option>
-                    <option value="sales"><span class="ja">営業・売り込み</span></option>
-                  </select>
-                </label>
-                <label class="field field-full">
-                  <span class="ja">ご相談内容</span><span class="en">Message</span>
-                  <textarea name="message" rows="6" minlength="20" required></textarea>
-                </label>
-              </div>
-
-              <label class="checkbox-field">
-                <input type="checkbox" name="non_sales_confirmation" required />
-                <span class="ja">営業・売り込み目的ではありません</span>
-                <span class="en">This is not a sales solicitation</span>
-              </label>
-
-              <div class="contact-submit">
-                <button class="btn btn-primary" type="submit">
-                  <span class="ja">送信する</span>
-                  <span class="en">Send Message</span>
-                </button>
-                <p class="contact-alt">
-                  <span class="ja">送信後、確認画面へ移動します。</span>
-                  <span class="en">After submission, you will be redirected to a confirmation page.</span>
-                </p>
-              </div>
-              <p class="contact-status" id="contact-status" aria-live="polite"></p>
-            </form>
-            <noscript>
-              <p class="contact-status">JavaScript を有効にしてから送信してください。</p>
-            </noscript>
+            <div class="contact-direct">
+              <p>
+                <span class="ja">ご相談・ご連絡は、以下のメールアドレスへ直接お送りください。</span>
+                <span class="en">For inquiries, please email us directly at the address below.</span>
+              </p>
+              <p class="contact-mail">
+                <a href="mailto:support@proc-x.co.jp?subject=PROC.X%E3%81%B8%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">support@proc-x.co.jp</a>
+              </p>
+              <p class="contact-alt">
+                <span class="ja">会社名・ご担当者名・ご相談内容を記載いただけるとスムーズです。</span>
+                <span class="en">Including your company name, contact person, and inquiry details will help us respond more quickly.</span>
+              </p>
+              <p class="contact-alt">
+                <span class="ja">営業・売り込み目的のご連絡はご遠慮ください。</span>
+                <span class="en">Please refrain from sending sales solicitations.</span>
+              </p>
+            </div>
           </div>
         </div>
       </section>

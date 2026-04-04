@@ -1,19 +1,18 @@
 <!doctype html>
-<html lang="ja">
+<html lang="ja" data-theme="light" data-lang="ja">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>企業概要 | PROC.X</title>
     <meta
       name="description"
-      content="株式会社PROC.X(プロックス)の企業概要。会社名、設立日、代表者、所在地、連絡先、事業内容をご案内します。"
+      content="株式会社PROC.X（プロックス）の企業概要。会社名、設立日、代表者、所在地、連絡先、事業内容をご案内します。"
     />
-
     <meta property="og:type" content="website" />
     <meta property="og:title" content="企業概要 | PROC.X" />
     <meta
       property="og:description"
-      content="株式会社PROC.X(プロックス)の企業概要。会社情報と事業内容をご確認いただけます。"
+      content="株式会社PROC.X（プロックス）の企業概要。マイクロエージェントから始める業務自動化のパートナー。"
     />
     <meta property="og:image" content="images/logo.png" />
 
@@ -24,99 +23,185 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles/site.css" />
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+          else if (window.matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.setAttribute('data-theme', 'dark');
+          var l = localStorage.getItem('lang');
+          if (l === 'en') { document.documentElement.setAttribute('data-lang', 'en'); document.documentElement.lang = 'en'; }
+        } catch (_) {}
+      })();
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">本文へ移動</a>
 
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="index.html#overview" aria-label="PROC.X トップへ">
-          <img src="images/logo.png" alt="PROC.X ロゴ" />
+        <a class="brand" href="index.html" aria-label="PROC.X トップへ">
+          <img src="images/logo.png" alt="PROC.X" />
         </a>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-          MENU
-        </button>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">MENU</button>
+
         <nav class="site-nav" id="site-nav" aria-label="企業概要ページのナビゲーション">
-          <a href="#company-overview" data-nav-target="company-overview">概要</a>
-          <a href="#company-profile" data-nav-target="company-profile">基本情報</a>
-          <a href="#business" data-nav-target="business">事業内容</a>
-          <a href="index.html">トップページ</a>
-          <a class="btn btn-primary" href="index.html#contact">設計相談</a>
+          <a href="#company-overview" data-nav-target="company-overview">
+            <span class="ja">概要</span><span class="en">Overview</span>
+          </a>
+          <a href="#company-profile" data-nav-target="company-profile">
+            <span class="ja">基本情報</span><span class="en">Profile</span>
+          </a>
+          <a href="#business" data-nav-target="business">
+            <span class="ja">事業内容</span><span class="en">Services</span>
+          </a>
+          <a href="index.html">
+            <span class="ja">トップページ</span><span class="en">Top</span>
+          </a>
+          <a class="btn btn-primary" href="index.html#contact">
+            <span class="ja">相談する</span><span class="en">Contact Us</span>
+          </a>
         </nav>
+
+        <div class="header-controls">
+          <button class="ctrl-btn" id="theme-toggle" aria-label="ダークモード切替">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" width="17" height="17">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" width="17" height="17">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+          <button class="ctrl-btn" id="lang-toggle" aria-label="Switch language / 言語切替">
+            <span class="ja">EN</span><span class="en">JA</span>
+          </button>
+        </div>
       </div>
     </header>
 
     <main id="main">
+
+      <!-- ========== HERO ========== -->
       <section id="company-overview" class="hero company-hero" data-section="company-overview">
         <div class="container hero-grid">
           <div class="hero-copy">
             <p class="eyebrow">Corporate Profile</p>
-            <h1>企業概要</h1>
+            <h1>
+              <span class="ja">企業概要</span>
+              <span class="en">About PROC.X</span>
+            </h1>
             <p class="lead">
-              株式会社PROC.X(プロックス)は、業務プロセスの自動化を通じて、
-              現場の作業負荷を減らしながら品質と責任を両立する運用基盤を構築します。
+              <span class="ja">株式会社PROC.X（プロックス）は、マイクロエージェントから始める段階的な業務自動化を通じて、現場の作業負荷を減らしながら品質と責任を両立する運用基盤を構築します。</span>
+              <span class="en">PROC.X builds operational infrastructure that reduces workload while maintaining quality and accountability — through gradual automation starting with focused micro agents.</span>
             </p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#company-profile">基本情報を見る</a>
-              <a class="btn" href="index.html">トップページへ戻る</a>
+              <a class="btn btn-primary" href="#company-profile">
+                <span class="ja">基本情報を見る</span>
+                <span class="en">Company Details</span>
+              </a>
+              <a class="btn" href="index.html">
+                <span class="ja">トップページへ戻る</span>
+                <span class="en">Back to Top</span>
+              </a>
             </div>
           </div>
 
-          <aside class="hero-panel" aria-label="会社情報サマリー">
-            <h2>会社情報サマリー</h2>
+          <aside class="company-stat-panel" aria-label="会社情報サマリー">
+            <h2>
+              <span class="ja">会社情報サマリー</span>
+              <span class="en">Company Summary</span>
+            </h2>
             <div class="stat-grid">
-              <article>
-                <span class="value">2022</span>
-                <span class="label">設立年</span>
-              </article>
-              <article>
-                <span class="value">福岡</span>
-                <span class="label">本社所在地</span>
-              </article>
-              <article>
-                <span class="value">PROC.X</span>
-                <span class="label">法人名</span>
-              </article>
-              <article>
-                <span class="value">自動化</span>
-                <span class="label">主な事業領域</span>
-              </article>
+              <div class="stat-item">
+                <span class="stat-value">2022</span>
+                <span class="stat-label"><span class="ja">設立年</span><span class="en">Founded</span></span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value"><span class="ja">福岡</span><span class="en">Fukuoka</span></span>
+                <span class="stat-label"><span class="ja">本社所在地</span><span class="en">Headquarters</span></span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value">PROC.X</span>
+                <span class="stat-label"><span class="ja">法人名</span><span class="en">Brand</span></span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value"><span class="ja">自動化</span><span class="en">Automation</span></span>
+                <span class="stat-label"><span class="ja">主な事業領域</span><span class="en">Core Service</span></span>
+              </div>
             </div>
-            <p>詳細は下記の基本情報をご確認ください。</p>
+            <p>
+              <span class="ja">詳細は下記の基本情報をご確認ください。</span>
+              <span class="en">See full details in the profile section below.</span>
+            </p>
           </aside>
         </div>
       </section>
 
-      <section id="company-profile" class="section" data-section="company-profile">
+
+      <!-- ========== PROFILE ========== -->
+      <section id="company-profile" class="section section-alt" data-section="company-profile">
         <div class="container narrow">
-          <h2>基本情報</h2>
+          <p class="section-eyebrow">
+            <span class="ja">会社基本情報</span>
+            <span class="en">Company Information</span>
+          </p>
+          <h2>
+            <span class="ja">基本情報</span>
+            <span class="en">Company Profile</span>
+          </h2>
+
           <div class="profile-card reveal">
             <table class="profile-table">
-              <caption>株式会社PROC.X(プロックス)の会社基本情報</caption>
+              <caption>
+                <span class="ja">株式会社PROC.X（プロックス）の会社基本情報</span>
+                <span class="en">Basic information for PROC.X Inc.</span>
+              </caption>
               <tbody>
                 <tr>
-                  <th scope="row">会社名</th>
-                  <td>株式会社PROC.X(プロックス)</td>
+                  <th scope="row"><span class="ja">会社名</span><span class="en">Company Name</span></th>
+                  <td>
+                    <span class="ja">株式会社PROC.X（プロックス）</span>
+                    <span class="en">PROC.X Inc.</span>
+                  </td>
                 </tr>
                 <tr>
-                  <th scope="row">設立日</th>
-                  <td>2022年03月01日</td>
+                  <th scope="row"><span class="ja">設立日</span><span class="en">Founded</span></th>
+                  <td>
+                    <span class="ja">2022年03月01日</span>
+                    <span class="en">March 1, 2022</span>
+                  </td>
                 </tr>
                 <tr>
-                  <th scope="row">代表者</th>
-                  <td>似内　雄一郎(Nitanai Yuichiro)</td>
+                  <th scope="row"><span class="ja">代表者</span><span class="en">CEO</span></th>
+                  <td>
+                    <span class="ja">似内　雄一郎（Nitanai Yuichiro）</span>
+                    <span class="en">Yuichiro Nitanai</span>
+                  </td>
                 </tr>
                 <tr>
-                  <th scope="row">所在地</th>
-                  <td>〒812-0003 福岡県福岡市博多区東比恵2丁目1番3号</td>
+                  <th scope="row"><span class="ja">所在地</span><span class="en">Address</span></th>
+                  <td>
+                    <span class="ja">〒812-0003 福岡県福岡市博多区東比恵2丁目1番3号</span>
+                    <span class="en">2-1-3 Higashihie, Hakata-ku, Fukuoka-shi, Fukuoka 812-0003</span>
+                  </td>
                 </tr>
                 <tr>
                   <th scope="row">TEL</th>
                   <td><a href="tel:0924025625">092-402-5625</a></td>
                 </tr>
                 <tr>
-                  <th scope="row">事業内容</th>
-                  <td>業務プロセスの自動化</td>
+                  <th scope="row"><span class="ja">事業内容</span><span class="en">Business</span></th>
+                  <td>
+                    <span class="ja">業務プロセスの自動化</span>
+                    <span class="en">Business Process Automation</span>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -124,36 +209,59 @@
         </div>
       </section>
 
-      <section id="business" class="section section-alt" data-section="business">
+
+      <!-- ========== BUSINESS ========== -->
+      <section id="business" class="section" data-section="business">
         <div class="container narrow">
-          <h2>事業内容</h2>
-          <p class="section-lead">
-            PROC.Xは、業務プロセスの自動化を中核に、設計から実装、運用までを一貫して支援します。
+          <p class="section-eyebrow">
+            <span class="ja">事業内容</span>
+            <span class="en">What We Do</span>
           </p>
-          <div class="event-grid">
-            <article class="card reveal">
-              <h3>業務プロセス設計</h3>
-              <p>現場業務を分解し、どこを自動化し、どこを人が判断するかを明確に設計します。</p>
+          <h2>
+            <span class="ja">一つの処理から始め、社内全体へ</span>
+            <span class="en">Start With One, Expand to All</span>
+          </h2>
+          <p class="section-lead">
+            <span class="ja">PROC.Xは、マイクロエージェントを起点に、SaaS連携・FaaSスクリプト・インフラ設定も含めた業務自動化を一貫して支援します。</span>
+            <span class="en">PROC.X provides end-to-end business automation support — from micro agents to SaaS integrations, FaaS scripts, and infrastructure configuration.</span>
+          </p>
+
+          <div class="business-grid">
+            <article class="business-card reveal">
+              <h3><span class="ja">業務プロセス設計</span><span class="en">Process Design</span></h3>
+              <p>
+                <span class="ja">現場業務を観察・分解し、どこを自動化し、どこで人間が判断するかを明確に設計します。</span>
+                <span class="en">Observe and decompose real workflows to clearly define what to automate and where human judgment is needed.</span>
+              </p>
             </article>
-            <article class="card reveal">
-              <h3>自動化実装</h3>
-              <p>イベント駆動の仕組みを使って、再現性のある業務実行フローを構築します。</p>
+
+            <article class="business-card reveal">
+              <h3><span class="ja">エージェント実装・連携</span><span class="en">Agent Implementation</span></h3>
+              <p>
+                <span class="ja">マイクロエージェントを実装し、SaaS API・FaaSスクリプト・既存システムと連携させます。Human in the Loopの設計も含みます。</span>
+                <span class="en">Implement micro agents and connect them with SaaS APIs, FaaS scripts, and existing systems. Includes Human in the Loop design.</span>
+              </p>
             </article>
-            <article class="card reveal">
-              <h3>運用と改善</h3>
-              <p>実行ログを継続的に確認し、品質と速度を両立する運用体制を改善します。</p>
+
+            <article class="business-card reveal">
+              <h3><span class="ja">運用と継続改善</span><span class="en">Operations &amp; Improvement</span></h3>
+              <p>
+                <span class="ja">実行ログを継続的に確認し、品質と速度を両立する運用体制を整えます。問題が起きても追跡・修正できる設計です。</span>
+                <span class="en">Continuously review execution logs and refine operations for both quality and speed. Designed so issues can always be traced and corrected.</span>
+              </p>
             </article>
           </div>
         </div>
       </section>
+
     </main>
 
     <footer class="site-footer">
       <div class="container footer-inner">
         <small>&copy; 2026 PROC.X Inc.</small>
         <div class="footer-links" aria-label="フッターリンク">
-          <a href="index.html">トップページ</a>
-          <a href="index.html#contact">設計相談</a>
+          <a href="index.html"><span class="ja">トップページ</span><span class="en">Top</span></a>
+          <a href="index.html#contact"><span class="ja">設計相談</span><span class="en">Contact</span></a>
         </div>
       </div>
     </footer>
@@ -161,4 +269,3 @@
     <script src="scripts/main.js" defer></script>
   </body>
 </html>
-

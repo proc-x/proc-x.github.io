@@ -491,7 +491,7 @@ ul, ol { margin: 0; }
 .definition-grid {
   display: grid;
   gap: 18px;
-  margin-bottom: 18px;
+  margin-bottom: 30px;
 }
 
 .concept-grid { display: grid; gap: 14px; }

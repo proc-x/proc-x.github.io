@@ -156,17 +156,37 @@
       <section id="concept" class="section section-alt" data-section="concept">
         <div class="container">
           <p class="section-eyebrow">
-            <span class="ja">マイクロエージェントとは</span>
-            <span class="en">What Is a Micro Agent?</span>
+            <span class="ja">言葉の定義</span>
+            <span class="en">Key Definitions</span>
           </p>
           <h2>
-            <span class="ja">一つのタスクに特化した、小さなAIエージェント</span>
-            <span class="en">A Small AI Agent Specialized for One Task</span>
+            <span class="ja">AIエージェントとマイクロエージェント</span>
+            <span class="en">AI Agents and Micro Agents</span>
           </h2>
           <p class="section-lead">
-            <span class="ja">巨大なシステムを一気に作るのではなく、シンプルで検証しやすいマイクロエージェントを積み上げていきます。それぞれが独立しているので、問題の特定も修正も容易です。</span>
-            <span class="en">Instead of building one massive system, we stack small, verifiable micro agents. Because each is independent, identifying and fixing problems is straightforward.</span>
+            <span class="ja">PROC.Xでは、AIエージェントを「判断しながら処理を進めるソフトウェア」、マイクロエージェントを「役割を一つに絞った小さなAIエージェント」として定義しています。巨大な仕組みを一気に作るのではなく、小さく作って検証しながらつなげていきます。</span>
+            <span class="en">At PROC.X, an AI agent is software that makes decisions while moving work forward, and a micro agent is a small AI agent focused on a single responsibility. Rather than building one massive system, we build small, verifiable pieces and connect them over time.</span>
           </p>
+
+          <div class="concept-grid">
+            <article class="concept-card reveal">
+              <div class="concept-icon">🧠</div>
+              <h3><span class="ja">AIエージェント</span><span class="en">AI Agent</span></h3>
+              <p>
+                <span class="ja">入力内容や業務ルール、外部ツールの結果を見ながら、次に何をするかを判断して処理を進めるソフトウェアです。生成AIを使う場合もあれば、既存システムやルールベースの処理と組み合わせる場合もあります。</span>
+                <span class="en">Software that decides what to do next based on inputs, business rules, and external tools. It may use generative AI, or combine it with existing systems and rule-based logic.</span>
+              </p>
+            </article>
+
+            <article class="concept-card reveal">
+              <div class="concept-icon">🧩</div>
+              <h3><span class="ja">マイクロエージェント</span><span class="en">Micro Agent</span></h3>
+              <p>
+                <span class="ja">AIエージェントの中でも、「見積書を作る」「メールを分類する」「台帳を更新する」のように、一つの役割だけを担当する小さな単位です。責任範囲が明確なので、検証・改善・置換がしやすくなります。</span>
+                <span class="en">A smaller unit of an AI agent that handles one responsibility only, such as drafting a quote, classifying email, or updating a ledger. Clear scope makes it easier to verify, improve, and replace.</span>
+              </p>
+            </article>
+          </div>
 
           <div class="concept-grid">
             <article class="concept-card reveal">
@@ -193,6 +213,63 @@
               <p>
                 <span class="ja">重要な判断が必要な場面では、エージェントは処理を止めて人間に確認します。これがHuman in the Loopです。業務事故を防ぎながら自動化を進められます。</span>
                 <span class="en">At critical junctures, the agent pauses and requests human review. This is Human in the Loop — preventing errors while still advancing automation.</span>
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ========== SUPPORT AREAS ========== -->
+      <section id="support-areas" class="section" data-section="support-areas">
+        <div class="container">
+          <p class="section-eyebrow">
+            <span class="ja">私たちにお手伝いできること</span>
+            <span class="en">How We Can Help</span>
+          </p>
+          <h2>
+            <span class="ja">新規開発だけでなく、置き換えと改善も支援します</span>
+            <span class="en">Support for New Builds, Replacements, and Improvements</span>
+          </h2>
+          <p class="section-lead">
+            <span class="ja">新しくエージェントを作るだけでなく、すでに動いている自動化やエージェントを見直し、どこを残し、どこを置き換え、どう育てるかまで含めて支援します。まず一体から始める相談も、既存構成の再設計も対応できます。</span>
+            <span class="en">We do more than build new agents. We also review existing automations and agents, decide what to keep, what to replace, and how to improve them over time. That includes starting with a single agent or redesigning an existing setup.</span>
+          </p>
+
+          <div class="tech-grid">
+            <article class="tech-card reveal">
+              <div class="tech-icon">♻️</div>
+              <h3><span class="ja">既存RPAの置換え・計画立案</span><span class="en">RPA Replacement Planning</span></h3>
+              <p>
+                <span class="ja">すでに使っているRPAや業務自動化ツールを前提に、どの処理をそのまま残し、どこを置き換えるべきかを整理します。段階的な移行計画や、先に効果が出る部分からの置換え提案も行います。</span>
+                <span class="en">We assess your existing RPA and automation tools, determine what should stay and what should be replaced, and propose phased migration plans that start where impact is highest.</span>
+              </p>
+            </article>
+
+            <article class="tech-card reveal">
+              <div class="tech-icon">🐍</div>
+              <h3><span class="ja">Pythonなどへの再実装</span><span class="en">Rebuild in Python or Similar Languages</span></h3>
+              <p>
+                <span class="ja">RPAをPythonなどの汎用プログラミング言語へ置き換えると、特定ツールへの依存を減らしやすくなります。生成AIやエージェント型AIとも連携しやすく、ライセンス費用や保守費用を削減できる可能性があります。</span>
+                <span class="en">Rebuilding RPA in a general-purpose language such as Python reduces tool lock-in. It also integrates more naturally with generative AI and agent-based AI, and may reduce licensing and maintenance costs.</span>
+              </p>
+            </article>
+
+            <article class="tech-card reveal">
+              <div class="tech-icon">🚀</div>
+              <h3><span class="ja">まず一体のエージェント開発</span><span class="en">Build the First Agent</span></h3>
+              <p>
+                <span class="ja">いきなり大規模導入を前提にせず、まずは一体のエージェントを一緒に設計・実装します。対象業務の切り出し、Human in the Loop、運用方法まで含めて最初の一歩を形にします。</span>
+                <span class="en">We can start by designing and implementing a single agent instead of assuming a large rollout from day one. That includes process selection, Human in the Loop design, and practical operations.</span>
+              </p>
+            </article>
+
+            <article class="tech-card reveal">
+              <div class="tech-icon">🌱</div>
+              <h3><span class="ja">既存エージェントの育成</span><span class="en">Improve Existing Agents</span></h3>
+              <p>
+                <span class="ja">すでに動いているエージェントに対しても、RAG設定、プロンプト調整、評価観点の整理、運用監視の見直しを行えます。「作ったが精度が安定しない」「現場で使いづらい」といった段階から改善できます。</span>
+                <span class="en">We also improve agents that are already running by refining RAG settings, prompts, evaluation criteria, and operational monitoring. This helps when an agent exists but quality or usability is still unstable.</span>
               </p>
             </article>
           </div>

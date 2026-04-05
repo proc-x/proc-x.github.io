@@ -489,6 +489,7 @@ ul, ol { margin: 0; }
    ============================================= */
 
 .concept-grid { display: grid; gap: 14px; }
+.concept-grid + .concept-grid { margin-top: 14px; }
 
 .concept-card {
   border: 1.5px solid var(--line);

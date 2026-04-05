@@ -488,6 +488,12 @@ ul, ol { margin: 0; }
    Concept Cards
    ============================================= */
 
+.definition-grid {
+  display: grid;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
 .concept-grid { display: grid; gap: 14px; }
 .concept-grid + .concept-grid { margin-top: 14px; }
 
@@ -1288,6 +1294,7 @@ ul, ol { margin: 0; }
 
 @media (min-width: 980px) {
   .hero-grid { grid-template-columns: 1.15fr 0.9fr; }
+  .definition-grid { grid-template-columns: repeat(2, 1fr); }
   .concept-grid { grid-template-columns: repeat(3, 1fr); }
   .phases-grid  { grid-template-columns: repeat(3, 1fr); }
   .hitl-container { grid-template-columns: 1fr 1fr; }

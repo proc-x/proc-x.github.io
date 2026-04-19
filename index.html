@@ -118,34 +118,55 @@
           </div>
 
           <div class="hero-agents-vis" aria-label="マイクロエージェントの概念図">
+            <div class="hero-panel-top">
+              <span class="panel-kicker">Live workflow map</span>
+              <span class="panel-status"><span></span>Ready</span>
+            </div>
             <div class="agents-flow">
               <div class="af-node af-agent">
-                <span class="af-icon">🤖</span>
+                <span class="af-icon">A1</span>
                 <span class="af-label ja">受信</span>
                 <span class="af-label en">Receive</span>
               </div>
               <div class="af-connector"></div>
               <div class="af-node af-agent">
-                <span class="af-icon">🤖</span>
+                <span class="af-icon">A2</span>
                 <span class="af-label ja">処理</span>
                 <span class="af-label en">Process</span>
               </div>
               <div class="af-connector"></div>
               <div class="af-node af-hitl">
-                <span class="af-icon">👤</span>
+                <span class="af-icon">H</span>
                 <span class="af-label ja">確認</span>
                 <span class="af-label en">Review</span>
               </div>
               <div class="af-connector"></div>
               <div class="af-node af-agent">
-                <span class="af-icon">🤖</span>
+                <span class="af-icon">A3</span>
                 <span class="af-label ja">実行</span>
                 <span class="af-label en">Execute</span>
               </div>
             </div>
+            <div class="hero-metric-grid" aria-label="自動化の進行指標">
+              <div>
+                <span class="metric-value">1</span>
+                <span class="metric-label ja">最初の処理</span>
+                <span class="metric-label en">First process</span>
+              </div>
+              <div>
+                <span class="metric-value">2-4w</span>
+                <span class="metric-label ja">初期導入目安</span>
+                <span class="metric-label en">Initial build</span>
+              </div>
+              <div>
+                <span class="metric-value">HITL</span>
+                <span class="metric-label ja">重要箇所で確認</span>
+                <span class="metric-label en">Human review</span>
+              </div>
+            </div>
             <p class="agents-note">
-              <span class="ja">🤖 エージェント が担当 &nbsp;|&nbsp; 👤 Human in the Loop で確認</span>
-              <span class="en">🤖 Handled by agent &nbsp;|&nbsp; 👤 Human in the Loop reviews</span>
+              <span class="ja">小さな担当範囲を連結し、重要な判断だけ人が止めて確認します。</span>
+              <span class="en">Small responsibilities connect into one workflow, with humans reviewing critical decisions.</span>
             </p>
           </div>
         </div>

@@ -1,94 +1,98 @@
 <!doctype html>
-<html lang="ja" data-theme="light" data-lang="ja">
+<html lang="ja">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>PROC.X | お問い合わせありがとうございます</title>
+    <title>お問い合わせのご案内｜PROC.X</title>
     <meta
       name="description"
-      content="PROC.X へのお問い合わせを受け付けました。内容を確認のうえ、順次ご連絡します。"
+      content="PROC.Xへのお問い合わせはメールで承ります。業務の自動化についてお気軽にご相談ください。"
     />
+    <meta name="robots" content="noindex" />
+
+    <link rel="canonical" href="https://proc-x.github.io/thanks.html" />
+    <link rel="icon" href="images/logo.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;500;700&family=Bebas+Neue&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles/site.css" />
-    <script>
-      (function () {
-        try {
-          var t = localStorage.getItem('theme');
-          if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
-          else if (window.matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.setAttribute('data-theme', 'dark');
-          var l = localStorage.getItem('lang');
-          if (l === 'en') { document.documentElement.setAttribute('data-lang', 'en'); document.documentElement.lang = 'en'; }
-        } catch (_) {}
-      })();
-    </script>
+    <link rel="stylesheet" href="styles/site.css?v=20260905" />
+    <script src="scripts/main.js?v=20260905" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">本文へ移動</a>
-
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="/" aria-label="PROC.X トップへ">
-          <img src="images/logo.png" alt="PROC.X" />
-        </a>
-
-        <div class="header-controls">
-          <button class="ctrl-btn" id="theme-toggle" aria-label="ダークモード切替">
-            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round" width="17" height="17">
-              <circle cx="12" cy="12" r="5"/>
-              <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-              <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-            </svg>
-            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round" width="17" height="17">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-            </svg>
-          </button>
-          <button class="ctrl-btn" id="lang-toggle" aria-label="Switch language / 言語切替">
-            <span class="ja">EN</span><span class="en">JA</span>
-          </button>
-        </div>
+        <a class="brand" href="index.html" aria-label="PROC.X トップへ"
+          ><img
+            src="images/logo.png"
+            alt="PROC.X"
+            width="386"
+            height="101" /></a
+        ><span class="brand-caption">中小企業のための業務自動化</span
+        ><button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          メニュー
+        </button>
+        <nav class="site-nav" id="site-nav" aria-label="メインナビゲーション">
+          <a href="index.html#philosophy">私たちの考え方</a
+          ><a href="index.html#examples">自動化できること</a
+          ><a href="index.html#approach">進め方</a
+          ><a href="company.html">会社概要</a
+          ><a class="button button-small" href="index.html#contact"
+            >相談する <span aria-hidden="true">↗</span></a
+          >
+        </nav>
       </div>
     </header>
-
-    <main id="main">
-      <section class="section">
-        <div class="container narrow">
-          <p class="section-eyebrow">
-            <span class="ja">お問い合わせ受付</span>
-            <span class="en">Contact Received</span>
-          </p>
-          <h1>
-            <span class="ja">お問い合わせを受け付けました</span>
-            <span class="en">Thanks for contacting us</span>
-          </h1>
-          <p class="section-lead">
-            <span class="ja">内容を確認のうえ、順次ご連絡します。通常は数営業日以内に返信します。</span>
-            <span class="en">We have received your message and will review it shortly. We usually reply within a few business days.</span>
-          </p>
-          <p style="margin-top: 24px;">
-            <a class="btn btn-primary" href="/">
-              <span class="ja">トップへ戻る</span>
-              <span class="en">Back to Home</span>
-            </a>
-          </p>
-        </div>
-      </section>
+    <main id="main" class="simple-page">
+      <div class="container">
+        <p class="eyebrow">CONTACT INFORMATION</p>
+        <h1>お問い合わせは、メールで。</h1>
+        <p>
+          現在、ご相談はメールで承っています。このページの表示だけでは、お問い合わせは送信されません。
+        </p>
+        <p>
+          会社名・お名前・ご相談内容を、<a href="mailto:support@proc-x.co.jp"
+            >support@proc-x.co.jp</a
+          >
+          へお送りください。すでにメールをお送りいただいている場合は、重ねてお送りいただく必要はありません。
+        </p>
+        <a class="button" href="index.html#contact"
+          >お問い合わせ先を見る <span aria-hidden="true">↗</span></a
+        >
+      </div>
     </main>
-
     <footer class="site-footer">
-      <div class="container footer-inner">
-        <small>&copy; 2026 PROC.X Inc.</small>
+      <div class="container footer-top">
+        <div>
+          <a class="brand" href="index.html" aria-label="PROC.X トップへ"
+            ><img
+              src="images/logo.png"
+              alt="PROC.X"
+              width="386"
+              height="101"
+              loading="lazy"
+          /></a>
+          <p>仕事を減らす。その先を、自動化する。</p>
+        </div>
+        <div class="footer-links">
+          <a href="company.html">会社概要</a
+          ><a href="index.html#faq">よくあるご質問</a
+          ><a href="index.html#contact">お問い合わせ</a>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>株式会社PROC.X（プロックス）</span
+        ><small>© 2026 PROC.X Inc.</small
+        ><a href="index.html#main">ページの先頭へ ↑</a>
       </div>
     </footer>
-
-    <script src="scripts/main.js" defer></script>
   </body>
 </html>

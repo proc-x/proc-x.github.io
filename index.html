@@ -1,884 +1,563 @@
 <!doctype html>
-<html lang="ja" data-theme="light" data-lang="ja">
+<html lang="ja">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>PROC.X | マイクロエージェントから始める業務自動化</title>
+    <title>PROC.X｜仕事を減らす。その先を、自動化する。</title>
     <meta
       name="description"
-      content="一つの処理から始め、マイクロエージェントを積み重ねて業務全体を自動化。Human in the Loop で業務事故を防ぎながら、SaaS API・FaaS・インフラを活用した段階的な自動化を支援します。"
+      content="日本の中小企業の業務自動化を支援するPROC.X。まず不要な仕事をなくし、残る仕事を自動化。既存ツールからPython・C#、AIエージェントまで、現場に合う方法で実現します。"
     />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="PROC.X | マイクロエージェントから始める業務自動化" />
+    <meta
+      property="og:title"
+      content="PROC.X｜仕事を減らす。その先を、自動化する。"
+    />
     <meta
       property="og:description"
-      content="一つの処理から始めて、つなげていく。エージェント型AI化を段階的に進めるパートナー。"
+      content="転記、集計、書類作成。毎日の「またこの作業」を、なくすところから。中小企業のための業務自動化。"
     />
-    <meta property="og:image" content="images/logo.png" />
-
+    <meta property="og:url" content="https://proc-x.github.io/" />
+    <meta
+      property="og:image"
+      content="https://proc-x.github.io/images/logo.png"
+    />
+    <link rel="canonical" href="https://proc-x.github.io/" />
+    <link rel="icon" href="images/logo.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;500;700&family=Bebas+Neue&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles/site.css" />
-    <script>
-      (function () {
-        try {
-          var t = localStorage.getItem('theme');
-          if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
-          else if (window.matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.setAttribute('data-theme', 'dark');
-          var l = localStorage.getItem('lang');
-          if (l === 'en') { document.documentElement.setAttribute('data-lang', 'en'); document.documentElement.lang = 'en'; }
-        } catch (_) {}
-      })();
-    </script>
+    <link rel="stylesheet" href="styles/site.css?v=20260905" />
+    <script src="scripts/main.js?v=20260905" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">本文へ移動</a>
-
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="/" aria-label="PROC.X トップへ">
-          <img src="images/logo.png" alt="PROC.X" />
-        </a>
-
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">MENU</button>
-
-        <nav class="site-nav" id="site-nav" aria-label="主なセクション">
-          <a href="#concept" data-nav-target="concept">
-            <span class="ja">概念</span><span class="en">Concept</span>
-          </a>
-          <a href="#case-study" data-nav-target="case-study">
-            <span class="ja">事例</span><span class="en">Case Study</span>
-          </a>
-          <a href="#approach" data-nav-target="approach">
-            <span class="ja">進め方</span><span class="en">Approach</span>
-          </a>
-          <a href="#faq" data-nav-target="faq">FAQ</a>
-          <a href="company.html"><span class="ja">会社概要</span><span class="en">Company Profile</span></a>
-          <a class="btn btn-primary" href="#contact" data-nav-target="contact">
-            <span class="ja">相談する</span><span class="en">Contact Us</span>
-          </a>
+        <a class="brand" href="index.html" aria-label="PROC.X トップへ"
+          ><img
+            src="images/logo.png"
+            alt="PROC.X"
+            width="386"
+            height="101" /></a
+        ><span class="brand-caption">中小企業のための業務自動化</span
+        ><button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          メニュー
+        </button>
+        <nav class="site-nav" id="site-nav" aria-label="メインナビゲーション">
+          <a href="#philosophy">私たちの考え方</a
+          ><a href="#examples">自動化できること</a><a href="#approach">進め方</a
+          ><a href="company.html">会社概要</a
+          ><a class="button button-small" href="#contact"
+            >相談する <span aria-hidden="true">↗</span></a
+          >
         </nav>
-
-        <div class="header-controls">
-          <button class="ctrl-btn" id="theme-toggle" aria-label="ダークモード切替">
-            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round" width="17" height="17">
-              <circle cx="12" cy="12" r="5"/>
-              <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-              <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-            </svg>
-            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round" width="17" height="17">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-            </svg>
-          </button>
-          <button class="ctrl-btn" id="lang-toggle" aria-label="Switch language / 言語切替">
-            <span class="ja">EN</span><span class="en">JA</span>
-          </button>
-        </div>
       </div>
     </header>
-
     <main id="main">
-
-      <!-- ========== HERO ========== -->
-      <section id="overview" class="hero" data-section="overview">
+      <section class="hero">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">Micro Agent Automation</p>
-            <h1>
-              <span class="ja">小さく始める<br>業務AI化</span>
-              <span class="en">Start Small.<br>Automate Work.</span>
-            </h1>
-            <p class="lead">
-              <span class="ja">全てを一気に変えるのではなく、まず一つの業務処理をマイクロエージェントに任せ、動作を確認しながら少しずつつなげていく。それがPROC.Xのアプローチです。</span>
-              <span class="en">We don't change everything at once. Start with one task, verify it works, then gradually connect agents into a complete automated workflow. That's the PROC.X approach.</span>
+            <p class="eyebrow">
+              <span class="status-dot" aria-hidden="true"></span> BUSINESS
+              AUTOMATION, REDEFINED.
+            </p>
+            <h1>仕事を減らす。<br />その先を、<br /><em>自動化する。</em></h1>
+            <p class="hero-lead">
+              転記、集計、書類作成。<br />毎日の「またこの作業」を、<br
+                class="mobile-break"
+              />なくすところから。
+            </p>
+            <p class="hero-description">
+              今あるツールも、プログラムも、AIも。<br />あなたの会社に合う方法で、<br
+                class="mobile-break"
+              />人が本来の仕事に向き合える時間をつくります。
             </p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#contact">
-                <span class="ja">まずは相談する</span>
-                <span class="en">Get Started</span>
-              </a>
-              <a class="btn" href="#case-study">
-                <span class="ja">事例を見る</span>
-                <span class="en">See Case Study</span>
-              </a>
+              <a class="button" href="#contact"
+                >業務の悩みを相談する <span aria-hidden="true">↗</span></a
+              ><a class="text-link" href="#examples"
+                >具体例を見る <span aria-hidden="true">↓</span></a
+              >
             </div>
-            <ul class="hero-badges">
-              <li><span class="ja">小さく始めて、つなげる</span><span class="en">Start small, connect later</span></li>
-              <li><span class="ja">Human in the Loop</span><span class="en">Human in the Loop</span></li>
-              <li><span class="ja">SaaS API・FaaS・インフラ</span><span class="en">SaaS API · FaaS · Infra</span></li>
-            </ul>
+            <p class="small-note">
+              「何から始めるか」が決まっていなくても大丈夫です。
+            </p>
           </div>
-
-          <div class="hero-agents-vis" aria-label="マイクロエージェントの概念図">
-            <div class="hero-panel-top">
-              <span class="panel-kicker">Live workflow map</span>
-              <span class="panel-status"><span></span>Ready</span>
+          <div class="hero-board" aria-label="受注業務の見直しイメージ">
+            <div class="board-top">
+              <span>いつもの仕事を、見直すと。</span
+              ><span class="board-index">01 / ORDER</span>
             </div>
-            <div class="agents-flow">
-              <div class="af-node af-agent">
-                <span class="af-icon">A1</span>
-                <span class="af-label ja">受信</span>
-                <span class="af-label en">Receive</span>
+            <div class="board-before">
+              <p class="board-label">これまでの受注業務</p>
+              <div class="task-line">
+                <span class="task-number">01</span
+                ><span>メールで注文を受け取る</span
+                ><span class="mini-label">手作業</span>
               </div>
-              <div class="af-connector"></div>
-              <div class="af-node af-agent">
-                <span class="af-icon">A2</span>
-                <span class="af-label ja">処理</span>
-                <span class="af-label en">Process</span>
+              <div class="task-line">
+                <span class="task-number">02</span
+                ><span>Excelの管理表に転記する</span
+                ><span class="mini-label">手作業</span>
               </div>
-              <div class="af-connector"></div>
-              <div class="af-node af-hitl">
-                <span class="af-icon">H</span>
-                <span class="af-label ja">確認</span>
-                <span class="af-label en">Review</span>
+              <div class="task-line">
+                <span class="task-number">03</span
+                ><span>同じ内容をシステムに入力</span
+                ><span class="mini-label">手作業</span>
               </div>
-              <div class="af-connector"></div>
-              <div class="af-node af-agent">
-                <span class="af-icon">A3</span>
-                <span class="af-label ja">実行</span>
-                <span class="af-label en">Execute</span>
+              <div class="task-line">
+                <span class="task-number">04</span
+                ><span>入力内容を確認して連絡</span
+                ><span class="mini-label">手作業</span>
               </div>
             </div>
-            <div class="hero-metric-grid" aria-label="自動化の進行指標">
-              <div>
-                <span class="metric-value">1</span>
-                <span class="metric-label ja">最初の処理</span>
-                <span class="metric-label en">First process</span>
+            <div class="board-divider">
+              <span>業務の目的から、組み直す</span
+              ><span aria-hidden="true">↓</span>
+            </div>
+            <div class="board-after">
+              <p class="board-label">これからの受注業務</p>
+              <div class="result-row eliminated">
+                <span class="result-tag">なくす</span>
+                <div>
+                  <strong>二重管理のための転記</strong>
+                  <p>情報を一か所に集め、管理表を廃止。</p>
+                </div>
               </div>
-              <div>
-                <span class="metric-value">2-4w</span>
-                <span class="metric-label ja">初期導入目安</span>
-                <span class="metric-label en">Initial build</span>
+              <div class="result-row automated">
+                <span class="result-tag">自動化</span>
+                <div>
+                  <strong>注文内容の登録・通知</strong>
+                  <p>必要な情報は、仕組みがつなぐ。</p>
+                </div>
               </div>
-              <div>
-                <span class="metric-value">HITL</span>
-                <span class="metric-label ja">重要箇所で確認</span>
-                <span class="metric-label en">Human review</span>
+              <div class="result-row human">
+                <span class="result-tag">人の仕事</span>
+                <div>
+                  <strong>例外の確認と、お客様への対応</strong>
+                  <p>人の判断が必要なところに集中。</p>
+                </div>
               </div>
             </div>
-            <p class="agents-note">
-              <span class="ja">小さな担当範囲を連結し、重要な判断だけ人が止めて確認します。</span>
-              <span class="en">Small responsibilities connect into one workflow, with humans reviewing critical decisions.</span>
+            <div class="board-bottom">
+              <span class="status-dot" aria-hidden="true"></span
+              ><strong>作業のための時間を、お客様のための時間へ。</strong>
+            </div>
+            <p class="board-note">
+              業務改善のイメージです。実際の設計は現場に合わせて行います。
             </p>
           </div>
         </div>
-      </section>
-
-
-      <!-- ========== CONCEPT ========== -->
-      <section id="concept" class="section section-alt" data-section="concept">
-        <div class="container">
-          <p class="section-eyebrow">
-            <span class="ja">言葉の定義</span>
-            <span class="en">Key Definitions</span>
-          </p>
-          <h2>
-            <span class="ja">AIエージェントとマイクロエージェント</span>
-            <span class="en">AI Agents and Micro Agents</span>
-          </h2>
-          <p class="section-lead">
-            <span class="ja">PROC.Xでは、AIエージェントを「判断しながら処理を進めるソフトウェア」、マイクロエージェントを「役割を一つに絞った小さなAIエージェント」として定義しています。巨大な仕組みを一気に作るのではなく、小さく作って検証しながらつなげていきます。</span>
-            <span class="en">At PROC.X, an AI agent is software that makes decisions while moving work forward, and a micro agent is a small AI agent focused on a single responsibility. Rather than building one massive system, we build small, verifiable pieces and connect them over time.</span>
-          </p>
-
-          <div class="definition-grid">
-            <article class="concept-card reveal">
-              <div class="concept-icon">🧠</div>
-              <h3><span class="ja">AIエージェント</span><span class="en">AI Agent</span></h3>
-              <p>
-                <span class="ja">入力内容や業務ルール、外部ツールの結果を見ながら、次に何をするかを判断して処理を進めるソフトウェアです。生成AIを使う場合もあれば、既存システムやルールベースの処理と組み合わせる場合もあります。</span>
-                <span class="en">Software that decides what to do next based on inputs, business rules, and external tools. It may use generative AI, or combine it with existing systems and rule-based logic.</span>
-              </p>
-            </article>
-
-            <article class="concept-card reveal">
-              <div class="concept-icon">🧩</div>
-              <h3><span class="ja">マイクロエージェント</span><span class="en">Micro Agent</span></h3>
-              <p>
-                <span class="ja">AIエージェントの中でも、「見積書を作る」「メールを分類する」「台帳を更新する」のように、一つの役割だけを担当する小さな単位です。責任範囲が明確なので、検証・改善・置換がしやすくなります。</span>
-                <span class="en">A smaller unit of an AI agent that handles one responsibility only, such as drafting a quote, classifying email, or updating a ledger. Clear scope makes it easier to verify, improve, and replace.</span>
-              </p>
-            </article>
-          </div>
-
-          <div class="concept-grid">
-            <article class="concept-card reveal">
-              <div class="concept-icon">🎯</div>
-              <h3><span class="ja">一つのことだけを担当する</span><span class="en">One Responsibility Each</span></h3>
-              <p>
-                <span class="ja">「見積書を作る」「メールを送る」「台帳を更新する」など、一つの処理だけに特化します。責任が明確なので、動作確認が容易で、問題が起きても影響範囲が限定されます。</span>
-                <span class="en">Each agent focuses on just one thing — drafting a quote, sending an email, or updating a ledger. Clear responsibility makes testing easy and limits the blast radius if something goes wrong.</span>
-              </p>
-            </article>
-
-            <article class="concept-card reveal">
-              <div class="concept-icon">🔗</div>
-              <h3><span class="ja">つなげることで大きくなる</span><span class="en">Connect to Scale</span></h3>
-              <p>
-                <span class="ja">単独では小さなエージェントも、つなげることで複数ステップを自動化できます。最初は1つ、確認しながら少しずつ10個・20個と広げていきます。</span>
-                <span class="en">A single agent is small, but connected agents can automate multi-step workflows. Start with one, expand to 10 or 20 as confidence grows.</span>
-              </p>
-            </article>
-
-            <article class="concept-card reveal">
-              <div class="concept-icon">🛡️</div>
-              <h3><span class="ja">要所で人間が確認する</span><span class="en">Human Review at Key Points</span></h3>
-              <p>
-                <span class="ja">重要な判断が必要な場面では、エージェントは処理を止めて人間に確認します。これがHuman in the Loopです。業務事故を防ぎながら自動化を進められます。</span>
-                <span class="en">At critical junctures, the agent pauses and requests human review. This is Human in the Loop — preventing errors while still advancing automation.</span>
-              </p>
-            </article>
-          </div>
+        <div class="container hero-bottom">
+          <span>LESS ROUTINE. MORE POSSIBILITY.</span
+          ><span>業務を見直す / 今あるものを活かす / 小さく始める</span>
         </div>
       </section>
-
-
-      <!-- ========== SUPPORT AREAS ========== -->
-      <section id="support-areas" class="section" data-section="support-areas">
+      <section id="philosophy" class="section philosophy">
         <div class="container">
-          <p class="section-eyebrow">
-            <span class="ja">私たちにお手伝いできること</span>
-            <span class="en">How We Can Help</span>
-          </p>
-          <h2>
-            <span class="ja">新規開発だけでなく、置き換えと改善も支援します</span>
-            <span class="en">Support for New Builds, Replacements, and Improvements</span>
-          </h2>
-          <p class="section-lead">
-            <span class="ja">新しくエージェントを作るだけでなく、すでに動いている自動化やエージェントを見直し、どこを残し、どこを置き換え、どう育てるかまで含めて支援します。まず1体から始める相談も、既存構成の再設計も対応できます。</span>
-            <span class="en">We do more than build new agents. We also review existing automations and agents, decide what to keep, what to replace, and how to improve them over time. That includes starting with a single agent or redesigning an existing setup.</span>
-          </p>
-
-          <div class="tech-grid">
-            <article class="tech-card reveal">
-              <div class="tech-icon">♻️</div>
-              <h3><span class="ja">既存RPAの置換え・計画立案</span><span class="en">RPA Replacement Planning</span></h3>
-              <p>
-                <span class="ja">すでに使っているRPAや業務自動化ツールを前提に、どの処理をそのまま残し、どこを置き換えるべきかを整理します。段階的な移行計画や、先に効果が出る部分からの置換え提案も行います。</span>
-                <span class="en">We assess your existing RPA and automation tools, determine what should stay and what should be replaced, and propose phased migration plans that start where impact is highest.</span>
+          <div class="section-intro">
+            <p class="eyebrow">01 — OUR PHILOSOPHY</p>
+            <div>
+              <h2>
+                いちばん効果的な効率化は、<br />その仕事を、<em
+                  >なくすこと。</em
+                >
+              </h2>
+              <p class="section-lead">
+                使われていない報告書。二重に持っている管理表。<br />「前からそうしている」だけの作業。<br />私たちはまず、その仕事が本当に必要かを一緒に考えます。
               </p>
+            </div>
+          </div>
+          <div class="principle-grid">
+            <article class="principle">
+              <div class="principle-top">
+                <span>STEP 01</span><span>ELIMINATE</span>
+              </div>
+              <h3>なくす<span>。</span></h3>
+              <p>
+                目的に立ち返り、不要なタスクを廃止。自動化する作業そのものを減らします。
+              </p>
+              <div class="principle-example">
+                たとえば <strong>読まれていない週報をやめる</strong>
+              </div>
             </article>
-
-            <article class="tech-card reveal">
-              <div class="tech-icon">🐍</div>
-              <h3><span class="ja">Pythonなどへの再実装</span><span class="en">Rebuild in Python or Similar Languages</span></h3>
+            <article class="principle">
+              <div class="principle-top">
+                <span>STEP 02</span><span>SIMPLIFY</span>
+              </div>
+              <h3>整える<span>。</span></h3>
               <p>
-                <span class="ja">RPAをPythonなどの汎用プログラミング言語へ置き換えると、特定ツールへの依存を減らしやすくなります。生成AIやエージェント型AIとも連携しやすく、ライセンス費用や保守費用を削減できる可能性があります。</span>
-                <span class="en">Rebuilding RPA in a general-purpose language such as Python reduces tool lock-in. It also integrates more naturally with generative AI and agent-based AI, and may reduce licensing and maintenance costs.</span>
+                必要な仕事は、情報の置き場所や手順を整理。重複や行ったり来たりを減らします。
               </p>
+              <div class="principle-example">
+                たとえば <strong>部署ごとの管理表を一本化</strong>
+              </div>
             </article>
-
-            <article class="tech-card reveal">
-              <div class="tech-icon">🚀</div>
-              <h3><span class="ja">まず1体のエージェント開発</span><span class="en">Build the First Agent</span></h3>
+            <article class="principle principle-blue">
+              <div class="principle-top">
+                <span>STEP 03</span><span>AUTOMATE</span>
+              </div>
+              <h3>自動化する<span>。</span></h3>
               <p>
-                <span class="ja">いきなり大規模導入を前提にせず、まずは1体のエージェントを一緒に設計・実装します。対象業務の切り出し、Human in the Loop、運用方法まで含めて最初の一歩を形にします。</span>
-                <span class="en">We can start by designing and implementing a single agent instead of assuming a large rollout from day one. That includes process selection, Human in the Loop design, and practical operations.</span>
+                残った繰り返し作業を、仕組みに任せる。現場で無理なく使い続けられる形にします。
               </p>
-            </article>
-
-            <article class="tech-card reveal">
-              <div class="tech-icon">🗂️</div>
-              <h3><span class="ja">社内データの選定・最適化</span><span class="en">Prepare Internal Knowledge for Agents</span></h3>
-              <p>
-                <span class="ja">企業に蓄積された資料、マニュアル、過去案件、成果物などの中から、AIエージェントに必要なデータを選び、使いやすい形へ整理・最適化します。RAGに載せる前提整理や、検索しやすい粒度への分割も支援します。</span>
-                <span class="en">We help select and optimize the right internal materials, manuals, past project records, and deliverables for AI agents. That includes preparing data for RAG and restructuring it into units that are easier to retrieve and use.</span>
-              </p>
-            </article>
-
-            <article class="tech-card reveal">
-              <div class="tech-icon">🌱</div>
-              <h3><span class="ja">既存エージェントの育成</span><span class="en">Improve Existing Agents</span></h3>
-              <p>
-                <span class="ja">すでに動いているエージェントに対しても、RAG設定、プロンプト調整、評価観点の整理、運用監視の見直しを行えます。「作ったが精度が安定しない」「現場で使いづらい」といった段階から改善できます。</span>
-                <span class="en">We also improve agents that are already running by refining RAG settings, prompts, evaluation criteria, and operational monitoring. This helps when an agent exists but quality or usability is still unstable.</span>
-              </p>
+              <div class="principle-example">
+                たとえば <strong>入力した情報から帳票を作成</strong>
+              </div>
             </article>
           </div>
+          <p class="philosophy-note">
+            自動化することよりも、<strong>仕事が楽になること。</strong>それが、PROC.Xの出発点です。
+          </p>
         </div>
       </section>
-
-
-      <!-- ========== CASE STUDY ========== -->
-      <section id="case-study" class="section" data-section="case-study">
+      <section id="examples" class="section examples">
         <div class="container">
-          <p class="section-eyebrow">
-            <span class="ja">業務自動化の事例</span>
-            <span class="en">Automation Case Study</span>
-          </p>
-          <h2>
-            <span class="ja">受注から契約書提出まで</span>
-            <span class="en">From Order to Contract Submission</span>
-          </h2>
-          <p class="section-lead">
-            <span class="ja">実際の業務フローを例に、どのステップをエージェントに置き換えられるかを見てみましょう。「エージェント化後」に切り替えると、どのステップが自動化され、どこで人間が確認するかが分かります。</span>
-            <span class="en">Using a real business flow, let's see which steps can be replaced by agents. Switch to "With Agents" to see which steps are automated and where humans review.</span>
-          </p>
-
-          <div class="flow-toggle-wrap">
-            <button class="flow-toggle-btn active" id="view-before" data-view="before">
-              <span class="ja">現状の業務フロー</span>
-              <span class="en">Current Process</span>
-            </button>
-            <button class="flow-toggle-btn" id="view-after" data-view="after">
-              <span class="ja">エージェント化後</span>
-              <span class="en">With Agents</span>
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">02 — WHAT CHANGES</p>
+              <h2>その「毎回やっている」、<br />こう変えられます。</h2>
+            </div>
+            <p>
+              あなたの職場にも、似た仕事はありませんか。<br />身近な業務で、改善のイメージをご紹介します。
+            </p>
+          </div>
+          <div
+            class="example-picker"
+            role="group"
+            aria-label="業務の具体例を選ぶ"
+            hidden
+          >
+            <button
+              type="button"
+              data-example="orders"
+              aria-pressed="true"
+              aria-controls="example-panel"
+            >
+              01　受注・転記</button
+            ><button
+              type="button"
+              data-example="invoices"
+              aria-pressed="false"
+              aria-controls="example-panel"
+            >
+              02　集計・請求</button
+            ><button
+              type="button"
+              data-example="questions"
+              aria-pressed="false"
+              aria-controls="example-panel"
+            >
+              03　社内問い合わせ
             </button>
           </div>
-
-          <div class="flow-demo" id="flow-demo" data-view="before">
-
-            <div class="flow-step" data-role="agent" data-step="1">
-              <div class="flow-step-inner">
-                <span class="flow-num">01</span>
-                <div class="flow-body">
-                  <strong class="flow-name">
-                    <span class="ja">見積依頼の受信</span>
-                    <span class="en">Receive Quote Request</span>
-                  </strong>
-                  <p class="flow-desc">
-                    <span class="ja">メール・Webフォームからの依頼を自動検知し、案件台帳に登録します</span>
-                    <span class="en">Auto-detects requests from email/web forms and registers them in the project ledger</span>
-                  </p>
-                </div>
-                <div class="flow-badge-wrap">
-                  <span class="flow-badge badge-manual"><span class="ja">手作業</span><span class="en">Manual</span></span>
-                  <span class="flow-badge badge-agent"><span class="ja">🤖 エージェント</span><span class="en">🤖 Agent</span></span>
-                </div>
-              </div>
+          <div
+            id="example-panel"
+            class="example-panel"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            <div class="example-context">
+              <span class="example-category" id="example-category"
+                >営業事務・受発注</span
+              >
+              <h3 id="example-title">
+                同じ注文内容を、<br />何度も入力している。
+              </h3>
+              <p id="example-description">
+                メールの注文内容をExcelに転記し、販売管理システムにも入力。最後は担当者へメールで連絡。
+              </p>
+              <p class="example-tools" id="example-tools">
+                活用するものの例：メール / Excel / 販売管理システム
+              </p>
             </div>
-
-            <div class="flow-step" data-role="agent" data-step="2">
-              <div class="flow-step-inner">
-                <span class="flow-num">02</span>
-                <div class="flow-body">
-                  <strong class="flow-name">
-                    <span class="ja">見積書の自動作成</span>
-                    <span class="en">Auto-Create Quote</span>
-                  </strong>
-                  <p class="flow-desc">
-                    <span class="ja">過去案件・料金表を参照し、見積書ドラフトを自動生成します</span>
-                    <span class="en">References past projects and rate cards to auto-generate a quote draft</span>
-                  </p>
-                </div>
-                <div class="flow-badge-wrap">
-                  <span class="flow-badge badge-manual"><span class="ja">手作業</span><span class="en">Manual</span></span>
-                  <span class="flow-badge badge-agent"><span class="ja">🤖 エージェント</span><span class="en">🤖 Agent</span></span>
-                </div>
+            <div class="example-change">
+              <div
+                class="example-view-switch"
+                role="group"
+                aria-label="改善前後の表示"
+                hidden
+              >
+                <button
+                  type="button"
+                  data-view="before"
+                  aria-pressed="false"
+                  aria-controls="example-steps"
+                >
+                  改善前</button
+                ><button
+                  type="button"
+                  data-view="after"
+                  aria-pressed="true"
+                  aria-controls="example-steps"
+                >
+                  改善後
+                </button>
               </div>
+              <p class="example-state" id="example-state">
+                見直すと、こう変わる
+              </p>
+              <ol id="example-steps" class="example-steps">
+                <li>
+                  <span class="step-tag tag-remove">なくす</span>
+                  <div>
+                    <strong>Excelへの二重入力を廃止</strong>
+                    <p>販売管理システムを情報の参照先に統一。</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="step-tag tag-auto">自動化</span>
+                  <div>
+                    <strong>注文情報の登録と担当者への通知</strong>
+                    <p>注文の形式に合わせて、連携や読み取りを設計。</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="step-tag tag-human">人が判断</span>
+                  <div>
+                    <strong>内容の不備や特別な条件を確認</strong>
+                    <p>通常の処理は仕組みに任せ、例外に対応。</p>
+                  </div>
+                </li>
+              </ol>
+              <p class="example-outcome" id="example-outcome">
+                何度も入力する仕事から、注文を確かめる仕事へ。
+              </p>
             </div>
-
-            <div class="flow-step" data-role="hitl" data-step="3">
-              <div class="flow-step-inner">
-                <span class="flow-num">03</span>
-                <div class="flow-body">
-                  <strong class="flow-name">
-                    <span class="ja">見積内容の確認・承認</span>
-                    <span class="en">Review &amp; Approve Quote</span>
-                  </strong>
-                  <p class="flow-desc">
-                    <span class="ja">担当者が金額・条件を確認して承認します。この判断は人間が行います</span>
-                    <span class="en">Staff reviews price and terms, then approves. This judgment remains with humans</span>
-                  </p>
-                </div>
-                <div class="flow-badge-wrap">
-                  <span class="flow-badge badge-manual"><span class="ja">手作業</span><span class="en">Manual</span></span>
-                  <span class="flow-badge badge-hitl"><span class="ja">👤 Human in the Loop</span><span class="en">👤 Human in the Loop</span></span>
-                </div>
-              </div>
-            </div>
-
-            <div class="flow-step" data-role="agent" data-step="4">
-              <div class="flow-step-inner">
-                <span class="flow-num">04</span>
-                <div class="flow-body">
-                  <strong class="flow-name">
-                    <span class="ja">見積書の自動送付</span>
-                    <span class="en">Auto-Send Quote</span>
-                  </strong>
-                  <p class="flow-desc">
-                    <span class="ja">承認後、見積書を自動でメール送付し、送付履歴を記録します</span>
-                    <span class="en">After approval, auto-sends the quote by email and logs the delivery record</span>
-                  </p>
-                </div>
-                <div class="flow-badge-wrap">
-                  <span class="flow-badge badge-manual"><span class="ja">手作業</span><span class="en">Manual</span></span>
-                  <span class="flow-badge badge-agent"><span class="ja">🤖 エージェント</span><span class="en">🤖 Agent</span></span>
-                </div>
-              </div>
-            </div>
-
-            <div class="flow-step" data-role="agent" data-step="5">
-              <div class="flow-step-inner">
-                <span class="flow-num">05</span>
-                <div class="flow-body">
-                  <strong class="flow-name">
-                    <span class="ja">注文書の受領・台帳更新</span>
-                    <span class="en">Receive Order &amp; Update Ledger</span>
-                  </strong>
-                  <p class="flow-desc">
-                    <span class="ja">注文書の受信を自動検知し、受注台帳をリアルタイムで更新します</span>
-                    <span class="en">Auto-detects incoming orders and updates the order ledger in real time</span>
-                  </p>
-                </div>
-                <div class="flow-badge-wrap">
-                  <span class="flow-badge badge-manual"><span class="ja">手作業</span><span class="en">Manual</span></span>
-                  <span class="flow-badge badge-agent"><span class="ja">🤖 エージェント</span><span class="en">🤖 Agent</span></span>
-                </div>
-              </div>
-            </div>
-
-            <div class="flow-step" data-role="agent" data-step="6">
-              <div class="flow-step-inner">
-                <span class="flow-num">06</span>
-                <div class="flow-body">
-                  <strong class="flow-name">
-                    <span class="ja">契約書ドラフトの自動作成</span>
-                    <span class="en">Auto-Draft Contract</span>
-                  </strong>
-                  <p class="flow-desc">
-                    <span class="ja">受注内容に基づき、契約書テンプレートからドラフトを自動生成します</span>
-                    <span class="en">Auto-generates a contract draft from templates based on the order details</span>
-                  </p>
-                </div>
-                <div class="flow-badge-wrap">
-                  <span class="flow-badge badge-manual"><span class="ja">手作業</span><span class="en">Manual</span></span>
-                  <span class="flow-badge badge-agent"><span class="ja">🤖 エージェント</span><span class="en">🤖 Agent</span></span>
-                </div>
-              </div>
-            </div>
-
-            <div class="flow-step" data-role="hitl" data-step="7">
-              <div class="flow-step-inner">
-                <span class="flow-num">07</span>
-                <div class="flow-body">
-                  <strong class="flow-name">
-                    <span class="ja">契約書の最終確認・承認</span>
-                    <span class="en">Final Review &amp; Approval</span>
-                  </strong>
-                  <p class="flow-desc">
-                    <span class="ja">法務・責任者が契約書を最終確認します。変更があれば差し戻しも可能です</span>
-                    <span class="en">Legal or manager reviews the contract. Can send back for revision if needed</span>
-                  </p>
-                </div>
-                <div class="flow-badge-wrap">
-                  <span class="flow-badge badge-manual"><span class="ja">手作業</span><span class="en">Manual</span></span>
-                  <span class="flow-badge badge-hitl"><span class="ja">👤 Human in the Loop</span><span class="en">👤 Human in the Loop</span></span>
-                </div>
-              </div>
-            </div>
-
-            <div class="flow-step" data-role="agent" data-step="8">
-              <div class="flow-step-inner">
-                <span class="flow-num">08</span>
-                <div class="flow-body">
-                  <strong class="flow-name">
-                    <span class="ja">契約書の自動送付</span>
-                    <span class="en">Auto-Send Contract</span>
-                  </strong>
-                  <p class="flow-desc">
-                    <span class="ja">承認済み契約書を電子署名ツール経由で自動送付します</span>
-                    <span class="en">Automatically sends the approved contract via e-signature tool</span>
-                  </p>
-                </div>
-                <div class="flow-badge-wrap">
-                  <span class="flow-badge badge-manual"><span class="ja">手作業</span><span class="en">Manual</span></span>
-                  <span class="flow-badge badge-agent"><span class="ja">🤖 エージェント</span><span class="en">🤖 Agent</span></span>
-                </div>
-              </div>
-            </div>
-
-            <div class="flow-step" data-role="agent" data-step="9">
-              <div class="flow-step-inner">
-                <span class="flow-num">09</span>
-                <div class="flow-body">
-                  <strong class="flow-name">
-                    <span class="ja">署名完了の自動監視</span>
-                    <span class="en">Monitor Signature Completion</span>
-                  </strong>
-                  <p class="flow-desc">
-                    <span class="ja">署名状況を自動追跡し、完了・リマインダーを関係者へ自動通知します</span>
-                    <span class="en">Auto-tracks signing status and sends completion/reminder notifications to stakeholders</span>
-                  </p>
-                </div>
-                <div class="flow-badge-wrap">
-                  <span class="flow-badge badge-manual"><span class="ja">手作業</span><span class="en">Manual</span></span>
-                  <span class="flow-badge badge-agent"><span class="ja">🤖 エージェント</span><span class="en">🤖 Agent</span></span>
-                </div>
-              </div>
-            </div>
-
-            <div class="flow-step" data-role="agent" data-step="10">
-              <div class="flow-step-inner">
-                <span class="flow-num">10</span>
-                <div class="flow-body">
-                  <strong class="flow-name">
-                    <span class="ja">契約書の自動保管・台帳登録</span>
-                    <span class="en">Store &amp; Register Contract</span>
-                  </strong>
-                  <p class="flow-desc">
-                    <span class="ja">署名済み契約書を指定ストレージに保管し、台帳の最終更新を行います</span>
-                    <span class="en">Stores the signed contract in designated storage and performs the final ledger update</span>
-                  </p>
-                </div>
-                <div class="flow-badge-wrap">
-                  <span class="flow-badge badge-manual"><span class="ja">手作業</span><span class="en">Manual</span></span>
-                  <span class="flow-badge badge-agent"><span class="ja">🤖 エージェント</span><span class="en">🤖 Agent</span></span>
-                </div>
-              </div>
-            </div>
-
-          </div><!-- /flow-demo -->
-
-          <div class="flow-summary" id="flow-summary" aria-live="polite">
-            <div class="flow-summary-inner">
-              <div class="flow-stat">
-                <span class="flow-stat-num">8<small>/10</small></span>
-                <span class="flow-stat-label">
-                  <span class="ja">ステップをエージェントが担当</span>
-                  <span class="en">Steps handled by agents</span>
-                </span>
-              </div>
-              <div class="flow-stat">
-                <span class="flow-stat-num">2</span>
-                <span class="flow-stat-label">
-                  <span class="ja">Human in the Loop ゲート</span>
-                  <span class="en">Human in the Loop gates</span>
-                </span>
-              </div>
-              <div class="flow-stat">
-                <span class="flow-stat-num">0</span>
-                <span class="flow-stat-label">
-                  <span class="ja">システム移行・置き換え不要</span>
-                  <span class="en">System migrations or replacements required</span>
-                </span>
-              </div>
-            </div>
-            <p class="flow-summary-note">
-              <span class="ja">✓ 既存のメール・SaaS・ストレージをそのまま活用します</span>
-              <span class="en">✓ Uses your existing email, SaaS tools, and storage as-is</span>
-            </p>
           </div>
-
+          <p class="small-note">
+            ※
+            上記は想定例であり、導入実績や効果の保証ではありません。廃止できる作業や連携方法は、運用・権限・システムの仕様を確認して決めます。
+          </p>
+          <noscript
+            ><p class="small-note">
+              ほかにも、売上集計・請求書作成の自動化や、社内資料を参照して回答案をつくるAIエージェントに対応します。
+            </p></noscript
+          >
         </div>
       </section>
-
-
-      <!-- ========== APPROACH ========== -->
-      <section id="approach" class="section section-alt" data-section="approach">
+      <section class="section capabilities" id="capabilities">
         <div class="container">
-          <p class="section-eyebrow">
-            <span class="ja">段階的な拡張</span>
-            <span class="en">Gradual Expansion</span>
-          </p>
-          <h2>
-            <span class="ja">一つから始めて、社内全体へ</span>
-            <span class="en">From One Process to Company-Wide</span>
-          </h2>
-          <p class="section-lead">
-            <span class="ja">一度に全部を自動化しようとする必要はありません。まず一つの処理から始め、確認しながら徐々に広げていきます。成功体験を積み重ねながら、社内のエージェント化を拡張していくのが私たちのやり方です。</span>
-            <span class="en">You don't need to automate everything at once. Start with one process, verify it works, then expand. We build on each success as we roll out agents across your organization.</span>
-          </p>
-
-          <div class="phases-grid">
-            <article class="phase-card reveal">
-              <div class="phase-num">Phase 1</div>
-              <h3><span class="ja">まず一つをエージェント化</span><span class="en">Automate One Process</span></h3>
-              <p>
-                <span class="ja">最も繰り返しが多い、または時間のかかる処理を一つ選んで始めます。動作を確認しながら、チームが慣れるまでゆっくり進めます。</span>
-                <span class="en">Pick the most repetitive or time-consuming process and start there. Verify carefully and let the team get comfortable before moving forward.</span>
-              </p>
-              <ul class="phase-list">
-                <li><span class="ja">対象処理の選定と業務観察</span><span class="en">Process selection and observation</span></li>
-                <li><span class="ja">マイクロエージェントの実装</span><span class="en">Implement the micro agent</span></li>
-                <li><span class="ja">Human in the Loop の設計</span><span class="en">Design Human in the Loop gates</span></li>
-              </ul>
-            </article>
-
-            <article class="phase-card reveal">
-              <div class="phase-num">Phase 2</div>
-              <h3><span class="ja">処理をつなげてフローを作る</span><span class="en">Connect Into a Workflow</span></h3>
-              <p>
-                <span class="ja">最初のエージェントが安定したら、前後の処理も自動化してつなげます。SaaS APIやFaaSスクリプトで既存ツールと連携します。</span>
-                <span class="en">Once the first agent is stable, automate surrounding steps and connect them. Integrate with existing tools via SaaS APIs and FaaS scripts.</span>
-              </p>
-              <ul class="phase-list">
-                <li><span class="ja">SaaS API・FaaS連携の実装</span><span class="en">SaaS API &amp; FaaS integration</span></li>
-                <li><span class="ja">エージェント間の連携設計</span><span class="en">Agent-to-agent flow design</span></li>
-                <li><span class="ja">承認ゲートの最適化</span><span class="en">Optimize approval gates</span></li>
-              </ul>
-            </article>
-
-            <article class="phase-card reveal">
-              <div class="phase-num">Phase 3</div>
-              <h3><span class="ja">社内全体に展開する</span><span class="en">Scale Across the Company</span></h3>
-              <p>
-                <span class="ja">成功したフローを他の業務にも適用し、部門をまたいで連携させます。設計ルールが統一されているため、エージェントが増えても管理できます。</span>
-                <span class="en">Apply the proven approach to other business areas and connect across departments. Consistent design rules keep things manageable as agents multiply.</span>
-              </p>
-              <ul class="phase-list">
-                <li><span class="ja">複数業務への横展開</span><span class="en">Expand to multiple processes</span></li>
-                <li><span class="ja">部門横断の連携フロー</span><span class="en">Cross-department workflows</span></li>
-                <li><span class="ja">運用監視・継続改善</span><span class="en">Monitoring and continuous improvement</span></li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-
-      <!-- ========== HITL ========== -->
-      <section id="hitl" class="section" data-section="hitl">
-        <div class="container hitl-container">
-          <div class="hitl-text">
-            <p class="section-eyebrow">
-              <span class="ja">業務事故を防ぐ仕組み</span>
-              <span class="en">Preventing Business Errors</span>
-            </p>
-            <h2>Human in the Loop</h2>
-            <p class="section-lead">
-              <span class="ja">完全自動化は目的ではありません。「エージェントに任せる処理」と「人間が判断すべき場面」を明確に分けることが、安全な自動化の核心です。</span>
-              <span class="en">Full automation isn't the goal. Clearly separating what agents handle from what requires human judgment is the key to safe, reliable automation.</span>
-            </p>
-
-            <ul class="hitl-gates">
-              <li class="hitl-gate reveal">
-                <div class="gate-badge">Gate A</div>
-                <div>
-                  <strong><span class="ja">対外送付前レビュー</span><span class="en">Pre-Send Review</span></strong>
-                  <p><span class="ja">顧客への見積・契約書など、外部へ送る前に担当者が確認します</span><span class="en">Staff reviews quotes and contracts before anything is sent to customers</span></p>
-                </div>
-              </li>
-              <li class="hitl-gate reveal">
-                <div class="gate-badge">Gate B</div>
-                <div>
-                  <strong><span class="ja">高リスク変更の承認</span><span class="en">High-Risk Change Approval</span></strong>
-                  <p><span class="ja">契約条件・金額・法規制に関わる変更は責任者が承認します</span><span class="en">Contract terms, pricing, or regulatory changes require approver sign-off</span></p>
-                </div>
-              </li>
-              <li class="hitl-gate reveal">
-                <div class="gate-badge">Gate C</div>
-                <div>
-                  <strong><span class="ja">例外時のエスカレーション</span><span class="en">Exception Escalation</span></strong>
-                  <p><span class="ja">エージェントが対処できない例外は、人間にエスカレーションして判断を仰ぎます</span><span class="en">When agents encounter exceptions they can't handle, they escalate to humans for a decision</span></p>
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          <div class="hitl-visual reveal">
-            <div class="hitl-diagram">
-              <div class="hd-row">
-                <div class="hd-agent">🤖</div>
-                <div class="hd-arrow">→</div>
-                <div class="hd-agent">🤖</div>
-                <div class="hd-arrow">→</div>
-                <div class="hd-gate">
-                  <div class="hd-gate-label"><span class="ja">承認</span><span class="en">Approve</span></div>
-                  <div class="hd-gate-icon">👤</div>
-                </div>
-                <div class="hd-arrow">→</div>
-                <div class="hd-agent">🤖</div>
-              </div>
-              <div class="hd-labels">
-                <span class="hd-label"><span class="ja">自動処理</span><span class="en">Auto</span></span>
-                <span class="hd-label hd-label-hitl">Human in the Loop</span>
-                <span class="hd-label"><span class="ja">自動処理</span><span class="en">Auto</span></span>
-              </div>
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">03 — THE RIGHT TOOLS</p>
+              <h2>方法は、ひとつに<br />決めません。</h2>
             </div>
-            <p class="hitl-note">
-              <span class="ja">エージェントは処理を止めて人間の確認を待ちます。承認されると次のステップへ進みます。差し戻しも可能です。</span>
-              <span class="en">The agent pauses and waits for human confirmation. Once approved, it proceeds to the next step. Rejections are also supported.</span>
+            <p>
+              今の環境、予算、使う人に合わせて。<br />利用できる技術を組み合わせ、<br />業務に合う方法を選びます。
+            </p>
+          </div>
+          <div class="capability-grid">
+            <article>
+              <span class="capability-number">01 / CONNECT</span>
+              <h3>今あるツールを、活かす。</h3>
+              <p>
+                Excel、kintone、Microsoft 365、Google
+                Workspace、既存の業務システム。標準機能や連携機能を活かし、手入力やファイルの受け渡しを減らします。
+              </p>
+              <div class="tool-tags">
+                <span>既存ツール</span><span>API連携</span><span>RPA</span>
+              </div>
+            </article>
+            <article>
+              <span class="capability-number">02 / BUILD</span>
+              <h3>必要な仕組みを、つくる。</h3>
+              <p>
+                既存機能で届かないところは、PythonやC#で開発。ファイル処理、データ集計、帳票作成など、業務に合った小さな道具をつくります。
+              </p>
+              <div class="tool-tags">
+                <span>Python</span><span>C# / .NET</span><span>個別開発</span>
+              </div>
+            </article>
+            <article>
+              <span class="capability-number">03 / ASSIST</span>
+              <h3>AIにも、仕事を任せる。</h3>
+              <p>
+                文章の分類、書類からの情報抽出、回答案の作成。AIエージェントと既存ツールを組み合わせ、人の確認を挟みながら処理を進めます。
+              </p>
+              <div class="tool-tags">
+                <span>生成AI</span><span>AIエージェント</span
+                ><span>社内情報の活用</span>
+              </div>
+            </article>
+          </div>
+          <div class="capabilities-foot">
+            <strong>技術を選ぶ前に、仕事を見ます。</strong>
+            <p>
+              導入費用だけでなく、運用の負担や保守のしやすさまで考えてご提案します。
             </p>
           </div>
         </div>
       </section>
-
-
-      <!-- ========== TECH ========== -->
-      <section id="tech" class="section section-alt" data-section="tech">
+      <section id="approach" class="section approach">
         <div class="container">
-          <p class="section-eyebrow">
-            <span class="ja">技術対応範囲</span>
-            <span class="en">Technical Capabilities</span>
-          </p>
-          <h2>
-            <span class="ja">既存システムをそのまま活かす</span>
-            <span class="en">Work With Your Existing Systems</span>
-          </h2>
-          <p class="section-lead">
-            <span class="ja">システムを一から作り直す必要はありません。現在使っているSaaSやクラウドをそのまま活かしながら、エージェントを追加していきます。もちろん、新規のインフラ設計・構築も対応します。</span>
-            <span class="en">No need to rebuild from scratch. We add agents on top of the SaaS and cloud tools you already use. We also handle new infrastructure design and setup when needed.</span>
-          </p>
-
-          <div class="tech-grid">
-            <article class="tech-card reveal">
-              <div class="tech-icon">🔌</div>
-              <h3><span class="ja">SaaS API 連携</span><span class="en">SaaS API Integration</span></h3>
-              <p>
-                <span class="ja">Slack、Gmail、Salesforce、kintone、freeeなど、利用中のSaaSをAPIで接続してエージェントと連携させます。</span>
-                <span class="en">Connect existing SaaS tools — Slack, Gmail, Salesforce, kintone, freee, and more — via API to integrate with your agents.</span>
+          <div class="section-intro">
+            <div>
+              <p class="eyebrow">04 — HOW WE WORK</p>
+              <h2>現場を知ることから、<br />一緒に。</h2>
+              <p class="section-lead">
+                業務マニュアルも、技術の知識も不要です。<br />「いつも、こうしている」を聞かせてください。
               </p>
-            </article>
-
-            <article class="tech-card reveal">
-              <div class="tech-icon">⚡</div>
-              <h3><span class="ja">FaaS スクリプト作成</span><span class="en">FaaS Script Development</span></h3>
+              <a class="text-link" href="#contact"
+                >まずは話してみる <span aria-hidden="true">↗</span></a
+              >
+            </div>
+            <ol class="approach-list">
+              <li>
+                <span>01</span>
+                <div>
+                  <h3>いつもの仕事を、一緒に見る</h3>
+                  <p>
+                    作業の流れ、困りごと、使っているツールを確認。誰が何のために行っている仕事かを整理します。
+                  </p>
+                </div>
+              </li>
+              <li>
+                <span>02</span>
+                <div>
+                  <h3>なくす仕事と、残す仕事を決める</h3>
+                  <p>
+                    現場の方と必要性を確かめ、業務の流れを見直します。優先順位、対応範囲、費用、効果の確かめ方をすり合わせます。
+                  </p>
+                </div>
+              </li>
+              <li>
+                <span>03</span>
+                <div>
+                  <h3>小さくつくって、確かめる</h3>
+                  <p>
+                    対象を絞って実装し、実際の運用に沿って検証。通常の処理だけでなく、入力ミスや例外時の動きも確認します。
+                  </p>
+                </div>
+              </li>
+              <li>
+                <span>04</span>
+                <div>
+                  <h3>現場で使い、改善を続ける</h3>
+                  <p>
+                    操作方法と困ったときの対応を共有。合意した支援範囲で、運用後の変化を確認しながら改善します。
+                  </p>
+                </div>
+              </li>
+            </ol>
+          </div>
+          <div class="human-note">
+            <span class="eyebrow">HUMAN IN CONTROL</span>
+            <div>
+              <h3>大切な判断は、人の手に。</h3>
               <p>
-                <span class="ja">AWS Lambda、Google Cloud Functions、Azure Functionsなどを使い、エージェントの処理ロジックをサーバーレス関数として実装します。</span>
-                <span class="en">Implement agent processing logic as serverless functions using AWS Lambda, Google Cloud Functions, or Azure Functions.</span>
+                金額の承認、対外送信、想定外の処理。人が確認するポイントを決め、処理履歴・権限・異常時の通知まで含めて設計します。
               </p>
-            </article>
-
-            <article class="tech-card reveal">
-              <div class="tech-icon">☁️</div>
-              <h3><span class="ja">クラウド基盤の設定</span><span class="en">Cloud Infrastructure Setup</span></h3>
-              <p>
-                <span class="ja">エージェントが安全・安定して動くためのクラウド基盤を設計・設定します。権限管理・ログ・監視も含みます。</span>
-                <span class="en">Design and configure cloud infrastructure for safe, stable agent operation — including permissions, logging, and monitoring.</span>
-              </p>
-            </article>
-
-            <article class="tech-card reveal">
-              <div class="tech-icon">📐</div>
-              <h3><span class="ja">ワークフロー設計</span><span class="en">Workflow Design</span></h3>
-              <p>
-                <span class="ja">業務の流れを観察・分析し、どこをエージェントに任せ、どこを人間が判断するかを設計書として明文化します。</span>
-                <span class="en">Observe and analyze your business flow, then document which steps agents handle and which require human judgment.</span>
-              </p>
-            </article>
+            </div>
           </div>
         </div>
       </section>
-
-
-      <!-- ========== FAQ ========== -->
-      <section id="faq" class="section" data-section="faq">
-        <div class="container narrow">
-          <h2><span class="ja">よくある質問</span><span class="en">FAQ</span></h2>
+      <section id="faq" class="section faq">
+        <div class="container faq-grid">
+          <div>
+            <p class="eyebrow">05 — QUESTIONS</p>
+            <h2>よくあるご質問</h2>
+          </div>
           <div class="faq-list">
-
-            <details class="reveal">
-              <summary>
-                <span class="ja">小さな会社でも始められますか？</span>
-                <span class="en">Can small companies get started?</span>
-              </summary>
+            <details>
+              <summary>何を自動化できるか、まだ分かりません。</summary>
               <p>
-                <span class="ja">はい。むしろ小さな会社の方が、一つの処理を特定しやすく、効果を早く実感できます。まず「一番時間がかかっている処理は何か」をお聞かせいただくところから始めます。</span>
-                <span class="en">Absolutely. Smaller companies can often identify specific pain points more easily and see results faster. We start by asking: "What one process takes the most time?"</span>
+                「毎月この集計に追われている」「同じ内容を何度も入力している」といったお話からで大丈夫です。業務の目的と流れを伺い、やめられること・整理すること・自動化することを一緒に見つけます。
               </p>
             </details>
-
-            <details class="reveal">
-              <summary>
-                <span class="ja">既存のシステムを変える必要はありますか？</span>
-                <span class="en">Do we need to change our existing systems?</span>
-              </summary>
+            <details>
+              <summary>今使っているシステムは変えないといけませんか？</summary>
               <p>
-                <span class="ja">基本的には不要です。現在使っているメール、SaaS、クラウドストレージをそのまま活かしながら、エージェントを追加していきます。必要に応じてAPIや連携設定を行いますが、システムの置き換えはしません。</span>
-                <span class="en">Generally not. We add agents on top of the email, SaaS, and cloud storage you already use. We configure integrations as needed, but don't replace existing systems.</span>
+                まず、今あるツールやシステムを活かす方法を検討します。標準機能やAPI、ファイル連携などを確認し、制約があれば代替案をご提案します。全面的な入れ替えを前提にはしません。
               </p>
             </details>
-
-            <details class="reveal">
-              <summary>
-                <span class="ja">エージェントが間違えたらどうなりますか？</span>
-                <span class="en">What happens if an agent makes a mistake?</span>
-              </summary>
+            <details>
+              <summary>小さな業務ひとつでも相談できますか？</summary>
               <p>
-                <span class="ja">重要な処理の前にはHuman in the Loopゲートを設けます。エージェントが実行する前に人間が確認できる仕組みがあるため、致命的な業務事故を防げます。また、すべての処理にログを残すため、問題が起きても追跡・修正が可能です。</span>
-                <span class="en">We place Human in the Loop gates before critical operations, so humans can review before agents execute. All operations are logged, so issues can be traced and corrected.</span>
+                はい。ひとつの転記作業や帳票作成など、対象を絞ったご相談にも対応します。小さく始め、効果や現場の使い勝手を確かめながら広げていけます。
               </p>
             </details>
-
-            <details class="reveal">
-              <summary>
-                <span class="ja">どのくらいで効果が出ますか？</span>
-                <span class="en">How soon will we see results?</span>
-              </summary>
+            <details>
+              <summary>費用や導入までの期間はどれくらいですか？</summary>
               <p>
-                <span class="ja">最初のエージェントは、対象処理の選定から実装まで通常2〜4週間程度です。一つ動き始めれば、その処理にかかっていた時間が即座に削減されます。その後は横展開していきます。</span>
-                <span class="en">The first agent typically takes 2–4 weeks from process selection to implementation. Once running, time savings are immediate. From there, the approach expands.</span>
+                対象業務の範囲、連携するシステム、扱うデータや確認事項によって異なります。現状を確認したうえで、実施内容・費用・スケジュールをご提示します。
               </p>
             </details>
-
-            <details class="reveal">
-              <summary>
-                <span class="ja">何から相談すればいいかわかりません</span>
-                <span class="en">I'm not sure what to discuss first</span>
-              </summary>
+            <details>
+              <summary>AIに社内の情報を渡しても大丈夫ですか？</summary>
               <p>
-                <span class="ja">「この処理が面倒だ」「この作業に時間がかかりすぎる」というお話だけで十分です。技術的な知識は必要ありません。ヒアリングを通じて、最初の一歩を一緒に見つけます。</span>
-                <span class="en">All you need is "this process is tedious" or "this task takes too long." No technical knowledge required. We'll find the right first step together through conversation.</span>
+                扱う情報、利用するサービスのデータ取り扱い、社内ルールを確認してから方法を決めます。アクセスできる範囲や送信する情報を限定し、AIを利用しない方法も含めて検討します。
               </p>
             </details>
-
           </div>
         </div>
       </section>
-
-
-      <!-- ========== CONTACT ========== -->
-      <section id="contact" class="section section-contact" data-section="contact">
-        <div class="container narrow">
-          <h2><span class="ja">まずは相談する</span><span class="en">Get in Touch</span></h2>
-          <p class="section-lead">
-            <span class="ja">「どの処理から始めるか」を一緒に考えます。資料が整っていなくても大丈夫です。現状のお話をお聞かせください。</span>
-            <span class="en">We'll work together to find your first step. No polished documentation needed — just tell us about your current situation.</span>
-          </p>
-
-          <div class="contact-box">
-            <p class="ja">現在、お問い合わせフォームは停止しています。</p>
-            <p class="en">The contact form is temporarily unavailable.</p>
-
-            <div class="contact-direct">
-              <p>
-                <span class="ja">ご相談・ご連絡は、以下のメールアドレスへ直接お送りください。</span>
-                <span class="en">For inquiries, please email us directly at the address below.</span>
-              </p>
-              <p class="contact-mail">
-                <a href="mailto:support@proc-x.co.jp?subject=PROC.X%E3%81%B8%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">support@proc-x.co.jp</a>
-              </p>
-              <p class="contact-alt">
-                <span class="ja">会社名・ご担当者名・ご相談内容を記載いただけるとスムーズです。</span>
-                <span class="en">Including your company name, contact person, and inquiry details will help us respond more quickly.</span>
-              </p>
-              <p class="contact-alt">
-                <span class="ja">営業・売り込み目的のご連絡はご遠慮ください。</span>
-                <span class="en">Please refrain from sending sales solicitations.</span>
-              </p>
+      <section id="contact" class="contact-section">
+        <div class="container contact-grid">
+          <div>
+            <p class="eyebrow">LET’S MAKE WORK SIMPLER.</p>
+            <h2>
+              「この作業、<br />なくせないかな。」<br />その話から、始めましょう。
+            </h2>
+            <p>
+              まだ整理できていなくても、構いません。<br />あなたの会社の、いつもの仕事を聞かせてください。
+            </p>
+          </div>
+          <div class="contact-card">
+            <p class="contact-label">業務自動化のご相談・お問い合わせ</p>
+            <a
+              class="button"
+              href="mailto:support@proc-x.co.jp?subject=業務自動化の相談"
+              >メールで相談する <span aria-hidden="true">↗</span></a
+            ><a class="contact-address" href="mailto:support@proc-x.co.jp"
+              >support@proc-x.co.jp</a
+            >
+            <p>
+              会社名・お名前・お困りの作業を<br />分かる範囲でお知らせください。
+            </p>
+            <div class="contact-copy" hidden>
+              <button type="button" id="copy-email">
+                メールアドレスをコピー</button
+              ><span id="copy-status" role="status"></span>
             </div>
+            <p class="contact-small">
+              メールソフトが開かない場合は、上記アドレスへ直接お送りください。営業・売り込み目的のご連絡はご遠慮ください。
+            </p>
           </div>
         </div>
       </section>
-
     </main>
-
-    <div class="floating-cta" id="floating-cta" aria-hidden="true">
-      <a href="#contact">
-        <span class="ja">まずは相談する</span>
-        <span class="en">Get Started</span>
-      </a>
-    </div>
-
     <footer class="site-footer">
-      <div class="container footer-inner">
-        <small>&copy; 2026 PROC.X Inc.</small>
-        <div class="footer-links" aria-label="フッターリンク">
-          <a href="company.html"><span class="ja">企業概要</span><span class="en">Company Profile</span></a>
-          <a href="#contact"><span class="ja">設計相談</span><span class="en">Contact</span></a>
+      <div class="container footer-top">
+        <div>
+          <a class="brand" href="index.html" aria-label="PROC.X トップへ"
+            ><img
+              src="images/logo.png"
+              alt="PROC.X"
+              width="386"
+              height="101"
+              loading="lazy"
+          /></a>
+          <p>仕事を減らす。その先を、自動化する。</p>
+        </div>
+        <div class="footer-links">
+          <a href="company.html">会社概要</a><a href="#faq">よくあるご質問</a
+          ><a href="#contact">お問い合わせ</a>
         </div>
       </div>
+      <div class="container footer-bottom">
+        <span>株式会社PROC.X（プロックス）</span
+        ><small>© 2026 PROC.X Inc.</small><a href="#main">ページの先頭へ ↑</a>
+      </div>
     </footer>
-
-    <script src="scripts/main.js" defer></script>
   </body>
 </html>

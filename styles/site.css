@@ -1128,9 +1128,6 @@ em {
   .hero h1 {
     font-size: 60px;
   }
-  .hero h1 br:nth-of-type(2) {
-    display: none;
-  }
   .hero-copy {
     max-width: 610px;
   }

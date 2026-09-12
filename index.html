@@ -6,7 +6,7 @@
     <title>PROC.X｜仕事を減らす。その先を、自動化する。</title>
     <meta
       name="description"
-      content="日本の中小企業の業務自動化を支援するPROC.X。まず不要な仕事をなくし、残る仕事を自動化。既存ツールからPython・C#、AIエージェントまで、現場に合う方法で実現します。"
+      content="日本の中小企業の業務自動化を支援するPROC.X。不要な仕事をなくし、必要な仕事を整え、繰り返し作業を自動化。既存ツールからPython・C#、AIエージェントまで、現場に合う方法で実現します。"
     />
     <meta property="og:type" content="website" />
     <meta
@@ -30,8 +30,8 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles/site.css?v=20260905-2" />
-    <script src="scripts/main.js?v=20260905" defer></script>
+    <link rel="stylesheet" href="styles/site.css?v=20260912" />
+    <script src="scripts/main.js?v=20260912" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">本文へ移動</a>
@@ -92,69 +92,20 @@
               「何から始めるか」が決まっていなくても大丈夫です。
             </p>
           </div>
-          <div class="hero-board" aria-label="受注業務の見直しイメージ">
-            <div class="board-top">
-              <span>いつもの仕事を、見直すと。</span
-              ><span class="board-index">01 / ORDER</span>
+          <div class="workflow-visual" role="img" aria-label="業務を見直す流れ。不要な転記をなくし、情報を整え、登録と通知を自動化。人は確認とお客様への対応に集中します。">
+            <div class="visual-heading"><span>WORK, SIMPLIFIED.</span><span class="visual-symbol" aria-hidden="true">✳</span></div>
+            <div class="workflow-stage stage-before">
+              <div class="stage-caption"><span>BEFORE</span><span>繰り返していた仕事</span></div>
+              <div class="scattered-tasks" aria-hidden="true"><span>注文メール</span><span>Excelに転記</span><span>システムへ再入力</span><span>確認・連絡</span></div>
             </div>
-            <div class="board-before">
-              <p class="board-label">これまでの受注業務</p>
-              <div class="task-line">
-                <span class="task-number">01</span
-                ><span>メールで注文を受け取る</span
-                ><span class="mini-label">手作業</span>
-              </div>
-              <div class="task-line">
-                <span class="task-number">02</span
-                ><span>Excelの管理表に転記する</span
-                ><span class="mini-label">手作業</span>
-              </div>
-              <div class="task-line">
-                <span class="task-number">03</span
-                ><span>同じ内容をシステムに入力</span
-                ><span class="mini-label">手作業</span>
-              </div>
-              <div class="task-line">
-                <span class="task-number">04</span
-                ><span>入力内容を確認して連絡</span
-                ><span class="mini-label">手作業</span>
-              </div>
+            <div class="flow-bridge" aria-hidden="true"><span></span><b>なくす → 整える → 自動化する</b><span>↓</span></div>
+            <div class="workflow-stage stage-after">
+              <div class="stage-caption"><span>AFTER</span><span class="flow-status">必要な仕事だけ、スムーズに。</span></div>
+              <div class="flow-route"><span class="flow-icon" aria-hidden="true">↳</span><div><small>仕組みに任せる</small><strong>注文情報の登録・社内通知</strong></div><span class="route-check" aria-hidden="true">✓</span></div>
+              <div class="human-focus"><span class="focus-icon" aria-hidden="true">✳</span><div><small>人が向き合う</small><strong>確かめる。考える。<br />お客様に応える。</strong></div></div>
             </div>
-            <div class="board-divider">
-              <span>業務の目的から、組み直す</span
-              ><span aria-hidden="true">↓</span>
-            </div>
-            <div class="board-after">
-              <p class="board-label">これからの受注業務</p>
-              <div class="result-row eliminated">
-                <span class="result-tag">なくす</span>
-                <div>
-                  <strong>二重管理のための転記</strong>
-                  <p>情報を一か所に集め、管理表を廃止。</p>
-                </div>
-              </div>
-              <div class="result-row automated">
-                <span class="result-tag">自動化</span>
-                <div>
-                  <strong>注文内容の登録・通知</strong>
-                  <p>必要な情報は、仕組みがつなぐ。</p>
-                </div>
-              </div>
-              <div class="result-row human">
-                <span class="result-tag">人の仕事</span>
-                <div>
-                  <strong>例外の確認と、お客様への対応</strong>
-                  <p>人の判断が必要なところに集中。</p>
-                </div>
-              </div>
-            </div>
-            <div class="board-bottom">
-              <span class="status-dot" aria-hidden="true"></span
-              ><strong>作業のための時間を、お客様のための時間へ。</strong>
-            </div>
-            <p class="board-note">
-              業務改善のイメージです。実際の設計は現場に合わせて行います。
-            </p>
+            <div class="visual-footer"><span>LESS ROUTINE.</span><span>MORE POSSIBILITY. ↗</span></div>
+            <p class="visual-note">受注業務の改善イメージ。実際の設計は現場に合わせます。</p>
           </div>
         </div>
         <div class="container hero-bottom">
@@ -168,7 +119,7 @@
             <p class="eyebrow">01 — OUR PHILOSOPHY</p>
             <div>
               <h2>
-                いちばん効果的な効率化は、<br />その仕事を、<em
+                いちばん効果的な業務効率化は、<br />その仕事を、<em
                   >なくすこと。</em
                 >
               </h2>
@@ -187,7 +138,7 @@
                 目的に立ち返り、不要なタスクを廃止。自動化する作業そのものを減らします。
               </p>
               <div class="principle-example">
-                たとえば <strong>読まれていない週報をやめる</strong>
+                たとえば <strong>目的を失った週報をやめる</strong>
               </div>
             </article>
             <article class="principle">
@@ -317,7 +268,7 @@
                 <li>
                   <span class="step-tag tag-auto">自動化</span>
                   <div>
-                    <strong>注文情報の登録と担当者への通知</strong>
+                    <strong>注文情報の登録と社内担当者への通知</strong>
                     <p>注文の形式に合わせて、連携や読み取りを設計。</p>
                   </div>
                 </li>

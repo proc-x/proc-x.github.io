@@ -27,11 +27,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles/site.css?v=20260912" />
-    <script src="scripts/main.js?v=20260912" defer></script>
+    <link rel="stylesheet" href="styles/site.css?v=20261004" />
+    <script src="scripts/main.js?v=20261004" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">本文へ移動</a>
@@ -50,7 +50,7 @@
           aria-expanded="false"
           aria-controls="site-nav"
         >
-          メニュー
+          <span class="menu-icon" aria-hidden="true"></span><span class="menu-label">メニュー</span>
         </button>
         <nav class="site-nav" id="site-nav" aria-label="メインナビゲーション">
           <a href="index.html#philosophy">私たちの考え方</a
@@ -58,16 +58,16 @@
           ><a href="index.html#approach">進め方</a
           ><a href="company.html" aria-current="page">会社概要</a
           ><a class="button button-small" href="index.html#contact"
-            >相談する <span aria-hidden="true">↗</span></a
+            >相談する <span aria-hidden="true">→</span></a
           >
         </nav>
       </div>
     </header>
-    <main id="main">
+    <main id="main" tabindex="-1">
       <section class="page-hero">
         <div class="container">
-          <p class="breadcrumbs"><a href="index.html">ホーム</a> / 会社概要</p>
-          <p class="eyebrow">ABOUT PROC.X</p>
+          <nav class="breadcrumbs" aria-label="パンくずリスト"><ol><li><a href="index.html">ホーム</a></li><li aria-current="page">会社概要</li></ol></nav>
+          <p class="eyebrow">PROC.Xについて</p>
           <h1>仕事の仕組みを、<br />もっとシンプルに。</h1>
           <p class="section-lead">
             株式会社PROC.X（プロックス）は、業務の自動化を専門とする会社です。<br />「最も効果的な業務効率化は、タスクの廃止」という考え方を出発点に、<br />日本の中小企業が、本来の仕事に向き合える環境づくりを支援します。
@@ -77,7 +77,7 @@
       <section class="section">
         <div class="container company-layout">
           <div>
-            <p class="eyebrow">COMPANY PROFILE</p>
+            <p class="eyebrow">企業情報</p>
             <h2>会社概要</h2>
           </div>
           <table class="profile-table">
@@ -123,7 +123,7 @@
       </section>
       <section class="section company-services">
         <div class="container">
-          <p class="eyebrow">OUR APPROACH</p>
+          <p class="eyebrow">私たちの方針</p>
           <h2>業務に合う方法を、現場とともに。</h2>
           <div class="company-service-list">
             <article>
@@ -149,11 +149,11 @@
       </section>
       <section class="contact-section">
         <div class="container">
-          <p class="eyebrow">LET’S MAKE WORK SIMPLER.</p>
+          <p class="eyebrow">業務自動化のご相談</p>
           <h2>いつもの仕事を、聞かせてください。</h2>
           <p>「何から始めるか」が決まっていなくても大丈夫です。</p>
           <a class="button contact-page-button" href="index.html#contact"
-            >業務の悩みを相談する <span aria-hidden="true">↗</span></a
+            >業務の悩みを相談する <span aria-hidden="true">→</span></a
           >
         </div>
       </section>
@@ -180,7 +180,7 @@
       <div class="container footer-bottom">
         <span>株式会社PROC.X（プロックス）</span
         ><small>© 2026 PROC.X Inc.</small
-        ><a href="index.html#main">ページの先頭へ ↑</a>
+        ><a href="#main">ページの先頭へ ↑</a>
       </div>
     </footer>
   </body>

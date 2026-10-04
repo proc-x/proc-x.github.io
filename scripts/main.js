@@ -9,11 +9,13 @@ if (header && menu && nav) {
   const closeMenu = () => {
     header.classList.remove("nav-open");
     menu.setAttribute("aria-expanded", "false");
+    menu.querySelector(".menu-label").textContent = "メニュー";
   };
   menu.addEventListener("click", () => {
     const open = !header.classList.contains("nav-open");
     header.classList.toggle("nav-open", open);
     menu.setAttribute("aria-expanded", String(open));
+    menu.querySelector(".menu-label").textContent = open ? "閉じる" : "メニュー";
   });
   nav.addEventListener("click", (event) => {
     if (event.target.closest("a")) closeMenu();
@@ -27,7 +29,7 @@ if (header && menu && nav) {
   document.addEventListener("click", (event) => {
     if (!header.contains(event.target)) closeMenu();
   });
-  window.matchMedia("(min-width: 851px)").addEventListener("change", closeMenu);
+  window.matchMedia("(min-width: 70rem)").addEventListener("change", closeMenu);
 }
 
 // Illustrative workflows, not customer results or guaranteed savings.
@@ -218,14 +220,12 @@ if (panel) {
       return item;
     });
     document.getElementById("example-steps").replaceChildren(...steps);
-    document
-      .querySelectorAll("[data-example]")
-      .forEach((button) =>
-        button.setAttribute(
-          "aria-pressed",
-          String(button.dataset.example === selected),
-        ),
-      );
+    panel.setAttribute("aria-labelledby", `tab-${selected}`);
+    document.querySelectorAll("[data-example]").forEach((button) => {
+      const active = button.dataset.example === selected;
+      button.setAttribute("aria-selected", String(active));
+      button.tabIndex = active ? 0 : -1;
+    });
     document
       .querySelectorAll("[data-view]")
       .forEach((button) =>
@@ -235,12 +235,25 @@ if (panel) {
         ),
       );
   };
-  document.querySelectorAll("[data-example]").forEach((button) =>
-    button.addEventListener("click", () => {
-      selected = button.dataset.example;
-      render();
-    }),
-  );
+  const tabs = Array.from(document.querySelectorAll("[data-example]"));
+  const selectExample = (button) => {
+    selected = button.dataset.example;
+    render();
+  };
+  tabs.forEach((button, index) => {
+    button.addEventListener("click", () => selectExample(button));
+    button.addEventListener("keydown", (event) => {
+      let next;
+      if (event.key === "ArrowRight") next = (index + 1) % tabs.length;
+      if (event.key === "ArrowLeft") next = (index - 1 + tabs.length) % tabs.length;
+      if (event.key === "Home") next = 0;
+      if (event.key === "End") next = tabs.length - 1;
+      if (next === undefined) return;
+      event.preventDefault();
+      selectExample(tabs[next]);
+      tabs[next].focus();
+    });
+  });
   document.querySelectorAll("[data-view]").forEach((button) =>
     button.addEventListener("click", () => {
       view = button.dataset.view;

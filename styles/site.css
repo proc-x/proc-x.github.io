@@ -221,22 +221,20 @@ em {
 .nav-toggle {
   display: none;
 }
-/* Introduction and an accessible, text-based workflow example. */
+/* A single reading column introduces the site before the philosophy section. */
 .hero {
-  padding-top: var(--space-16);
+  padding-top: var(--space-12);
 }
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-16);
-  align-items: start;
+.hero-copy {
+  max-width: 48rem;
+  margin-inline: auto;
 }
 .hero h1 {
   font-size: 3rem;
   line-height: 1.5;
 }
 .hero-lead {
-  margin-top: 2rem;
+  margin-top: var(--space-6);
   font-size: 1.25rem;
   line-height: 1.6;
   font-weight: 700;
@@ -255,65 +253,6 @@ em {
 }
 .hero-copy > .small-note {
   margin-top: 1rem;
-}
-.workflow-visual {
-  border: 1px solid var(--line);
-  border-top: .25rem solid var(--accent);
-  padding: 2rem;
-  background: white;
-}
-.workflow-visual h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-.workflow-before {
-  padding: 1rem;
-  background: var(--color-surface);
-}
-.workflow-before h3 {
-  font-size: 1rem;
-  margin-bottom: .5rem;
-}
-.workflow-before p {
-  font-size: 1rem;
-}
-.workflow-list {
-  list-style: none;
-  padding: 0;
-  margin: 1.5rem 0;
-}
-.workflow-list li {
-  display: flex;
-  gap: 1rem;
-  align-items: start;
-  padding-block: 1rem;
-  border-bottom: 1px solid var(--line);
-}
-.workflow-list li:first-child {
-  padding-top: 0;
-}
-.workflow-number {
-  display: grid;
-  place-items: center;
-  flex-shrink: 0;
-  width: 2rem;
-  height: 2rem;
-  background: var(--accent);
-  color: white;
-  border: 1px solid transparent;
-  border-radius: 50%;
-  font-weight: 700;
-}
-.workflow-list h3 {
-  font-size: 1rem;
-}
-.workflow-list p {
-  margin-top: .25rem;
-}
-.workflow-outcome {
-  padding: 1rem;
-  background: var(--color-surface);
-  margin-bottom: 1rem;
 }
 .page-index {
   border-block: 1px solid var(--line);
@@ -1012,14 +951,8 @@ details[open] .accordion-icon {
   .site-header.has-js.nav-open .site-nav {
     display: flex;
   }
-  .hero-grid {
-    gap: 2rem;
-  }
   .hero h1 {
     font-size: 2.5rem;
-  }
-  .workflow-visual {
-    padding: 1.5rem;
   }
   .page-index {
     flex-direction: column;
@@ -1039,16 +972,9 @@ details[open] .accordion-icon {
   }
 }
 @media (max-width: 53.999rem) {
-  .hero-grid, .section-intro, .approach .section-intro, .faq-grid, .company-layout, .contact-grid {
+  .section-intro, .approach .section-intro, .faq-grid, .company-layout, .contact-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
-  }
-  .hero-copy {
-    max-width: 40rem;
-  }
-  .workflow-visual {
-    max-width: 40rem;
-    width: 100%;
   }
   .principle-grid, .capability-grid, .company-service-list {
     grid-template-columns: 1fr;
@@ -1106,12 +1032,6 @@ details[open] .accordion-icon {
   }
   .hero-description br, .hero-lead br, .section-lead br, .section-heading > p br {
     display: none;
-  }
-  .workflow-visual {
-    padding: 1rem;
-  }
-  .workflow-list li {
-    gap: .75rem;
   }
   .page-index {
     margin-top: 2rem;
@@ -1198,7 +1118,7 @@ details[open] .accordion-icon {
   }
 }
 @media (forced-colors: active) {
-  .button, .workflow-number {
+  .button {
     border-color: ButtonText;
   }
   .example-picker button[aria-selected="true"] {
@@ -1214,14 +1134,6 @@ details[open] .accordion-icon {
 .hero { border-bottom: 4px solid var(--color-brand); }
 .hero h1 { letter-spacing: -.025em; }
 .hero h1 em { color: var(--ink); text-decoration: underline; text-decoration-color: var(--color-brand); text-underline-offset: .2em; text-decoration-thickness: .08em; }
-/* A single surface and three steps keep the hero illustration easy to scan. */
-.relief-visual { background: var(--color-surface); border: 0; border-radius: var(--radius); padding: var(--space-8); }
-.relief-visual h2 { margin-bottom: var(--space-6); }
-.relief-flow { list-style: none; padding: 0; margin: 0 0 var(--space-6); display: grid; gap: var(--space-6); }
-.relief-bridge { display: flex; align-items: center; gap: var(--space-4); color: var(--color-action); font-weight: 700; }
-.relief-bridge > span { font-size: 2rem; }
-.relief-flow strong { font-size: 1.25rem; }
-@media (max-width: 35.999rem) { .relief-visual { padding: var(--space-6); } }
 .audience-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: var(--space-8); margin-top: var(--space-8); }
 .audience-grid article { border-top: 4px solid var(--color-brand); padding: var(--space-6); background: var(--color-surface); }
 .audience-grid h3 { font-size: 1.25rem; margin-bottom: var(--space-4); }

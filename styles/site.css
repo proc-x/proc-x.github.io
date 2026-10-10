@@ -311,6 +311,12 @@ em {
 .section-intro > .eyebrow {
   padding-top: .5rem;
 }
+.philosophy .section-intro {
+  display: block;
+}
+.philosophy .section-intro > .eyebrow {
+  padding-top: 0;
+}
 .section-lead {
   margin-top: 1.5rem;
   line-height: 1.8;

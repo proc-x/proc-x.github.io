@@ -21,6 +21,8 @@
 - `styles/site.css`: 全ページ共通のレスポンシブデザイン
 - `scripts/main.js`: モバイルメニュー、業務例の切り替え、メールアドレスのコピー
 - `images/logo.png`: 既存のロゴ
+- `images/favicon.svg`: ご指定により既存ロゴの「O」だけを表示する、白地の正方形アイコン。元ロゴは変更せず、縦横比と色を維持。
+- `images/favicon-16.png` / `images/favicon-32.png`: SVGをブラウザーで各サイズに描画したタブ用アイコン。
 
 日本語を主言語に、PROC.X共通デザイン基準 v0.1.1を適用しています。`design-system.json` と各HTMLの `procx-design-version` に使用版を固定し、`styles/tokens.css` をローカルで参照します。
 トップの業務フローはHTMLの見出し・リストで構成し、読み上げや文字拡大でも内容を伝えます。

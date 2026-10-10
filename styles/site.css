@@ -560,9 +560,12 @@ em {
 .example-outcome {
   border-top: 1px solid var(--line);
   padding-top: 1rem;
-  color: var(--color-action);
+  color: var(--color-ink);
   font-weight: 700;
 }
+.example-outcome-label { color: var(--color-action); margin-bottom: var(--space-2); }
+.example-supplement { margin-top: var(--space-6); }
+.example-supplement summary { color: var(--color-action); cursor: pointer; min-height: 2.75rem; padding-block: var(--space-2); text-decoration: underline; text-underline-offset: .2em; }
 .examples .small-note {
   margin-top: 1.5rem;
 }
@@ -1213,5 +1216,9 @@ details[open] .accordion-icon {
 .audience-grid h3 { font-size: 1.25rem; margin-bottom: var(--space-4); }
 .audience-grid .text-link { margin-top: var(--space-4); }
 .philosophy { border-top: 1px solid var(--line); }
+.future-note { margin-top: var(--space-8); padding: var(--space-6); border-left: 4px solid var(--color-brand); background: var(--color-surface); }
+.future-note h3 { font-size: 1.25rem; margin-bottom: var(--space-4); }
+.future-note p { max-width: 48rem; }
+.future-note p + p { margin-top: var(--space-4); }
 .site-footer { background: var(--paper); }
 @media (max-width: 53.999rem) { .audience-grid { grid-template-columns: 1fr; gap: var(--space-6); } }

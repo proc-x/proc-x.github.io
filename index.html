@@ -25,8 +25,8 @@
     <link rel="canonical" href="https://proc-x.github.io/" />
     <link rel="icon" href="images/logo.png" type="image/png" />
     <meta name="procx-design-version" content="0.1.1" />
-    <link rel="stylesheet" href="styles/site.css?v=20261010" />
-    <script src="scripts/main.js?v=20261010" defer></script>
+    <link rel="stylesheet" href="styles/site.css?v=20261010-3" />
+    <script src="scripts/main.js?v=20261010-3" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">本文へ移動</a>
@@ -175,6 +175,13 @@
           <p class="philosophy-note">
             自動化の先にある、<strong>「追われなくていい」という安堵感。</strong>それが、PROC.Xの届けたい価値です。
           </p>
+          <section class="future-note" aria-labelledby="future-heading">
+            <h3 id="future-heading">私たちが目指すこれから</h3>
+            <p>
+              日々の仕事は続きます。多様な人が力を合わせて仕事を担いながら、自分の好きなことや心身を整える時間も、子育てや家族のケア・介護に向き合う時間も、大切にできる。そんな時代になるように。
+            </p>
+            <p><strong>私たちは、業務の自動化で、そのためのゆとりをつくります。</strong></p>
+          </section>
         </div>
       </section>
       <section id="examples" class="section examples">
@@ -182,10 +189,10 @@
           <div class="section-heading">
             <div>
               <p class="eyebrow">02　業務改善の具体例</p>
-              <h2>その「毎回やっている」、<br />こう変えられます。</h2>
+              <h2>その気がかりを、<br />ひとつずつ。</h2>
             </div>
             <p>
-              あなたの毎日にも、似た作業はありませんか。<br />身近な業務で、改善のイメージをご紹介します。
+              繰り返す入力。月末に追われる集計。後回しになる整理。<br />チームでも、ひとりでも。いつもの負担を仕組みに任せ、時間と気持ちにゆとりをつくります。
             </p>
           </div>
           <div
@@ -203,7 +210,7 @@
               aria-selected="true"
               aria-controls="example-panel"
             >
-              受注・転記</button
+              繰り返す入力</button
             ><button
               type="button"
               data-example="invoices"
@@ -213,7 +220,7 @@
               aria-selected="false"
               aria-controls="example-panel"
             >
-              集計・請求</button
+              月末の書類づくり</button
             ><button
               type="button"
               data-example="questions"
@@ -223,7 +230,7 @@
               aria-selected="false"
               aria-controls="example-panel"
             >
-              社内問い合わせ
+              ファイルの整理
             </button>
           </div>
           <div
@@ -235,23 +242,20 @@
           >
             <div class="example-context">
               <span class="example-category" id="example-category"
-                >営業事務・受発注</span
+                >日々の気がかり</span
               >
               <h3 id="example-title">
-                同じ注文内容を、<br />何度も入力している。
+                同じことを、<br />また入力しなきゃ。
               </h3>
               <p id="example-description">
-                メールの注文内容をExcelに転記し、販売管理システムにも入力。最後は担当者へメールで連絡。
-              </p>
-              <p class="example-tools" id="example-tools">
-                活用するものの例：メール / Excel / 販売管理システム
+                仕事の記録や連絡先を、表にも書類にも入力する。チームで分担していても、ひとりで進めていても、転記と見直しに時間を取られていませんか。
               </p>
             </div>
             <div class="example-change">
               <div
                 class="example-view-switch"
                 role="group"
-                aria-label="改善前後の表示"
+                aria-label="今の負担と自動化した場合を切り替え"
                 hidden
               >
                 <button
@@ -260,45 +264,31 @@
                   aria-pressed="false"
                   aria-controls="example-steps"
                 >
-                  改善前</button
+                  今の負担</button
                 ><button
                   type="button"
                   data-view="after"
                   aria-pressed="true"
                   aria-controls="example-steps"
                 >
-                  改善後
+                  仕組みに任せると
                 </button>
               </div>
               <p class="example-state" id="example-state">
-                見直すと、こう変わる
+                仕組みに任せることと、人が確認すること
               </p>
               <ol id="example-steps" class="example-steps">
-                <li>
-                  <span class="step-tag tag-remove">なくす</span>
-                  <div>
-                    <strong>Excelへの二重入力を廃止</strong>
-                    <p>販売管理システムを情報の参照先に統一。</p>
-                  </div>
-                </li>
-                <li>
-                  <span class="step-tag tag-auto">自動化</span>
-                  <div>
-                    <strong>注文情報の登録と社内担当者への通知</strong>
-                    <p>注文の形式に合わせて、連携や読み取りを設計。</p>
-                  </div>
-                </li>
-                <li>
-                  <span class="step-tag tag-human">人が判断</span>
-                  <div>
-                    <strong>内容の不備や特別な条件を確認</strong>
-                    <p>通常の処理は仕組みに任せ、例外に対応。</p>
-                  </div>
-                </li>
+                <li><span class="step-tag tag-auto">仕組み</span><div><strong>一度入力した情報を、必要な表や書類へ反映</strong><p>転記先と項目を決め、同じ情報を繰り返し入力する手間を減らす。</p></div></li>
+                <li><span class="step-tag tag-human">人が確認</span><div><strong>元の情報と、例外のある内容を確かめる</strong><p>入力内容の不備や、いつもと違う条件は自分や担当者が確認する。</p></div></li>
               </ol>
-              <p class="example-outcome" id="example-outcome">
-                何度も入力する仕事から、注文を確かめる仕事へ。
-              </p>
+              <div class="example-outcome">
+                <p class="example-outcome-label" id="example-outcome-label">目指す変化</p>
+                <p id="example-outcome">「まだ転記が残っている」という気がかりを減らし、次にしたいことへ気持ちを切り替えられる。</p>
+              </div>
+              <details class="example-supplement">
+                <summary>使うものの例</summary>
+                <p class="example-tools" id="example-tools">使うものの例：表計算ソフト / 入力フォーム / データ連携</p>
+              </details>
             </div>
           </div>
           <p class="small-note">
@@ -307,7 +297,7 @@
           </p>
           <noscript
             ><p class="small-note">
-              ほかにも、売上集計・請求書作成の自動化や、社内資料を参照して回答案をつくるAIエージェントに対応します。
+              ほかにも、月末の集計・書類の下書き作成や、ルールに沿ったファイルの整理などをご相談いただけます。
             </p></noscript
           >
         </div>

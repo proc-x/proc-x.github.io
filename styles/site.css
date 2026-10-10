@@ -1,34 +1,16 @@
-/* PROC.X style guide based on DADS beta v2.18.0.
-   Sources and adaptation notes: README.md and THIRD_PARTY_NOTICES.md. */
+/* PROC.X v0.1.1. Component adaptations retain the existing accessible interactions. */
+@import url("./tokens.css?v=20261010");
 :root {
   color-scheme: light;
-  --blue-50: #e8f1fe;
-  --blue-100: #d9e6ff;
-  --blue-900: #0017c1;
-  --blue-1000: #00118f;
-  --blue-1200: #000060;
-  --gray-50: #f2f2f2;
-  --gray-100: #e6e6e6;
-  --gray-420: #949494;
-  --gray-536: #767676;
-  --gray-600: #666666;
-  --gray-800: #333333;
-  --gray-900: #1a1a1a;
-  --focus: #ffd43d;
-  --visited: #8b008b;
-  --paper: #fff;
-  --ink: var(--gray-900);
-  --muted: var(--gray-600);
-  --accent: var(--blue-900);
-  --line: var(--gray-536);
-  --container: 75rem;
-  --space-1: .5rem;
-  --space-2: 1rem;
-  --space-3: 1.5rem;
-  --space-4: 2rem;
-  --space-6: 3rem;
-  --space-8: 4rem;
-  font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Yu Gothic", sans-serif;
+  --paper: var(--color-paper);
+  --ink: var(--color-ink);
+  --muted: var(--color-muted);
+  --accent: var(--color-action);
+  --line: var(--color-soft-line);
+  --focus: var(--color-paper);
+  --visited: var(--color-action);
+  --container: var(--content-width);
+  font-family: var(--font-sans);
   font-synthesis: none;
 }
 * {
@@ -43,7 +25,7 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.8;
   letter-spacing: .02em;
 }
 h1, h2, h3, p {
@@ -56,7 +38,7 @@ h1, h2, h3 {
   overflow-wrap: anywhere;
 }
 a {
-  color: var(--blue-1000);
+  color: var(--color-action);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: .2em;
@@ -66,11 +48,11 @@ a:visited {
   color: var(--visited);
 }
 a:hover {
-  color: var(--blue-900);
+  color: var(--color-action);
   text-decoration-thickness: 3px;
 }
 a:active {
-  color: #c74700;
+  color: var(--color-ink);
 }
 button {
   font: inherit;
@@ -81,7 +63,7 @@ a, button, summary {
   -webkit-tap-highlight-color: transparent;
 }
 :focus-visible {
-  outline: .25rem solid #000;
+  outline: .25rem solid var(--color-focus);
   outline-offset: .125rem;
   box-shadow: 0 0 0 .125rem var(--focus);
 }
@@ -134,7 +116,7 @@ em {
 .small-note {
   color: var(--muted);
   font-size: .875rem;
-  line-height: 1.7;
+  line-height: 1.8;
 }
 .button, .example-view-switch button {
   display: inline-flex;
@@ -159,13 +141,13 @@ em {
   color: white;
 }
 .button:hover {
-  background: var(--blue-1000);
+  background: var(--color-action);
   color: white;
   text-decoration: underline;
   text-decoration-thickness: 1px;
 }
 .button:active {
-  background: var(--blue-1200);
+  background: var(--color-ink);
 }
 .button span {
   flex-shrink: 0;
@@ -241,12 +223,12 @@ em {
 }
 /* Introduction and an accessible, text-based workflow example. */
 .hero {
-  padding-top: var(--space-8);
+  padding-top: var(--space-16);
 }
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-8);
+  gap: var(--space-16);
   align-items: start;
 }
 .hero h1 {
@@ -262,7 +244,7 @@ em {
 .hero-description {
   margin-top: 1.5rem;
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.8;
 }
 .hero-actions {
   display: flex;
@@ -286,7 +268,7 @@ em {
 }
 .workflow-before {
   padding: 1rem;
-  background: var(--gray-50);
+  background: var(--color-surface);
 }
 .workflow-before h3 {
   font-size: 1rem;
@@ -330,12 +312,12 @@ em {
 }
 .workflow-outcome {
   padding: 1rem;
-  background: var(--blue-50);
+  background: var(--color-surface);
   margin-bottom: 1rem;
 }
 .page-index {
   border-block: 1px solid var(--line);
-  margin-top: var(--space-8);
+  margin-top: var(--space-16);
   padding-block: 1.5rem;
   display: flex;
   gap: 2rem;
@@ -360,7 +342,7 @@ em {
 }
 /* Sections follow an 8px spacing scale and a clear heading hierarchy. */
 .section {
-  padding: var(--space-8) 0;
+  padding: var(--space-16) 0;
 }
 .section h2 {
   font-size: 2rem;
@@ -368,14 +350,14 @@ em {
 .section-intro {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: var(--space-6);
+  gap: var(--space-12);
 }
 .section-intro > .eyebrow {
   padding-top: .5rem;
 }
 .section-lead {
   margin-top: 1.5rem;
-  line-height: 1.7;
+  line-height: 1.8;
 }
 .principle-grid {
   display: grid;
@@ -429,7 +411,7 @@ em {
   max-width: 28rem;
 }
 .examples {
-  background: var(--gray-50);
+  background: var(--color-surface);
 }
 /* DADS-style tabs; a shared panel is labelled by the active tab. */
 .example-picker {
@@ -447,7 +429,7 @@ em {
   border-bottom: 0;
   border-radius: .5rem .5rem 0 0;
   padding: 1rem;
-  background: var(--gray-50);
+  background: var(--color-surface);
   color: var(--ink);
   font-size: 1rem;
   font-weight: 700;
@@ -469,7 +451,7 @@ em {
 }
 .example-picker button:hover {
   text-decoration: underline;
-  background: var(--blue-50);
+  background: var(--color-surface);
 }
 .example-panel {
   display: grid;
@@ -484,8 +466,8 @@ em {
 .example-category {
   display: inline-block;
   padding: .25rem .5rem;
-  background: var(--blue-50);
-  color: var(--blue-1000);
+  background: var(--color-surface);
+  color: var(--color-action);
   font-size: 1rem;
 }
 .example-context h3 {
@@ -524,8 +506,8 @@ em {
   text-decoration-thickness: 2px;
 }
 .example-view-switch button:hover {
-  background: var(--blue-50);
-  color: var(--blue-1000);
+  background: var(--color-surface);
+  color: var(--color-action);
   text-decoration: underline;
 }
 .example-state {
@@ -556,8 +538,8 @@ em {
   white-space: nowrap;
 }
 .tag-remove, .tag-manual {
-  background: var(--gray-50);
-  color: var(--gray-800);
+  background: var(--color-surface);
+  color: var(--color-ink);
 }
 .tag-auto {
   background: var(--accent);
@@ -565,9 +547,9 @@ em {
   border-color: var(--accent);
 }
 .tag-human {
-  background: var(--blue-50);
-  color: var(--blue-1000);
-  border-color: var(--blue-1000);
+  background: var(--color-surface);
+  color: var(--color-action);
+  border-color: var(--color-action);
 }
 .example-steps strong {
   font-size: 1rem;
@@ -578,7 +560,7 @@ em {
 .example-outcome {
   border-top: 1px solid var(--line);
   padding-top: 1rem;
-  color: var(--blue-1000);
+  color: var(--color-action);
   font-weight: 700;
 }
 .examples .small-note {
@@ -609,7 +591,7 @@ em {
   margin-top: 1.5rem;
 }
 .tool-tags span {
-  background: var(--gray-50);
+  background: var(--color-surface);
   border-left: 2px solid var(--line);
   padding: .25rem .5rem;
   font-size: .875rem;
@@ -618,7 +600,7 @@ em {
   margin-top: 2.5rem;
   padding: 1.5rem;
   border-left: .25rem solid var(--accent);
-  background: var(--blue-50);
+  background: var(--color-surface);
 }
 .capabilities-foot p {
   margin-top: .5rem;
@@ -668,7 +650,7 @@ em {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 2rem;
-  background: var(--blue-50);
+  background: var(--color-surface);
   border-left: .25rem solid var(--accent);
   padding: 2rem;
   margin-top: 2rem;
@@ -713,7 +695,7 @@ em {
   display: none;
 }
 .faq-list summary:hover {
-  background: var(--gray-50);
+  background: var(--color-surface);
 }
 .accordion-icon {
   position: absolute;
@@ -724,7 +706,7 @@ em {
   border: 1px solid currentColor;
   border-radius: 50%;
   background: white;
-  color: var(--blue-1000);
+  color: var(--color-action);
 }
 .accordion-icon::after {
   content: "";
@@ -745,14 +727,14 @@ details[open] .accordion-icon {
 }
 /* Contact and footer */
 .contact-section {
-  padding: var(--space-8) 0;
-  background: var(--blue-50);
+  padding: var(--space-16) 0;
+  background: var(--color-surface);
   border-top: 1px solid var(--line);
 }
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-8);
+  gap: var(--space-16);
   align-items: start;
 }
 .contact-section h2 {
@@ -795,7 +777,7 @@ details[open] .accordion-icon {
   font-weight: 700;
 }
 .contact-copy button:hover {
-  background: var(--blue-50);
+  background: var(--color-surface);
   text-decoration: underline;
 }
 #copy-status {
@@ -815,7 +797,7 @@ details[open] .accordion-icon {
 }
 .site-footer {
   padding: 3rem 0 1.5rem;
-  background: var(--gray-50);
+  background: var(--paper);
   border-top: 1px solid var(--line);
 }
 .footer-top {
@@ -918,7 +900,7 @@ details[open] .accordion-icon {
 }
 .profile-table th {
   width: 25%;
-  background: var(--gray-50);
+  background: var(--color-surface);
   font-weight: 700;
 }
 .company-services {
@@ -1213,3 +1195,23 @@ details[open] .accordion-icon {
     outline-offset: -4px;
   }
 }
+
+/* Brand presentation: calm spacing, green detail, charcoal reading text. */
+.hero { border-bottom: 4px solid var(--color-brand); }
+.hero h1 { letter-spacing: -.025em; }
+.hero h1 em { color: var(--ink); text-decoration: underline; text-decoration-color: var(--color-brand); text-underline-offset: .2em; text-decoration-thickness: .08em; }
+.relief-visual { background: var(--color-surface); border: 0; border-radius: var(--radius); }
+.relief-visual .workflow-before { background: var(--paper); border: 1px solid var(--line); }
+.relief-bridge { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-4); color: var(--color-action); font-weight: 700; }
+.relief-bridge > span { font-size: 2rem; }
+.relief-visual .workflow-outcome { background: var(--paper); border-left: 4px solid var(--color-brand); padding: var(--space-6); }
+.workflow-outcome h3 { font-size: 1.25rem; margin-block: var(--space-3); }
+.focus-label { display: flex; gap: var(--space-2); align-items: center; font-weight: 700; color: var(--ink); }
+.focus-label::before { content: ''; width: .5rem; height: .5rem; background: var(--color-accent); flex: none; }
+.audience-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: var(--space-8); margin-top: var(--space-8); }
+.audience-grid article { border-top: 4px solid var(--color-brand); padding: var(--space-6); background: var(--color-surface); }
+.audience-grid h3 { font-size: 1.25rem; margin-bottom: var(--space-4); }
+.audience-grid .text-link { margin-top: var(--space-4); }
+.philosophy { border-top: 1px solid var(--line); }
+.site-footer { background: var(--paper); }
+@media (max-width: 53.999rem) { .audience-grid { grid-template-columns: 1fr; gap: var(--space-6); } }

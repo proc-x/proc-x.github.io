@@ -539,6 +539,7 @@ em {
 .example-outcome-label { color: var(--color-action); margin-bottom: var(--space-2); }
 .example-supplement { margin-top: var(--space-6); }
 .example-supplement summary { color: var(--color-action); cursor: pointer; min-height: 2.75rem; padding-block: var(--space-2); text-decoration: underline; text-underline-offset: .2em; }
+#example-text-description h4 { margin: var(--space-6) 0 var(--space-2); }
 .examples .small-note {
   margin-top: 1.5rem;
 }

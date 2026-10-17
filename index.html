@@ -26,9 +26,9 @@
     <link rel="icon" href="images/favicon-32.png?v=20261010" type="image/png" sizes="32x32" />
     <link rel="icon" href="images/favicon-16.png?v=20261010" type="image/png" sizes="16x16" />
     <meta name="procx-design-version" content="0.1.1" />
-    <link rel="stylesheet" href="styles/site.css?v=20261018-4" />
-    <script src="scripts/example-diagrams.js?v=20261018-4" defer></script>
-    <script src="scripts/main.js?v=20261018-4" defer></script>
+    <link rel="stylesheet" href="styles/site.css?v=20261018-5" />
+    <script src="scripts/example-diagrams.js?v=20261018-5" defer></script>
+    <script src="scripts/main.js?v=20261018-5" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">本文へ移動</a>
@@ -283,14 +283,14 @@
                   type="button"
                   data-view="before"
                   aria-pressed="false"
-                  aria-controls="example-diagram example-steps"
+                  aria-controls="example-diagram example-preparation example-steps"
                 >
                   今の負担</button
                 ><button
                   type="button"
                   data-view="after"
                   aria-pressed="true"
-                  aria-controls="example-diagram example-steps"
+                  aria-controls="example-diagram example-preparation example-steps"
                 >
                   仕組みに任せると
                 </button>
@@ -298,17 +298,30 @@
               <p class="example-state" id="example-state">
                 開始・処理は自動化し、人は最終確認と例外対応へ
               </p>
+              <p class="small-note">改善後の図は、AIを組み合わせた想定例です。定型データはプログラムだけで処理するなど、AIを利用しない構成も選べます。</p>
               <figure id="example-diagram" class="bpmn-figure" tabindex="0" aria-label="業務の流れ。左右にスクロールできます。" hidden></figure>
               <p class="bpmn-legend" id="example-diagram-legend" hidden>図の読み方：細い丸＝開始／太い丸＝終了<br />角丸の箱＝作業／◇×＝条件分岐／矢印＝進む順序<br />左から右へ読みます。横レーンは作業の担当を表します。「なくす・整える・自動化する」は改善方針の注釈です。幅が足りない場合は、図を左右にスクロールしてください。</p>
               <details class="example-supplement" id="example-text-description" open>
                 <summary>文章で説明を読む</summary>
-              <ol id="example-steps" class="example-steps">
-<li><span class="step-tag tag-manual">なくす</span><div><strong>参照されない控え表の作成をやめる</strong><p>正本と必要な転記先を決め、使われていない控え表への記入そのものを廃止します。</p></div></li>
-<li><span class="step-tag tag-manual">整える</span><div><strong>共通の項目と入力ルールを決める</strong><p>入力項目、正本、転記先、必須チェックを事前に揃えます。</p></div></li>
-<li><span class="step-tag tag-auto">自動化プログラム</span><div><strong>受信・登録を検知し、転記案を検証する</strong><p>受信通知や新規登録をきっかけに開始。必須項目などを検証し、承認後に必要な表や書類へ反映します。</p></div></li>
-<li><span class="step-tag tag-auto">AI-エージェント</span><div><strong>書式が異なる情報を読み取る</strong><p>文書やメールから必要な情報を抽出。不明な内容は推測で確定せず、例外として人の確認へ回します。</p></div></li>
-<li><span class="step-tag tag-human">人</span><div><strong>例外に対応し、最終確認・反映を承認する</strong><p>不足・不明な情報を確認・修正し、通常の処理も最終確認を経て反映を承認します。</p></div></li>
-</ol>
+                <div id="example-preparation">
+                  <h4>事前準備：なくす・整える</h4>
+                  <p>運用を始める前に、図の上部にある改善方針を具体化します。</p>
+                  <ul id="example-preparation-steps" class="example-steps">
+                  <li><span class="step-tag tag-manual">なくす</span><div><strong>参照されない控え表の作成をやめる</strong><p>正本と必要な転記先を決め、使われていない控え表への記入そのものを廃止します。</p></div></li>
+                  <li><span class="step-tag tag-manual">整える</span><div><strong>共通の項目と入力ルールを決める</strong><p>入力項目、正本、転記先、必須チェックを事前に揃えます。</p></div></li>
+                  </ul>
+                </div>
+                <h4 id="example-flow-heading">運用の流れ（図の左から右の順）</h4>
+                <ol id="example-steps" class="example-steps">
+                  <li><span class="step-tag tag-auto">自動化プログラム</span><div><strong>1. 受信・登録を検知</strong><p>受信通知や新規登録をきっかけに、自動で処理を始めます。</p></div></li>
+                  <li><span class="step-tag tag-auto">AI-エージェント</span><div><strong>2. 情報を読み取る</strong><p>文書やメールから必要な情報を抽出し、不明な内容も確認対象として引き継ぎます。</p></div></li>
+                  <li><span class="step-tag tag-auto">自動化プログラム</span><div><strong>3. 検証・転記案を作成</strong><p>事前に決めた必須項目・形式を確認し、必要な表や書類への転記案を作成します。</p></div></li>
+                  <li><span class="step-tag tag-auto">自動化プログラム</span><div><strong>4. 例外あり？</strong><p>例外があれば5へ、なければ5を省略して6の最終確認へ進みます。</p></div></li>
+                  <li><span class="step-tag tag-human">人</span><div><strong>5. 不備を確認・修正</strong><p>例外がある場合のみ、不足・不明な情報を確認して修正します。その後、6へ進みます。</p></div></li>
+                  <li><span class="step-tag tag-human">人</span><div><strong>6. 最終確認・反映を承認</strong><p>例外の有無にかかわらず、人が内容を最終確認して反映を承認します。</p></div></li>
+                  <li><span class="step-tag tag-auto">自動化プログラム</span><div><strong>7. 承認内容を反映</strong><p>承認された内容を必要な表や書類に反映します。</p></div></li>
+                  <li><span class="step-tag tag-auto">自動化プログラム</span><div><strong>8. 反映完了</strong><p>承認内容の反映が完了します。</p></div></li>
+                </ol>
               </details>
               <div class="example-outcome">
                 <p class="example-outcome-label" id="example-outcome-label">目指す変化</p>
@@ -424,7 +437,7 @@
                 <div>
                   <h3>なくす仕事と、残す仕事を決める</h3>
                   <p>
-                    現場の方と必要性を確かめ、業務の流れを見直します。減らしたい負担と、生まれた時間を何に使いたいかを共有し、優先順位、対応範囲、費用、効果の確かめ方をすり合わせます。
+                    現場の方と必要性を確かめ、業務の流れを見直します。残す仕事は、入力項目・情報の置き場所・手順・確認ルールを整えます。減らしたい負担と、生まれた時間を何に使いたいかを共有し、優先順位、対応範囲、費用、効果の確かめ方をすり合わせます。
                   </p>
                 </div>
               </li>

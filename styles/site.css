@@ -542,6 +542,39 @@ em {
 .examples .small-note {
   margin-top: 1.5rem;
 }
+/* BPMN display: HTML labels keep their size when text is enlarged. */
+/* Horizontal lanes keep a left-to-right reading order at every viewport. */
+.examples .example-panel { grid-template-columns: minmax(0, 1fr); }
+.examples .example-context { border-right: 0; border-bottom: 1px solid var(--line); }
+.bpmn-figure { margin: 0; overflow-x: auto; }
+.bpmn-caption { min-width: 64rem; font-weight: 700; padding: var(--space-3); border: 1px solid var(--line); border-bottom: 0; }
+.bpmn-improvements { min-width: 64rem; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--line); border-bottom: 0; background: var(--color-surface); }
+.bpmn-improvements > div { padding: var(--space-4); }
+.bpmn-improvements > div + div { border-left: 1px solid var(--line); }
+.bpmn-improvements strong { display: block; color: var(--color-action); margin-bottom: var(--space-2); }
+.bpmn-phase { position: absolute; bottom: calc(100% + .5rem); left: 0; width: 100%; font-size: .875rem; line-height: 1.6; padding: .125rem; border-bottom: 2px solid var(--color-action); background: var(--color-paper); color: var(--color-ink); }
+.bpmn-phase-0 { border-bottom-style: dashed; }
+.bpmn-canvas { min-width: 64rem; position: relative; isolation: isolate; display: grid; grid-template-columns: repeat(var(--bpmn-steps), minmax(0, 1fr)); grid-template-rows: 14rem; column-gap: 1.5rem; padding: 0 1rem 0 5rem; border: 1px solid var(--line); }
+.bpmn-three-lanes { grid-template-rows: repeat(3, 14rem); }
+.bpmn-lanes { position: absolute; inset: 0; z-index: -2; display: grid; grid-template-rows: inherit; }
+.bpmn-lanes > div { display: flex; min-width: 0; background: var(--color-paper); }
+.bpmn-lanes > div + div { border-top: 1px solid var(--line); background: var(--color-surface); }
+.bpmn-lanes strong { display: flex; align-items: center; justify-content: center; width: 4rem; padding: var(--space-2); border-right: 1px solid var(--line); writing-mode: vertical-rl; letter-spacing: .15em; }
+.bpmn-connectors { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; overflow: visible; color: var(--color-ink); pointer-events: none; }
+.bpmn-connectors text { font: 1rem var(--font-sans); fill: currentColor; paint-order: stroke; stroke: var(--color-paper); stroke-width: 5px; stroke-linejoin: round; }
+.bpmn-node { position: relative; justify-self: center; align-self: center; width: 100%; min-width: 0; text-align: center; font-size: 1rem; line-height: 1.6; }
+.bpmn-task .bpmn-anchor { display: block; padding: var(--space-3) var(--space-2); border: 1.5px solid var(--color-ink); border-radius: .75rem; background: var(--color-paper); overflow-wrap: anywhere; }
+.bpmn-three-lanes .bpmn-task[style*="grid-row: 2"] .bpmn-anchor { border-color: var(--color-action); background: var(--color-surface); }
+.bpmn-event { display: flex; justify-content: center; align-items: center; }
+.bpmn-event .bpmn-anchor { display: block; width: 2rem; height: 2rem; border: 1.5px solid var(--color-ink); border-radius: 50%; background: var(--color-paper); flex-shrink: 0; }
+.bpmn-event .bpmn-end { border-width: 4px; }
+.bpmn-event-label { position: absolute; bottom: calc(100% + .75rem); left: 0; width: 100%; overflow-wrap: anywhere; }
+.bpmn-gateway { display: flex; justify-content: center; align-items: center; }
+.bpmn-question { position: absolute; bottom: calc(100% + 1.25rem); left: 0; width: 100%; }
+.bpmn-diamond { display: flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; border: 1.5px solid var(--color-ink); transform: rotate(45deg); background: var(--color-paper); }
+.bpmn-diamond > span { transform: rotate(-45deg); font-size: 1.5rem; line-height: 1; }
+.bpmn-legend { font-size: .875rem; line-height: 1.8; color: var(--muted); margin-top: var(--space-4); }
+.example-supplement + .example-outcome { margin-top: var(--space-6); }
 /* Services remain reading content rather than interactive-looking controls. */
 .capability-grid {
   display: grid;

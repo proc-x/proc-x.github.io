@@ -26,8 +26,9 @@
     <link rel="icon" href="images/favicon-32.png?v=20261010" type="image/png" sizes="32x32" />
     <link rel="icon" href="images/favicon-16.png?v=20261010" type="image/png" sizes="16x16" />
     <meta name="procx-design-version" content="0.1.1" />
-    <link rel="stylesheet" href="styles/site.css?v=20261010-11" />
-    <script src="scripts/main.js?v=20261010-3" defer></script>
+    <link rel="stylesheet" href="styles/site.css?v=20261018-4" />
+    <script src="scripts/example-diagrams.js?v=20261018-4" defer></script>
+    <script src="scripts/main.js?v=20261018-4" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">本文へ移動</a>
@@ -282,38 +283,46 @@
                   type="button"
                   data-view="before"
                   aria-pressed="false"
-                  aria-controls="example-steps"
+                  aria-controls="example-diagram example-steps"
                 >
                   今の負担</button
                 ><button
                   type="button"
                   data-view="after"
                   aria-pressed="true"
-                  aria-controls="example-steps"
+                  aria-controls="example-diagram example-steps"
                 >
                   仕組みに任せると
                 </button>
               </div>
               <p class="example-state" id="example-state">
-                仕組みに任せることと、人が確認すること
+                開始・処理は自動化し、人は最終確認と例外対応へ
               </p>
+              <figure id="example-diagram" class="bpmn-figure" tabindex="0" aria-label="業務の流れ。左右にスクロールできます。" hidden></figure>
+              <p class="bpmn-legend" id="example-diagram-legend" hidden>図の読み方：細い丸＝開始／太い丸＝終了<br />角丸の箱＝作業／◇×＝条件分岐／矢印＝進む順序<br />左から右へ読みます。横レーンは作業の担当を表します。「なくす・整える・自動化する」は改善方針の注釈です。幅が足りない場合は、図を左右にスクロールしてください。</p>
+              <details class="example-supplement" id="example-text-description" open>
+                <summary>文章で説明を読む</summary>
               <ol id="example-steps" class="example-steps">
-                <li><span class="step-tag tag-auto">仕組み</span><div><strong>一度入力した情報を、必要な表や書類へ反映</strong><p>転記先と項目を決め、同じ情報を繰り返し入力する手間を減らす。</p></div></li>
-                <li><span class="step-tag tag-human">人が確認</span><div><strong>元の情報と、例外のある内容を確かめる</strong><p>入力内容の不備や、いつもと違う条件は自分や担当者が確認する。</p></div></li>
-              </ol>
+<li><span class="step-tag tag-manual">なくす</span><div><strong>参照されない控え表の作成をやめる</strong><p>正本と必要な転記先を決め、使われていない控え表への記入そのものを廃止します。</p></div></li>
+<li><span class="step-tag tag-manual">整える</span><div><strong>共通の項目と入力ルールを決める</strong><p>入力項目、正本、転記先、必須チェックを事前に揃えます。</p></div></li>
+<li><span class="step-tag tag-auto">自動化プログラム</span><div><strong>受信・登録を検知し、転記案を検証する</strong><p>受信通知や新規登録をきっかけに開始。必須項目などを検証し、承認後に必要な表や書類へ反映します。</p></div></li>
+<li><span class="step-tag tag-auto">AI-エージェント</span><div><strong>書式が異なる情報を読み取る</strong><p>文書やメールから必要な情報を抽出。不明な内容は推測で確定せず、例外として人の確認へ回します。</p></div></li>
+<li><span class="step-tag tag-human">人</span><div><strong>例外に対応し、最終確認・反映を承認する</strong><p>不足・不明な情報を確認・修正し、通常の処理も最終確認を経て反映を承認します。</p></div></li>
+</ol>
+              </details>
               <div class="example-outcome">
                 <p class="example-outcome-label" id="example-outcome-label">目指す変化</p>
                 <p id="example-outcome">「まだ転記が残っている」という気がかりを減らし、次にしたいことへ気持ちを切り替えられる。</p>
               </div>
               <details class="example-supplement">
                 <summary>使うものの例</summary>
-                <p class="example-tools" id="example-tools">使うものの例：表計算ソフト / 入力フォーム / データ連携</p>
+                <p class="example-tools" id="example-tools">使うものの例：表計算ソフト / 入力フォーム / データ連携 / AI-エージェント</p>
               </details>
             </div>
           </div>
           <p class="small-note">
             ※
-            上記は想定例であり、導入実績や効果の保証ではありません。廃止できる作業や連携方法は、運用・権限・システムの仕様を確認して決めます。
+            上記は改善の考え方を示す想定例です。改善前には、使われていない控えや集計表を作る作業を例として含めています。導入実績や効果の保証ではありません。廃止できる作業や連携方法は、運用・権限・システムの仕様を確認して決めます。
           </p>
           <noscript
             ><p class="small-note">

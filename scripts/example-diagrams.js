@@ -32,6 +32,12 @@ let diagramObserver;
 function renderExampleDiagram(key, view) {
   if (!diagramHost) return;
   diagramObserver?.disconnect();
+  const selection = document.getElementById("example-selection");
+  const selectionContent = document.getElementById("example-selection-content");
+  selection.hidden = true;
+  selectionContent.replaceChildren();
+  document.getElementById("example-diagram-guide").hidden = false;
+  diagramHost.scrollLeft = 0;
   const flow = exampleFlows[key];
   const after = view === "after";
   const labels = flow[view];
@@ -42,7 +48,7 @@ function renderExampleDiagram(key, view) {
   const canvas = document.createElement("div");
   canvas.className = `bpmn-canvas${after ? " bpmn-three-lanes" : ""}`;
   canvas.style.setProperty("--bpmn-steps", labels.length);
-  canvas.setAttribute("role", "img");
+  canvas.setAttribute("role", "group");
   const roleNames = ["人", "自動化プログラム", "AI-エージェント"];
   const stepSummary = index => `${index + 1}. ${roleNames[flow.roles[index] - 1]}：${labels[index]}`;
   const summary = after
@@ -67,13 +73,24 @@ function renderExampleDiagram(key, view) {
   canvas.append(svg);
   const nodes = labels.map((label, index) => {
     const numberedLabel = `${index + 1}. ${label}`;
-    const node = document.createElement("div");
+    const node = document.createElement("button");
+    node.type = "button";
     const event = index === 0 || index === labels.length - 1;
     const gateway = after && index === 3;
     node.className = `bpmn-node ${event ? "bpmn-event" : gateway ? "bpmn-gateway" : "bpmn-task"}`;
     node.style.gridColumn = String(index + 1);
     node.style.gridRow = after ? String(flow.roles[index]) : "1";
-    node.setAttribute("aria-hidden", "true");
+    node.setAttribute("aria-label", `${numberedLabel}（${after ? roleNames[flow.roles[index] - 1] : "人"}）の説明`);
+    node.setAttribute("aria-pressed", "false");
+    node.setAttribute("aria-controls", "example-selection");
+    node.addEventListener("click", () => {
+      const step = document.querySelectorAll("#example-steps > li")[index];
+      if (!step) return;
+      nodes.forEach(item => item.setAttribute("aria-pressed", String(item === node)));
+      selection.hidden = false;
+      selectionContent.replaceChildren(...Array.from(step.children, child => child.cloneNode(true)));
+      selection.scrollIntoView({ block: "nearest", behavior: "instant" });
+    });
     const anchor = document.createElement("span");
     anchor.className = "bpmn-anchor";
     if (event) {

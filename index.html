@@ -26,8 +26,8 @@
     <link rel="icon" href="images/favicon-32.png?v=20261010" type="image/png" sizes="32x32" />
     <link rel="icon" href="images/favicon-16.png?v=20261010" type="image/png" sizes="16x16" />
     <meta name="procx-design-version" content="0.1.1" />
-    <link rel="stylesheet" href="styles/site.css?v=20261018-5" />
-    <script src="scripts/example-diagrams.js?v=20261018-6" defer></script>
+    <link rel="stylesheet" href="styles/site.css?v=20261018-7" />
+    <script src="scripts/example-diagrams.js?v=20261018-7" defer></script>
     <script src="scripts/main.js?v=20261018-5" defer></script>
   </head>
   <body>
@@ -299,8 +299,13 @@
                 開始・処理は自動化し、人は最終確認と例外対応へ
               </p>
               <p class="small-note">改善後の図は、AIを組み合わせた想定例です。定型データはプログラムだけで処理するなど、AIを利用しない構成も選べます。</p>
+              <p id="example-diagram-guide" class="bpmn-guide" hidden>図は左右にスクロールできます。処理をタップ・クリックすると、図のすぐ下に説明を表示します。</p>
               <figure id="example-diagram" class="bpmn-figure" tabindex="0" aria-label="業務の流れ。左右にスクロールできます。" hidden></figure>
-              <p class="bpmn-legend" id="example-diagram-legend" hidden>図の読み方：細い丸＝開始／太い丸＝終了<br />角丸の箱＝作業／◇×＝条件分岐／矢印＝進む順序<br />左から右へ読みます。図の番号は文章説明の処理番号に対応します。横レーンは作業の担当を表します。「なくす・整える・自動化する」は改善方針の注釈です。幅が足りない場合は、図を左右にスクロールしてください。</p>
+              <section id="example-selection" class="bpmn-selection" aria-labelledby="example-selection-heading" hidden>
+                <h4 id="example-selection-heading">選択した処理の説明</h4>
+                <div id="example-selection-content" aria-live="polite" aria-atomic="true"></div>
+              </section>
+              <p class="bpmn-legend" id="example-diagram-legend" hidden>図の読み方：細い丸＝開始／太い丸＝終了<br />角丸の箱＝作業／◇×＝条件分岐／矢印＝進む順序<br />左から右へ読みます。図の番号は文章説明の処理番号に対応します。横レーンは作業の担当を表します。「なくす・整える・自動化する」は改善方針の注釈です。</p>
               <details class="example-supplement" id="example-text-description" open>
                 <summary>文章で説明を読む</summary>
                 <div id="example-preparation">

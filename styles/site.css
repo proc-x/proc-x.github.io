@@ -547,6 +547,12 @@ em {
 /* Horizontal lanes keep a left-to-right reading order at every viewport. */
 .examples .example-panel { grid-template-columns: minmax(0, 1fr); }
 .examples .example-context { border-right: 0; border-bottom: 1px solid var(--line); }
+.bpmn-guide { margin-block: var(--space-4); color: var(--color-action); font-weight: 700; }
+.bpmn-selection { margin-top: var(--space-4); padding: var(--space-4); border: 2px solid var(--color-action); background: var(--color-surface); scroll-margin-block: 6rem; }
+.bpmn-selection h4 { margin: 0 0 var(--space-3); }
+.bpmn-selection .step-tag { display: inline-block; margin-bottom: var(--space-2); }
+.bpmn-selection strong { display: block; }
+.bpmn-selection p { margin-top: var(--space-2); }
 .bpmn-figure { margin: 0; overflow-x: auto; }
 .bpmn-caption { min-width: 64rem; font-weight: 700; padding: var(--space-3); border: 1px solid var(--line); border-bottom: 0; }
 .bpmn-improvements { min-width: 64rem; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--line); border-bottom: 0; background: var(--color-surface); }
@@ -556,14 +562,17 @@ em {
 .bpmn-phase { position: absolute; bottom: calc(100% + .5rem); left: 0; width: 100%; font-size: .875rem; line-height: 1.6; padding: .125rem; border-bottom: 2px solid var(--color-action); background: var(--color-paper); color: var(--color-ink); }
 .bpmn-phase-0 { border-bottom-style: dashed; }
 .bpmn-canvas { min-width: 64rem; position: relative; isolation: isolate; display: grid; grid-template-columns: repeat(var(--bpmn-steps), minmax(0, 1fr)); grid-template-rows: 14rem; column-gap: 1.5rem; padding: 0 1rem 0 5rem; border: 1px solid var(--line); }
-.bpmn-three-lanes { grid-template-rows: repeat(3, 14rem); }
-.bpmn-lanes { position: absolute; inset: 0; z-index: -2; display: grid; grid-template-rows: inherit; }
-.bpmn-lanes > div { display: flex; min-width: 0; background: var(--color-paper); }
-.bpmn-lanes > div + div { border-top: 1px solid var(--line); background: var(--color-surface); }
-.bpmn-lanes strong { display: flex; align-items: center; justify-content: center; width: 4rem; padding: var(--space-2); border-right: 1px solid var(--line); writing-mode: vertical-rl; letter-spacing: .15em; }
+.bpmn-three-lanes { grid-template-rows: repeat(3, 14rem); background: linear-gradient(to bottom, var(--color-paper) 0 33.333%, var(--color-surface) 33.333% 100%); }
+.bpmn-lanes { position: absolute; inset: 0; z-index: 3; pointer-events: none; display: grid; grid-template-rows: inherit; }
+.bpmn-lanes > div { display: flex; min-width: 0; }
+.bpmn-lanes > div + div { border-top: 1px solid var(--line); }
+.bpmn-lanes > div + div strong { background: var(--color-surface); }
+.bpmn-lanes strong { position: sticky; left: 0; flex-shrink: 0; background: var(--color-paper); display: flex; align-items: center; justify-content: center; width: 4rem; padding: var(--space-2); border-right: 1px solid var(--line); writing-mode: vertical-rl; letter-spacing: .15em; }
 .bpmn-connectors { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; overflow: visible; color: var(--color-ink); pointer-events: none; }
 .bpmn-connectors text { font: 1rem var(--font-sans); fill: currentColor; paint-order: stroke; stroke: var(--color-paper); stroke-width: 5px; stroke-linejoin: round; }
-.bpmn-node { position: relative; justify-self: center; align-self: center; width: 100%; min-width: 0; text-align: center; font-size: 1rem; line-height: 1.6; }
+.bpmn-node { font-family: inherit; color: inherit; border: 0; padding: 0; background: transparent; cursor: pointer; min-height: 2.75rem; scroll-margin-inline-start: 5rem; position: relative; justify-self: center; align-self: center; width: 100%; min-width: 0; text-align: center; font-size: 1rem; line-height: 1.6; }
+.bpmn-node[aria-pressed="true"] { outline: 3px solid var(--color-action); outline-offset: 5px; border-radius: .25rem; }
+.bpmn-node:hover .bpmn-anchor { box-shadow: 0 0 0 2px var(--color-action); }
 .bpmn-task .bpmn-anchor { display: block; padding: var(--space-3) var(--space-2); border: 1.5px solid var(--color-ink); border-radius: .75rem; background: var(--color-paper); overflow-wrap: anywhere; }
 .bpmn-three-lanes .bpmn-task[style*="grid-row: 2"] .bpmn-anchor { border-color: var(--color-action); background: var(--color-surface); }
 .bpmn-event { display: flex; justify-content: center; align-items: center; }

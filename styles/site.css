@@ -1095,8 +1095,11 @@ details[open] .accordion-icon {
     padding-top: 2rem;
   }
   .hero h1 {
-    font-size: 2rem;
+    font-size: clamp(1.75rem, 8.2vw, 2rem);
   }
+  .bpmn-canvas { grid-template-rows: 11rem; }
+  .bpmn-three-lanes { grid-template-rows: repeat(3, 11rem); }
+  .bpmn-improvements > div { padding: var(--space-3); }
   .hero-lead {
     font-size: 1.125rem;
   }

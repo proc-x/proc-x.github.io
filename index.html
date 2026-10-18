@@ -84,43 +84,65 @@
           </div>
           <svg class="hero-art" viewBox="0 0 440 440" aria-hidden="true" focusable="false">
             <defs>
-              <linearGradient id="hero-wash" x1="0" y1="0" x2="1" y2="1">
-                <stop stop-color="var(--color-brand)" stop-opacity=".16" />
+              <radialGradient id="hero-flow-wash">
+                <stop stop-color="var(--color-brand)" stop-opacity=".17" />
+                <stop offset="1" stop-color="var(--color-surface)" stop-opacity="0" />
+              </radialGradient>
+              <linearGradient id="hero-card" x1="0" y1="0" x2="1" y2="1">
+                <stop stop-color="var(--color-paper)" />
                 <stop offset="1" stop-color="var(--color-surface)" />
               </linearGradient>
+              <filter id="hero-card-shadow" x="-50%" y="-50%" width="200%" height="220%">
+                <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#383635" flood-opacity=".09" />
+              </filter>
             </defs>
-            <circle cx="244" cy="218" r="154" fill="url(#hero-wash)" />
-            <circle cx="244" cy="218" r="184" fill="none" stroke="var(--color-soft-line)" stroke-dasharray="2 10" />
-            <path d="M47 112C170 70 362 90 370 202S180 367 108 297 173 142 266 199" fill="none" stroke="currentColor" stroke-opacity=".45" stroke-width="2" />
-            <path d="M108 297C153 343 260 344 326 298" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
-            <g transform="translate(36 65) rotate(-12 43 51)">
-              <rect x="4" y="6" width="86" height="102" rx="12" fill="var(--color-ink)" opacity=".04" />
-              <rect width="86" height="102" rx="12" fill="var(--color-paper)" stroke="var(--color-soft-line)" />
-              <rect x="16" y="19" width="20" height="20" rx="5" fill="currentColor" opacity=".24" />
-              <path d="M16 55h52M16 68h38M16 81h28" stroke="var(--color-soft-line)" stroke-width="3" stroke-linecap="round" />
+            <ellipse cx="230" cy="218" rx="210" ry="208" fill="url(#hero-flow-wash)" />
+            <g fill="none" stroke="var(--color-action)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M59 244H94Q108 244 108 230V202Q108 188 122 188H140" opacity=".5" />
+              <path d="M226 188H248Q262 188 262 202V222" />
+              <path d="M262 274V308Q262 322 276 322H299" opacity=".45" />
+              <path d="M288 248H342Q356 248 356 234V168" />
+              <path d="M356 106V83Q356 69 342 69H288" opacity=".25" />
             </g>
-            <g transform="translate(122 24) rotate(9 30 30)">
-              <rect width="60" height="60" rx="12" fill="var(--color-surface)" stroke="var(--color-soft-line)" />
-              <path d="M17 22h26M17 32h26M17 42h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <g fill="none" stroke="var(--color-action)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M84 94H115" opacity=".5" />
+              <path d="M183 94H207Q221 94 221 80V69H240" opacity=".4" />
+              <path d="M149 118V130Q149 142 161 142H171Q183 142 183 154V158" opacity=".35" />
+              <path d="M108 244V300" opacity=".4" />
+              <path d="M130 322H165M229 322H299" opacity=".6" />
+              <path d="M108 344V354" opacity=".5" />
+              <path d="M85 402V404Q85 416 97 416H302Q316 416 316 402V339" opacity=".25" />
+              <path d="M356 200H388Q402 200 402 214V231" opacity=".3" />
             </g>
-            <g transform="translate(159 139)">
-              <rect x="8" y="10" width="170" height="158" rx="20" fill="var(--color-action)" opacity=".06" />
-              <rect width="170" height="158" rx="20" fill="var(--color-paper)" stroke="currentColor" stroke-opacity=".45" />
-              <path d="M0 45h170" stroke="var(--color-soft-line)" />
-              <circle cx="21" cy="23" r="4" fill="currentColor" />
-              <circle cx="35" cy="23" r="4" fill="currentColor" opacity=".35" />
-              <circle cx="49" cy="23" r="4" fill="currentColor" opacity=".15" />
-              <g fill="none" stroke="var(--color-action)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="m22 70 5 5 9-10M22 100l5 5 9-10M22 130l5 5 9-10" />
-              </g>
-              <path d="M52 71h91M52 101h73M52 131h83" stroke="var(--color-soft-line)" stroke-width="5" stroke-linecap="round" />
+            <circle cx="70" cy="94" r="14" fill="var(--color-paper)" stroke="var(--color-action)" stroke-width="2" opacity=".6" />
+            <rect x="115" y="70" width="68" height="48" rx="12" fill="url(#hero-card)" stroke="var(--color-soft-line)" filter="url(#hero-card-shadow)" />
+            <path d="M108 300 130 322 108 344 86 322Z" fill="var(--color-paper)" stroke="var(--color-action)" stroke-width="2" opacity=".6" />
+            <path d="M101 322H115M108 315V329" stroke="var(--color-action)" stroke-width="2" opacity=".6" />
+            <rect x="165" y="300" width="64" height="44" rx="11" fill="url(#hero-card)" stroke="var(--color-soft-line)" filter="url(#hero-card-shadow)" />
+            <rect x="48" y="354" width="74" height="48" rx="12" fill="url(#hero-card)" stroke="var(--color-soft-line)" filter="url(#hero-card-shadow)" />
+            <circle cx="402" cy="244" r="13" fill="var(--color-paper)" stroke="var(--color-action)" stroke-width="3" opacity=".45" />
+            <circle cx="45" cy="244" r="14" fill="var(--color-paper)" stroke="var(--color-action)" stroke-width="2" />
+            <rect x="140" y="158" width="86" height="60" rx="14" fill="var(--color-ink)" stroke="var(--color-ink)" filter="url(#hero-card-shadow)" />
+            <path d="M262 222 288 248 262 274 236 248Z" fill="var(--color-brand)" stroke="var(--color-brand)" filter="url(#hero-card-shadow)" />
+            <path d="M256 242 268 254M268 242 256 254" stroke="var(--color-action)" stroke-width="2" stroke-linecap="round" />
+            <rect x="320" y="106" width="72" height="62" rx="14" fill="url(#hero-card)" stroke="var(--color-soft-line)" filter="url(#hero-card-shadow)" />
+            <circle cx="316" cy="322" r="17" fill="var(--color-paper)" stroke="var(--color-action)" stroke-width="4" />
+            <rect x="240" y="48" width="48" height="42" rx="10" fill="url(#hero-card)" stroke="var(--color-soft-line)" filter="url(#hero-card-shadow)" />
+            <g fill="none" stroke="var(--color-brand)" stroke-width="1" opacity=".25">
+              <circle cx="183" cy="188" r="14" />
+              <circle cx="356" cy="137" r="13" />
+              <circle cx="316" cy="322" r="24" />
             </g>
-            <circle cx="351" cy="302" r="34" fill="currentColor" />
-            <path d="m336 302 10 10 20-22" fill="none" stroke="var(--color-paper)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-            <circle cx="104" cy="295" r="7" fill="currentColor" />
-            <circle cx="322" cy="74" r="5" fill="currentColor" opacity=".6" />
-            <circle cx="71" cy="220" r="4" fill="var(--color-ink)" opacity=".25" />
-            <path d="M219 372v16m-8-8h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <g fill="var(--color-brand)">
+              <circle cx="108" cy="219" r="4" />
+              <circle cx="326" cy="248" r="4" />
+              <circle cx="183" cy="188" r="7" />
+              <circle cx="356" cy="137" r="6" />
+              <circle cx="149" cy="94" r="5" opacity=".45" />
+              <circle cx="197" cy="322" r="5" opacity=".65" />
+              <circle cx="85" cy="378" r="5" opacity=".4" />
+              <circle cx="399" cy="285" r="3" opacity=".5" />
+            </g>
           </svg>
         </div>
         <nav class="container page-index" aria-label="このページの目次">

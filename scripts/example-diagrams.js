@@ -44,10 +44,10 @@ function renderExampleDiagram(key, view) {
   canvas.style.setProperty("--bpmn-steps", labels.length);
   canvas.setAttribute("role", "img");
   const roleNames = ["人", "自動化プログラム", "AI-エージェント"];
-  const stepSummary = index => `${roleNames[flow.roles[index] - 1]}：${labels[index]}`;
+  const stepSummary = index => `${index + 1}. ${roleNames[flow.roles[index] - 1]}：${labels[index]}`;
   const summary = after
     ? `${[0, 1, 2, 3].map(stepSummary).join("。")}。はいの場合は${stepSummary(4)}。いいえの場合は例外対応を省略。どちらも${[5, 6, 7].map(stepSummary).join("。")}。`
-    : `人が行う流れ：${labels.join(" → ")}。`;
+    : `人が行う流れ：${labels.map((label, index) => `${index + 1}. ${label}`).join(" → ")}。`;
   canvas.setAttribute("aria-label", `${title}。${summary}。改善の方針：なくす、${flow.improvements[0]}。整える、${flow.improvements[1]}。自動化する、${flow.improvements[2]}。`);
   const lanes = document.createElement("div");
   lanes.className = "bpmn-lanes";
@@ -66,6 +66,7 @@ function renderExampleDiagram(key, view) {
   svg.setAttribute("aria-hidden", "true");
   canvas.append(svg);
   const nodes = labels.map((label, index) => {
+    const numberedLabel = `${index + 1}. ${label}`;
     const node = document.createElement("div");
     const event = index === 0 || index === labels.length - 1;
     const gateway = after && index === 3;
@@ -78,7 +79,7 @@ function renderExampleDiagram(key, view) {
     if (event) {
       anchor.classList.add(index === 0 ? "bpmn-start" : "bpmn-end");
       const text = document.createElement("span");
-      text.textContent = label;
+      text.textContent = numberedLabel;
       text.className = "bpmn-event-label";
       node.append(anchor, text);
     } else if (gateway) {
@@ -87,11 +88,11 @@ function renderExampleDiagram(key, view) {
       marker.textContent = "×";
       anchor.append(marker);
       const text = document.createElement("span");
-      text.textContent = label;
+      text.textContent = numberedLabel;
       text.className = "bpmn-question";
       node.append(text, anchor);
     } else {
-      anchor.textContent = label;
+      anchor.textContent = numberedLabel;
       node.append(anchor);
       const phase = after ? ([1, 2, 6].includes(index) ? 2 : null) : (index >= 1 && index <= 3 ? index - 1 : null);
       if (phase !== null) {
